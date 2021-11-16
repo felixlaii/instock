@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import './App.css';
+import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 
 class App extends Component {
   
@@ -9,8 +10,8 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path="/"/>
-            <Route path="/warehouse-details"/>
+            <Route path="/" exact/>
+            <Route path="/warehouse-details" component={WarehouseDetails}/>
             <Route path="/edit-warehouse"/>
             <Route path="/add-new-warehouse"/>
             <Route path="/inventory"/>
