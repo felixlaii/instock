@@ -2,21 +2,33 @@
 @use "../../styles/partials/colors" as *;
 
 @mixin mobile {
-    @media mobile and (max-width: $mobile){
+    @media (max-width: $mobile){
         @content;
     }   
 }
 
 @mixin tablet {
-    @media tablet and (min-width: $tablet) {
+    @media (min-width: $tablet) {
         @content;
     }
 }
 
 @mixin desktop {
-    @media desktop and (min-width: $desktop) {
+    @media (min-width: $desktop) {
         @content;
     }
+}
+
+// flex styles
+
+@mixin flexrow {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flexcoloumn {
+    display: flex;
+    flex-direction: column;
 }
 
 // mobile text styles
