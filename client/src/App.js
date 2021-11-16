@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import PageHeader from '../src/components/PageHeader/PageHeader';
+import WarehouseList from './components/PageHeader/WarehouseList/WarehouseList';
 
 class App extends Component {
   
@@ -11,7 +12,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path="/"/>
+            <Route path="/" exact component={WarehouseList}/>
             <Route path="/warehouse-details"/>
             <Route path="/edit-warehouse"/>
             <Route path="/add-new-warehouse"/>

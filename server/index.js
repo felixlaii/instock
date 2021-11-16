@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-app.use('/warehouses', warehouses);
+app.use('/', warehouses);
 app.use('/inventory', inventory);
 
 
