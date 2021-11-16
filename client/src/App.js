@@ -1,12 +1,14 @@
 import { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
-import './App.css';
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+import PageHeader from '../src/components/PageHeader/PageHeader';
 
 class App extends Component {
   
   render () {
     return (
+      <>
+      <PageHeader />
       <BrowserRouter>
         <div className="App">
           <Switch>
@@ -21,7 +23,8 @@ class App extends Component {
           </Switch>
 
         </div>
-      </BrowserRouter>      
+      </BrowserRouter>  
+      </>    
     );
   }
 }
