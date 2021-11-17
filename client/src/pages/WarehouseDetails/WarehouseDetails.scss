@@ -4,7 +4,7 @@
 @use "../../styles/partials/typography" as *;
 
 @mixin bottomborder {
-    border-bottom: 2px solid $secondarylight;
+    border-bottom: 1px solid $secondarylight;
 }
 
 body {
@@ -18,11 +18,10 @@ body {
 
 .details {
     &__card {
-        @include flexcoloumn;
-        // padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
         background-color: $primarylight;
-        width: calc(100% - 2rem);
-        margin: auto;
+        width: 91.5%;
         position: absolute;
         left: 4.27%;
         right: 4.27%;
@@ -30,16 +29,23 @@ body {
         bottom: 4.95%;
         box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
         border-radius: 3px;
+
+        @include tablet {
+            top: 92px;
+        }
     }
 
     &__title-wrapper {
         @include flexrow;
         align-items: center;
-        font-size: 24px;
         padding: 0 24px;
         width: 100%;
         justify-content: space-between;
-        border-bottom: 2px solid $secondarylight;
+        @include bottomborder;
+
+        @include tablet {
+            height: 94px;
+        }
     }
 
     &__title-back {
@@ -48,6 +54,10 @@ body {
 
     &__title {
         margin-left: 1rem;
+        @include mobileheader;
+        @include tablet {
+            @include pageheader;
+        }
     }
 
     &__edit-icon-bg {
@@ -59,21 +69,53 @@ body {
         justify-content: center;
         justify-self: flex-end;
 
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 8px 16px;
+            width: 81px;
+            height: 38px;
+            border-radius: 20px;
+            justify-content: center;
+        }
     }
 
     &__edit-icon {
         width: 18px;
     }
 
+    &__edit-text {
+        display: none;
+        color: $primarylight;
+        font-weight: 600;
+        @include medbodystyles;
+        margin-left: 10px;
+        @include tablet {
+            display: flex;
+        }
+    }
+
     &__container {
         @include bottomborder;
         padding: 1rem 24px;
         width: 100%;
+
+        @include tablet {
+            display: flex;
+            border-bottom: none;
+            padding-top: 26px;
+        }
     }
 
     &__address-wrapper {
         @include mobilemedbody;
         margin-bottom: 1rem;
+
+        @include tablet {
+            width: 40%;
+            border-right: 1px solid $secondarylight;
+        }
     }
 
     &__address-sub {
@@ -91,6 +133,11 @@ body {
         @include flexrow;
         @include mobilemedbody;
         width: 100%;
+
+        @include tablet {
+            width: 60%;
+            padding-left: 40px;
+        }
     }
 
     &__contact-name-wrapper {

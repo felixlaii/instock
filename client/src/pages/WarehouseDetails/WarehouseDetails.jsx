@@ -13,6 +13,7 @@ function WarehouseDetails() {
                 </div>
                 <div className="details__edit-icon-bg">
                     <img src={edit} className="details__edit-icon" alt="edit icon" />
+                    <p className="details__edit-text">Edit</p>
                 </div>
             </div>
             <div className="details__container">
