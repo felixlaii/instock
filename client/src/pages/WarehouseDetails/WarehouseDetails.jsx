@@ -1,4 +1,3 @@
-import PageHeader from '../../components/PageHeader/PageHeader';
 import './WarehouseDetails.scss';
 import back from '../../assets/icons/arrow_back-24px.svg'
 import edit from '../../assets/icons/edit-24px-white.svg'
