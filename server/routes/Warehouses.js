@@ -10,13 +10,27 @@ let warehouseArray = warehouses.map((warehouse) => {
         id: warehouse.id,
         name: warehouse.name,
         address: warehouse.address,
-        city: warehouse.city
+        city: warehouse.city,
+        country: warehouse.country
+        // contact: warehouse.contact
     }
     return warehouseList
 })
 
-router.put('/', (req, res) => {
+router.get('/', (req, res) => {
     (res.json(warehouses))
+    
+})
+
+router.get('/:warehouseId', (req, res) => {
+    const warehouse = warehouses.find(warehouse => warehouse.id === req.params.warehouseId)
+    if (!warehouse) {
+        return res.status(404)
+        .json({
+            errorMessage: `Warehouse ${req.params.warehouseId} not found`
+        })
+    }
+    return res.json(warehouse)
 })
 
 

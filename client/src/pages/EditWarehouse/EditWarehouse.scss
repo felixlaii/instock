@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-edit {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid $bkgddark; padding: 0.5rem 3rem 0.5rem 3rem;
+    margin-top: -4rem;
+    background-color: $primarylight;
+    border-radius: 4px;
+   
+
+    &__card {
+        @include flexcolumn;
+    }
+
+    &__contactdetails {
+        @include flexcolumn;
+    }
+
+    &__label,
+    &__input {
+        border-radius: 1.25rem;
+        @include formpadding;
+        box-shadow: none;
+    }
+}
