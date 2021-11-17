@@ -34,9 +34,7 @@ function WarehouseDetails() {
                     </div>
                 </div>
                 
-                
             </div>
-
         </div>
     )
 }
