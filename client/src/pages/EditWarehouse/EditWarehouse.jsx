@@ -34,6 +34,8 @@ class EditWarehouse extends Component {
         .catch((error) => (error))
     }
 
+  
+
     // componentDidUpdate(previousProps) {
     //     const previousWarehouseId = previousProps.match.params.warehouseId
     //     const currentWarehouseId = this.props.match.params.warehouseId
@@ -58,6 +60,13 @@ class EditWarehouse extends Component {
 
     render() {
         if (!this.state.selectedWarehouse.id) return <div><p className="loading">Loading...</p></div>
+
+        // let warehouseContacts = selectedWarehouse.contact.map (contact => {
+        //     name: contact.name,
+        //     position: contact.position,
+        //     phone: contact.phone,
+        //     email: contact.email
+        // })
     
         // const filteredWarehouse = this.state.warehouseList.filter(warehouse => warehouse.id !== this.state.selectedWarehouse.id)
 
