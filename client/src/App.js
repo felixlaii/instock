@@ -13,7 +13,8 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route path="/" exact/>
-            <Route path="/warehouse-details" component={WarehouseDetails}/>
+            <Route path="/warehouse-details/:id"
+              render={(routerProps) => {return <WarehouseDetails {...routerProps}/>}}/>
             <Route path="/edit-warehouse"/>
             <Route path="/add-new-warehouse"/>
             <Route path="/inventory"/>
