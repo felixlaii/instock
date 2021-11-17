@@ -1,0 +1,51 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.warehouses {
+    background-color: $bkgdlight;
+    &__container {
+        position: relative;
+        top: -4rem;
+        background-color: $primarylight;
+        margin: 0 5vw;
+    }
+    &__header {
+        position: relative;
+        border-bottom: 1px solid $secondarylight;
+    }
+    &__title {
+        @include header;
+        padding: 2rem 5vw;
+        padding-bottom: 1rem;
+    }
+    &__input {
+        box-sizing: border-box;
+        border: 1px solid $secondarylight;
+        background: url(../../assets/icons/search-24px.svg) no-repeat scroll 222px 7px, $primarylight;
+        border-radius: 20px;
+        padding: 8px;
+        height: 36px;
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
+        margin-bottom: 0.5rem;
+        @include medbody;
+        color: $secondarydark;
+        @include tablet {
+            height: 38px;
+        }
+    }
+    &__button {
+        border-color: transparent;
+        border-radius: 20px;
+        height: 36px;
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
+        margin-bottom: 1rem;
+        background-color: $primarymed;
+        @include medbody;
+        color: $primarylight;
+        @include tablet {
+            height: 38px;
+        }
+    }
+}

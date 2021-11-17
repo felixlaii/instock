@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 import PageHeader from '../src/components/PageHeader/PageHeader';
-import WarehouseList from './components/PageHeader/WarehouseList/WarehouseList';
+import WarehouseList from './pages/WarehouseList/WarehouseList';
 
 class App extends Component {
   

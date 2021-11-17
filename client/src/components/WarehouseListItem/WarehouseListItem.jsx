@@ -18,9 +18,9 @@ export default function WarehouseListItem(props) {
                     <div className="warehouses-card__address">{props.warehouse.contact.phone}<span>{props.warehouse.contact.email}</span></div>
                 </div>
             </div>
-            <div className="warehouses-car__buttons">
-                <button className="warehouses-car__delete" type="button"></button>
-                <button className="warehouses-car__edit" type="button"></button>
+            <div className="warehouses-card__buttons">
+                <button className="warehouses-card__delete" type="button"></button>
+                <button className="warehouses-card__edit" type="button"></button>
             </div>
         </div>
     )
