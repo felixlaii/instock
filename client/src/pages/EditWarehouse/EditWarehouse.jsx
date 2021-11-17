@@ -13,6 +13,7 @@ class EditWarehouse extends Component {
     getSelectedWarehouse = (warehouseId) => {
         axios.get(`/warehouses/${warehouseId}`)
         .then((response) => {
+            console.log(response.data.contact)
             this.setState({
                 selectedWarehouse: response.data
             })
@@ -23,7 +24,6 @@ class EditWarehouse extends Component {
     componentDidMount() {
         axios.get(`/warehouses`)
         .then((response) => {
-            console.log(response.data)
             this.setState({
                 warehouseList: response.data
             })
@@ -33,8 +33,6 @@ class EditWarehouse extends Component {
         })
         .catch((error) => (error))
     }
-
-  
 
     // componentDidUpdate(previousProps) {
     //     const previousWarehouseId = previousProps.match.params.warehouseId
@@ -60,13 +58,7 @@ class EditWarehouse extends Component {
 
     render() {
         if (!this.state.selectedWarehouse.id) return <div><p className="loading">Loading...</p></div>
-
-        // let warehouseContacts = selectedWarehouse.contact.map (contact => {
-        //     name: contact.name,
-        //     position: contact.position,
-        //     phone: contact.phone,
-        //     email: contact.email
-        // })
+        
     
         // const filteredWarehouse = this.state.warehouseList.filter(warehouse => warehouse.id !== this.state.selectedWarehouse.id)
 
@@ -77,6 +69,8 @@ class EditWarehouse extends Component {
                 <div className="warehouse-edit__container">
                     <form onSubmit={this.editSuccess} className="warehouse-edit__housedetails">
                         <div className="warehouse-edit__card">
+                        <h2 className="warehouse-edit__subheader">Warehouse Details</h2>
+
                         <label className="warehouse-edit__label" for="name">Warehouse Name</label>
                         <input className="warehouse-edit__input" type="name" name="name" id="name" placeholder={this.state.selectedWarehouse.name}></input>
 
@@ -91,23 +85,31 @@ class EditWarehouse extends Component {
                         </div>
                     </form>
 
-                    <form className="warehouse-edit__contactdetails">
+                    <form onSubmit={this.editSuccess} className="warehouse-edit__contactdetails">
                         <div className="warehouse-edit__card">
+                        <h2 className="warehouse-edit__subheader">Contact Details</h2>
+
                         <label className="warehouse-edit__label">Contact Name</label>
-                        <input className="warehouse-edit__input" type="text" name="name" placeholder="Graeme Lyon"></input>
+                        <input className="warehouse-edit__input" type="text" name="contact name" placeholder={this.state.selectedWarehouse.contact.name}></input>
 
                         <label className="warehouse-edit__label">Position</label>
-                        <input className="warehouse-edit__input" type="text" name="address" placeholder="Warehouse Manager"></input>
+                        <input className="warehouse-edit__input" type="text" name="position" placeholder={this.state.selectedWarehouse.contact.position}></input>
 
                         <label className="warehouse-edit__label">Phone Number</label>
-                        <input className="warehouse-edit__input" type="text" name="city" placeholder="647 507 0911"></input>
+                        <input className="warehouse-edit__input" type="text" name="phone" placeholder={this.state.selectedWarehouse.contact.phone}></input>
 
                         <label className="warehouse-edit__label">Email</label>
-                        <input className="warehouse-edit__input" type="text" name="country" placeholder="glyon@instock.com"></input>
+                        <input className="warehouse-edit__input" type="text" name="email" placeholder={this.state.selectedWarehouse.contact.email}></input>
                         </div>
 
-                        <div className="warehouse-edit__submit">
-                            
+                        <div className="warehouse-edit__buttons">
+                            <div className="warehouse-edit__submit">
+                                <input className="warehouse-edit__save" type="submit" value="Save"></input>
+                            </div>
+
+                            <div className="warehouse-edit__cancel">
+                                <input className="warehouse-edit__cancel" type="submit" value="Cancel"></input>
+                            </div>
                         </div>
                     </form>
                 </div>
