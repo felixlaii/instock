@@ -33,6 +33,11 @@ body {
         @include tablet {
             top: 92px;
         }
+
+        @include desktop {
+            width: 80%;
+            left: 10%;
+        }
     }
 
     &__title-wrapper {
@@ -45,6 +50,10 @@ body {
 
         @include tablet {
             height: 94px;
+        }
+
+        @include desktop {
+            padding: 0 40px;
         }
     }
 
@@ -105,6 +114,11 @@ body {
             display: flex;
             border-bottom: none;
             padding-top: 26px;
+        }
+
+        @include desktop {
+            padding-left: 40px;
+            padding-right: 40px;
         }
     }
 
