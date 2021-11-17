@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 router.route('/item/:id')
     .get((req, res) => {
         let itemsList = require('../data/inventories.json');
