@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.use('/warehouses', warehouses);
+app.use('/warehouseId', warehouses)
 app.use('/inventory', inventory);
 app.use('/warehouse-details', warehouseDetails);
 

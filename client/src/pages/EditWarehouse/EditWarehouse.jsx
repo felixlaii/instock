@@ -13,7 +13,6 @@ class EditWarehouse extends Component {
     getSelectedWarehouse = (warehouseId) => {
         axios.get(`/warehouses/${warehouseId}`)
         .then((response) => {
-            console.log(response)
             this.setState({
                 selectedWarehouse: response.data
             })
@@ -24,6 +23,7 @@ class EditWarehouse extends Component {
     componentDidMount() {
         axios.get(`/warehouses`)
         .then((response) => {
+            console.log(response.data)
             this.setState({
                 warehouseList: response.data
             })

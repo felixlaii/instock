@@ -9,14 +9,13 @@ class App extends Component {
     return (
       <>
       <PageHeader />
-      {/* <EditWarehouse /> */}
       <BrowserRouter>
         <div className="App">
           <Switch>
             <Route path="/" exact/>
             <Route path="/warehouse-details/:id"
               render={(routerProps) => {return <WarehouseDetails {...routerProps}/>}}/>
-            <Route path="/edit-warehouse"/>
+            <Route path="/edit-warehouse" component={EditWarehouse}/>
             <Route path="/add-new-warehouse"/>
             <Route path="/inventory"/>
             <Route path="/inventory-item-details"/>
