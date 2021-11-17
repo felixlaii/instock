@@ -1,0 +1,107 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+@mixin bottomborder {
+    border-bottom: 2px solid $secondarylight;
+}
+
+body {
+    background-color: $bkgdlight;
+    font-family: 'trillium regular';
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.details {
+    &__card {
+        @include flexcoloumn;
+        // padding: 0.5rem;
+        background-color: $primarylight;
+        width: calc(100% - 2rem);
+        margin: auto;
+        position: absolute;
+        left: 4.27%;
+        right: 4.27%;
+        top: 136px;
+        bottom: 4.95%;
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+        border-radius: 3px;
+    }
+
+    &__title-wrapper {
+        @include flexrow;
+        align-items: center;
+        font-size: 24px;
+        padding: 0 24px;
+        width: 100%;
+        justify-content: space-between;
+        border-bottom: 2px solid $secondarylight;
+    }
+
+    &__title-back {
+        @include flexrow;
+    }
+
+    &__title {
+        margin-left: 1rem;
+    }
+
+    &__edit-icon-bg {
+        background-color: $primarymed;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        @include flexrow;
+        justify-content: center;
+        justify-self: flex-end;
+
+    }
+
+    &__edit-icon {
+        width: 18px;
+    }
+
+    &__container {
+        @include bottomborder;
+        padding: 1rem 24px;
+        width: 100%;
+    }
+
+    &__address-wrapper {
+        @include mobilemedbody;
+        margin-bottom: 1rem;
+    }
+
+    &__address-sub {
+        color: $secondarydark;
+        font-weight: 700;
+        margin: 0 0 4px;
+        text-transform: uppercase;
+    }
+
+    &__address {
+        margin: 0;
+    }
+
+    &__contact-container {
+        @include flexrow;
+        @include mobilemedbody;
+        width: 100%;
+    }
+
+    &__contact-name-wrapper {
+        width: 50%;
+    }
+
+    &__contact-sub {
+        @extend .details__address-sub;
+    }
+
+    &__contact-body {
+        @extend .details__address;
+    }
+}
