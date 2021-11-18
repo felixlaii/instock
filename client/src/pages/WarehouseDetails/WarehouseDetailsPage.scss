@@ -1,0 +1,94 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+@mixin bottomborder {
+    border-bottom: 1px solid $secondarylight;
+}
+
+body {
+    background-color: $bkgdlight;
+    font-family: 'trillium regular';
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.details {
+    &__card {
+        display: flex;
+        flex-direction: column;
+        background-color: $primarylight;
+        width: 91.5%;
+        position: absolute;
+        left: 4.27%;
+        right: 4.27%;
+        top: 136px;
+        // bottom: 4.95%;
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+        border-radius: 3px;
+
+        @include tablet {
+            top: 92px;
+        }
+
+        @include desktop {
+            width: 80%;
+            left: 10%;
+        }
+    }
+}
+
+.inventory {
+    &__table-row {
+        @include flexrow;
+        align-items: center;
+        background-color: rgba(247, 248, 249, 0.7);
+        justify-content: space-between;
+        padding: 0 24px;
+
+        @include desktop {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    &__inv-cat-subs {
+        @include flexrow;
+        width: 40%;
+    }
+
+    &__stat-qty-subs {
+        @include flexrow;
+        width: 50%;
+    }
+
+    &__table-sub {
+        @include flexrow;
+        @include mobilemedbody;
+        align-items: center;
+        color: $secondarydark;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    &__table-inv-sub {
+        @extend .inventory__table-sub;
+        width: 50%;
+    }
+
+    &__table-cat-sub{
+        @extend .inventory__table-inv-sub;
+    }
+
+    &__table-stat-sub{
+        @extend .inventory__table-sub;
+        width: 60%;
+    }
+
+    &__table-action-sub{
+        @extend .inventory__table-sub;
+    }
+}

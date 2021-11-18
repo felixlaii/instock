@@ -1,0 +1,164 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+@mixin bottomborder {
+    border-bottom: 1px solid $secondarylight;
+}
+
+.inventory {
+    &__table-row {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__item {
+        @include bottomborder;
+        padding: 1rem 24px;
+        width: 100%;
+        @include mobilemedbody;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 26px;
+        }
+
+        @include desktop {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    &__item-details-wrapper {
+        display: flex;
+        height: 7rem;
+
+        @include tablet {
+            height: auto;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    &__item-cat-wrapper {
+        @include flexcolumn;
+        @include mobilemedbody;
+        width: 50%;
+        height: 100%;
+        justify-content: space-between;
+
+        @include tablet {
+            @include flexrow;
+            width: 40%;
+            justify-content: unset;
+        }
+    }
+
+    &__item-wrapper {
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__sub {
+        color: $secondarydark;
+        font-weight: 700;
+        margin: 0 0 4px;
+        text-transform: uppercase;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__item-name {
+        margin: 0;
+        color: $primarymed;
+        font-weight: 600;
+        @include flexrow;
+        align-items: center;
+    }
+
+    &__chevron {
+        height: 1.25rem;
+    }
+
+    &__status-in {
+        margin: 0;
+        font-weight: 600;
+        padding: 4px 8px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        background: rgba(21, 132, 99, 0.07);
+        color: $supportdark;
+        width: fit-content;
+    }
+
+    &__status-out {
+        @extend .inventory__status-in;
+        background: rgba(201, 69, 21, 0.07);
+        color: $supportlight;
+    }
+
+    &__status-qty-wrapper {
+        @extend .inventory__item-cat-wrapper;
+        @include tablet {
+            width: 50%;
+        }
+    }
+    
+    &__category-wrapper {
+        @extend .inventory__item-wrapper;
+    }
+
+    &__status-wrapper {
+        width: 60%;
+    }
+
+    &__qty-wrapper {
+    }
+
+    &__category {
+        margin: 0;
+    }
+
+    &__qty {
+        @extend .inventory__category;
+    }
+
+    &__icons-wrapper-a {
+        display: none;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            width: 3rem;
+        }
+    }
+
+    &__icons-wrapper-b {
+        @include flexrow;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__icon {
+        height: 22px;
+        box-sizing: content-box;
+    }
+
+    &__icon-edit {
+        @extend .inventory__icon;
+        margin-left: 0.5rem;
+    }
+
+}
