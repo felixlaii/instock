@@ -24,7 +24,8 @@
 
         @include tablet {
             display: flex;
-            border-bottom: none;
+            align-items: center;
+            justify-content: space-between;
             padding-top: 26px;
         }
 
@@ -52,6 +53,10 @@
         font-weight: 700;
         margin: 0 0 4px;
         text-transform: uppercase;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__item-name {
@@ -80,7 +85,6 @@
         @extend .inventory__status-in;
         background: rgba(201, 69, 21, 0.07);
         color: $supportlight;
-
     }
 
     &__cat-qty-wrapper {
@@ -103,6 +107,10 @@
     &__icons-wrapper {
         @extend .inventory__cat-qty-wrapper;
         justify-content: space-between;
+    }
+
+    &__icon {
+        height: 18px;
     }
 
 }
