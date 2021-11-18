@@ -698,15 +698,5 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
-  },
-  {
-    "id": "a2ef6f95-3ae1-4950-91e5-0ee986c54b8b",
-    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "warehouseName": "Manhattan",
-    "itemName": "MACBOOKPRO",
-    "description": "Made out of military-grade synthetic materials, this gym bag is highly durable, water resistant, and easy to clean.",
-    "category": "Gear",
-    "status": "Out of Stock",
-    "quantity": 516545646
   }
 ]
