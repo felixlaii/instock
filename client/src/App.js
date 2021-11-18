@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 import PageHeader from '../src/components/PageHeader/PageHeader';
 import WarehouseList from './pages/WarehouseList/WarehouseList';
 
@@ -13,7 +14,8 @@ class App extends Component {
         <div className="App">
           <Switch>
             <Route path="/" exact component={WarehouseList}/>
-            <Route path="/warehouse-details"/>
+            <Route path="/warehouse-details/:id"
+              render={(routerProps) => {return <WarehouseDetails {...routerProps}/>}}/>
             <Route path="/edit-warehouse"/>
             <Route path="/add-new-warehouse"/>
             <Route path="/inventory"/>
