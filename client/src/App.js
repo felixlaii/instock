@@ -1,14 +1,8 @@
 import { Component } from 'react';
-<<<<<<< HEAD
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
-import PageHeader from '../src/components/PageHeader/PageHeader';
-import WarehouseDetailsPage from './pages/WarehouseDetails/WarehouseDetailsPage';
-=======
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+import WarehouseDetailsPage from './pages/WarehouseDetails/WarehouseDetailsPage';
 import PageHeader from '../src/components/PageHeader/PageHeader';
 import WarehouseList from './pages/WarehouseList/WarehouseList';
->>>>>>> develop
 
 class App extends Component {
 

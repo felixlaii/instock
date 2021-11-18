@@ -52,19 +52,23 @@ class WarehouseDetailsPage extends Component {
                     <WarehouseDetails warehouse={warehouse}/>
                     
                     <div className="inventory__table-row">
-                        <p className="inventory__table-sub">Inventory Item
-                            <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                        </p>
-                        <p className="inventory__table-sub">Category
-                            <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                        </p>
-                        <p className="inventory__table-sub">Status
-                            <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                        </p>
-                        <p className="inventory__table-sub">Quantity
-                            <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                        </p>
-                        <p className="inventory__table-sub">Actions</p>
+                        <div className="inventory__inv-cat-subs">
+                            <p className="inventory__table-inv-sub">Inventory Item
+                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                            </p>
+                            <p className="inventory__table-cat-sub">Category
+                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                            </p>
+                        </div>
+                        <div className="inventory__stat-qty-subs">
+                            <p className="inventory__table-stat-sub">Status
+                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                            </p>
+                            <p className="inventory__table-sub">Quantity
+                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                            </p>
+                        </div>
+                        <p className="inventory__table-action-sub">Actions</p>
                     </div>
 
                     {warehouse[1].map(inventory => 

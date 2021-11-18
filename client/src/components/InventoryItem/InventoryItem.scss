@@ -35,17 +35,35 @@
         }
     }
 
-    &__item-status-wrapper {
-        @include flexrow;
-        @include mobilemedbody;
-        width: 100%;
+    &__item-details-wrapper {
+        display: flex;
+        height: 7rem;
 
         @include tablet {
+            height: auto;
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    &__item-cat-wrapper {
+        @include flexcolumn;
+        @include mobilemedbody;
+        width: 50%;
+        height: 100%;
+        justify-content: space-between;
+
+        @include tablet {
+            @include flexrow;
+            width: 40%;
+            justify-content: unset;
         }
     }
 
     &__item-wrapper {
-        width: 50%;
+        @include tablet {
+            width: 50%;
+        }
     }
 
     &__sub {
@@ -79,6 +97,7 @@
         text-transform: uppercase;
         background: rgba(21, 132, 99, 0.07);
         color: $supportdark;
+        width: fit-content;
     }
 
     &__status-out {
@@ -87,13 +106,22 @@
         color: $supportlight;
     }
 
-    &__cat-qty-wrapper {
-        @extend .inventory__item-status-wrapper;
-        margin-top: 1rem;
+    &__status-qty-wrapper {
+        @extend .inventory__item-cat-wrapper;
+        @include tablet {
+            width: 50%;
+        }
     }
-
+    
     &__category-wrapper {
         @extend .inventory__item-wrapper;
+    }
+
+    &__status-wrapper {
+        width: 60%;
+    }
+
+    &__qty-wrapper {
     }
 
     &__category {
@@ -104,13 +132,33 @@
         @extend .inventory__category;
     }
 
-    &__icons-wrapper {
-        @extend .inventory__cat-qty-wrapper;
+    &__icons-wrapper-a {
+        display: none;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            width: 3rem;
+        }
+    }
+
+    &__icons-wrapper-b {
+        @include flexrow;
         justify-content: space-between;
+        margin-top: 1rem;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__icon {
-        height: 18px;
+        height: 22px;
+        box-sizing: content-box;
+    }
+
+    &__icon-edit {
+        @extend .inventory__icon;
+        margin-left: 0.5rem;
     }
 
 }
