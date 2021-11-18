@@ -1,12 +1,12 @@
 import { Component } from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 import PageHeader from '../src/components/PageHeader/PageHeader';
 import WarehouseList from './pages/WarehouseList/WarehouseList';
 
 class App extends Component {
-  
-  render () {
+
+  render() {
     return (
       <>
       <PageHeader />
@@ -24,9 +24,9 @@ class App extends Component {
             <Route path="/add-new-inventory-item-"/>
           </Switch>
 
-        </div>
-      </BrowserRouter>  
-      </>    
+          </div>
+        </BrowserRouter>
+      </>
     );
   }
 }
