@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 
-app.use('/warehouses', warehouses);
+app.use('/', warehouses);
 app.use('/inventory', inventory);
 app.use('/warehouse-details', warehouseDetails);
 
