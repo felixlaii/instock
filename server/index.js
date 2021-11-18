@@ -8,6 +8,7 @@ const inventory = require("./routes/Inventory");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 
 app.use('/warehouses', warehouses);
@@ -15,3 +16,6 @@ app.use('/inventory', inventory);
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+
+module.exports = app;
