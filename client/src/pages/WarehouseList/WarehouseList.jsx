@@ -25,8 +25,19 @@ export default class WarehouseList extends Component {
                 <div className="warehouses__container">
                     <div className="warehouses__header">
                         <div className="warehouses__title">Warehouses</div>
-                        <input className="warehouses__input" type="text" placeholder="Search..."/>
-                        <button className="warehouses__button" type="button">+ Add New Warehouse</button>
+                        <div className="warehouses__wrapper">
+                            <input className="warehouses__input" type="text" placeholder="Search..."/>
+                            <button className="warehouses__button" type="button">+ Add New Warehouse</button>
+                        </div>
+                    </div>
+                    <div className="warehouses-card__hearder">
+                        <div className="warehouses-card__hearder-wrapper">
+                            <div className="warehouses-card__hearder-item">WAREHOUSE<img src="\icons\sort-24px.svg" alt="sort icon"/></div>
+                            <div className="warehouses-card__hearder-item">ADDRESS<img src="\icons\sort-24px.svg" alt="sort icon"/></div>
+                            <div className="warehouses-card__hearder-item">CONTACT NAME<img src="\icons\sort-24px.svg" alt="sort icon"/></div>
+                            <div className="warehouses-card__hearder-item">CONTACT INFORMATION<img src="\icons\sort-24px.svg" alt="sort icon"/></div>
+                            <div className="warehouses-card__hearder-item warehouses-card__hearder-item--float">ACTIONS</div>
+                        </div>
                     </div>
                     {this.state.warehouses.map(warehouse => <WarehouseListItem key={warehouse.id} warehouse={warehouse}/>)}
                 </div>

@@ -8,44 +8,84 @@
         top: -4rem;
         background-color: $primarylight;
         margin: 0 5vw;
+        box-shadow: 0 0 1px $secondarylight;
+        @include tablet {
+            top: -88px;
+        }
     }
     &__header {
         position: relative;
         border-bottom: 1px solid $secondarylight;
+        padding: 2rem 5vw;
+        padding-bottom: 1rem;
+        @include tablet {
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
     &__title {
         @include header;
-        padding: 2rem 5vw;
         padding-bottom: 1rem;
+        @include tablet {
+            padding: 0;
+        }
+        
     }
     &__input {
         box-sizing: border-box;
         border: 1px solid $secondarylight;
-        background: url(../../assets/icons/search-24px.svg) no-repeat scroll 222px 7px, $primarylight;
+        background: url(../../assets/icons/search-24px.svg) no-repeat scroll calc(100% - 7px) 7px, $primarylight;
         border-radius: 20px;
-        padding: 8px;
+        padding: 0 8px;
         height: 36px;
-        width: calc(100% - 2rem);
-        margin: 0 1rem;
+        width: 100%;
         margin-bottom: 0.5rem;
         @include medbody;
         color: $secondarydark;
         @include tablet {
             height: 38px;
+            width: 185px;
+            margin: 0;
+            margin-left: 1rem;
         }
     }
     &__button {
+        @extend .warehouses__input;
         border-color: transparent;
-        border-radius: 20px;
-        height: 36px;
-        width: calc(100% - 2rem);
-        margin: 0 1rem;
-        margin-bottom: 1rem;
+        background: none;
         background-color: $primarymed;
-        @include medbody;
         color: $primarylight;
+    }
+    &-card__hearder{
+        display: none;
         @include tablet {
-            height: 38px;
+            display: block;
+        }
+        padding: 1rem 5vw;
+        background-color: $bkgdlight;
+        &-wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            @include desktop {
+                width: 76%;
+            }
+        }  
+        &-item {
+            display: flex;
+            align-items: center;
+            @include smallbody;
+            color: $secondarydark;
+            padding: 0.5rem 0;
+            &--float {
+                padding-right: 1rem;
+                width: fit-content;
+                position: absolute;
+                right: 5vw;
+            }
         }
     }
 }
