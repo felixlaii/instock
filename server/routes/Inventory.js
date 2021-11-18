@@ -44,9 +44,9 @@ router.route('/post')
 
         let items = require('../data/inventories.json')
 
-        console.log(items)
+
         items.push(newItem)
-        console.log(items)
+
         items = JSON.stringify(items, null, 2)
 
         fs.writeFileSync('./data/inventories.json', items, 'utf8');
