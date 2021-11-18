@@ -9,10 +9,14 @@ const warehouseDetails = require("./routes/WarehouseDetails");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 
-app.use('/warehouses', warehouses);
+app.use('/', warehouses);
 app.use('/inventory', inventory);
 app.use('/warehouse-details', warehouseDetails);
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+
+module.exports = app;
