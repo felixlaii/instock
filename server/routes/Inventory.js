@@ -80,7 +80,7 @@ router.route('/edit')
 
 
         if (!foundItem) {
-            console.log(`Item wasn't found, please double check for you end and try again!`)
+            console.log(`Item wasn't found, check database!`)
             return res.send("Item wasn't found!").status(404)
         }
 
