@@ -21,6 +21,23 @@ let warehouseArray = warehouses.map((warehouse) => {
 router.route('/')
     .get ((req, res) => {
     (res.json(warehouses)) 
+
+    .post ((req, res) => {
+        const { name, address, city, country, contact } = req.body
+
+        warehouses.push({
+            id: uuidv4(),
+            name,
+            address,
+            city,
+            country,
+            contact
+        })
+        fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses))
+        res.status(201).json(warehouses)
+
+        res.json(warehouses)
+    })
 })
 
 router.route('/:warehouseId') 
