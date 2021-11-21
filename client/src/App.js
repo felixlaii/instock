@@ -5,6 +5,7 @@ import PageHeader from '../src/components/PageHeader/PageHeader';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
 import WarehouseList from './pages/WarehouseList/WarehouseList';
 import WarehouseDetails from '../src/components/WarehouseDetails/WarehouseDetails'
+import AddWarehouse from '../src/pages/AddWarehouse/AddWarehouse'
 
 class App extends Component {
 
@@ -21,7 +22,7 @@ class App extends Component {
             <Route path="/edit-warehouse" component={EditWarehouse}/>
               render={(routerProps) => {return <WarehouseDetailsPage {...routerProps}/>}}
             <Route path="/edit-warehouse"/>
-            <Route path="/add-new-warehouse"/>
+            <Route path="/add-new-warehouse" component={AddWarehouse} />
             <Route path="/inventory"/>
             <Route path="/inventory-item-details"/>
             <Route path="/edit-inventory-item-"/>
