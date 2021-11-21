@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
+const path = require("path");
 
 let warehouses = fs.readFileSync('./data/Warehouses.json')
 warehouses = JSON.parse(warehouses);
@@ -56,5 +57,14 @@ router.route('/:warehouseId')
     return res.send(warehouses).status(200)
 })
 
+router.get("/", (req, res) => {
+    const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
+    if (warehouses){
+        res.status(200);
+        res.json(warehouses);
+    } else {
+        res.status(404).send("warehouses not found");
+    }   
+});
 
 module.exports = router;

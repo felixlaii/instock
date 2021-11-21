@@ -1,21 +1,25 @@
 import { Component } from 'react';
-import { BrowserRouter, Switch, Route} from 'react-router-dom';
-import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import WarehouseDetailsPage from './pages/WarehouseDetails/WarehouseDetailsPage';
 import PageHeader from '../src/components/PageHeader/PageHeader';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
+import WarehouseList from './pages/WarehouseList/WarehouseList';
+
 class App extends Component {
-  
-  render () {
+
+  render() {
     return (
       <>
       <PageHeader />
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path="/" exact/>
+            <Route path="/" exact component={WarehouseList}/>
             <Route path="/warehouse-details/:id"
               render={(routerProps) => {return <WarehouseDetails {...routerProps}/>}}/>
             <Route path="/edit-warehouse" component={EditWarehouse}/>
+              render={(routerProps) => {return <WarehouseDetailsPage {...routerProps}/>}}
+            <Route path="/edit-warehouse"/>
             <Route path="/add-new-warehouse"/>
             <Route path="/inventory"/>
             <Route path="/inventory-item-details"/>
@@ -23,9 +27,9 @@ class App extends Component {
             <Route path="/add-new-inventory-item-"/> 
           </Switch>
 
-        </div>
-      </BrowserRouter>  
-      </>    
+          </div>
+        </BrowserRouter>
+      </>
     );
   }
 }

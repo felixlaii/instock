@@ -1,0 +1,95 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+a {
+    text-decoration: none;
+}
+.warehouses-card {
+    padding: 1rem 5vw;
+    border-bottom: 1px solid $secondarylight;
+    @include tablet {
+        display: none;
+    }
+    &--large-screen {
+        display: none;
+        @include tablet {
+            display: block;
+            padding: 1rem 5vw;
+            border-bottom: 1px solid $secondarylight;
+        }
+    }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        @include tablet {
+            width: 87%;
+            justify-content: flex-start;
+        }
+    }
+    &__subcontainer {
+        min-width: 130px;
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+        }
+    }
+    &__title {
+        @include smallbody;
+        color: $secondarydark;
+        font-weight: 600;
+        min-width: max-content;
+        @include tablet {
+            display: none;
+        }
+    }
+    &__detail {
+        @include medbody;
+        color: $primarydark;
+        padding-bottom: 1rem;
+        @include tablet {
+            width: 130px;
+            padding-left: 1rem;
+        }
+        @include desktop {
+            width: 230px;
+            padding-left: 5vw;
+        }
+        &--clickable {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $primarymed;
+            font-weight: 600;
+            padding-left: 0;
+        }
+    }
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        @include tablet {
+            position: absolute;
+            right: 5vw;
+        }
+    }
+    &__delete {
+        padding: 12px;
+        border: none;
+        background-color: transparent;
+        background-image: url(../../assets/icons/delete_outline-24px.svg);
+        @include tablet {
+            margin-left: 1rem;
+        }
+    }
+    &__edit {
+        @extend .warehouses-card__delete;
+        background-image: url(../../assets/icons/edit-24px.svg);
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+}
