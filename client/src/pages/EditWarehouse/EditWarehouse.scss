@@ -31,6 +31,12 @@
         @include mobilesub;
     }
 
+    &__container {
+        @include tablet {
+            @include flexrow;
+        }
+    }
+
     &__card {
         @include flexcolumn;
     }
@@ -57,6 +63,12 @@
         @include formpadding;
         margin-left: 1rem;
         margin-right: 1rem;
+
+        @include tablet {
+            // padding-left: 6.5rem;
+            // padding-right: 6.5rem;
+            width: 20.9rem;
+        }
     }
 
     &__buttons {
@@ -67,7 +79,11 @@
         align-items: center;
         margin-top: 2rem;
         background-color: $bkgdlight;
-        height: 4rem;    
+        height: 4rem;   
+        
+        @include tablet {
+           margin-left: 0rem;
+        }
     }    
 
     &__save {

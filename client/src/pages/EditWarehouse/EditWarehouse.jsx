@@ -112,6 +112,8 @@ class EditWarehouse extends Component {
                             <label className="warehouse-edit__label">Country</label>
                             <input className="warehouse-edit__input" type="text" name="country" placeholder={this.state.selectedWarehouse.country}></input>
                         </div>
+                        {/* </form>
+                        <form onSubmit={this.editSuccess} className="warehouse-edit__housedetails"> */}
 
                         <div className="warehouse-edit__card">
                             <h2 className="warehouse-edit__subheader">Contact Details</h2>
