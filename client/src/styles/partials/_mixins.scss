@@ -94,6 +94,15 @@
     }
 }
 
+@mixin largebody {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    @include tablet {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+}
+
 @mixin medbody {
     font-size: 0.813rem;
     line-height: 1.25rem;

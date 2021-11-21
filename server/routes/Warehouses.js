@@ -4,9 +4,8 @@ const fs = require('fs')
 const path = require("path");
 
 
-const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
-
 router.get("/", (req, res) => {
+    const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
     if (warehouses){
         res.status(200);
         res.json(warehouses);
