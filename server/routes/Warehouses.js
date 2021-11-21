@@ -59,15 +59,16 @@ router.route('/:warehouseId')
 })
       
 router.get("/", (req, res, next) => {
-    try {
     const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
+})
 
 router.get("/", (req, res) => {
+    try {
     const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
     if (warehouses){
         res.status(200);
         res.json(warehouses);
-    } catch (error) {
+    }} catch (error) {
         res.status(404);
         next(error);
     }  
