@@ -1,7 +1,7 @@
 import { Component } from "react"
 
 export default class AddInventoryItem extends Component {
-
+    
     <section className='inventory'>
     <div className='inventory__header'>
         <img />
@@ -49,5 +49,6 @@ export default class AddInventoryItem extends Component {
         </div>
     </div>
 </section>
+
 
 }
