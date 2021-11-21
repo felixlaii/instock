@@ -4,6 +4,7 @@ import WarehouseDetailsPage from './pages/WarehouseDetails/WarehouseDetailsPage'
 import PageHeader from '../src/components/PageHeader/PageHeader';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
 import WarehouseList from './pages/WarehouseList/WarehouseList';
+import WarehouseDetails from '../src/components/WarehouseDetails/WarehouseDetails'
 
 class App extends Component {
 
