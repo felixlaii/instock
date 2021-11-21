@@ -4,6 +4,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 const path = require("path");
 
+
 let warehouses = fs.readFileSync('./data/Warehouses.json')
 warehouses = JSON.parse(warehouses);
 
@@ -80,15 +81,41 @@ router.route('/:warehouseId')
     fs.writeFileSync('data/warehouses.json', JSON.stringify(warehouses))
     return res.send(warehouses).status(200)
 })
+      
+router.get("/", (req, res, next) => {
+    const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
+})
 
 router.get("/", (req, res) => {
+    try {
     const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
     if (warehouses){
         res.status(200);
         res.json(warehouses);
-    } else {
-        res.status(404).send("warehouses not found");
-    }   
+    }} catch (error) {
+        res.status(404);
+        next(error);
+    }  
+});
+
+router.delete("/delete-warehouse/:warehouseId", (req, res, next) => {
+    try {
+        const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
+        const inventory = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/inventories.json")));
+        const newWarehouses = warehouses.filter(item=>item.id!==req.params.warehouseId);
+        const newIventories = inventory.filter(item=>item.warehouseID!==req.params.warehouseId);
+        if (warehouses.length === newWarehouses.length || inventory.length === newIventories.length) {
+            throw new Error(`Warehouse with id=${req.params.warehouseId} not found`);
+        }
+        console.log(path.resolve(__dirname, "../data/warehouses.json"));
+        fs.writeFile(path.resolve(__dirname, "../data/warehouses.json"), JSON.stringify(newWarehouses), (error) => {if(error){throw error}});
+        fs.writeFile(path.resolve(__dirname, "../data/inventories.json"), JSON.stringify(newIventories), (error) => {if(error){throw error}});
+        res.status(200).send("Successfully deleted warehouse");
+        
+    } catch (error) {
+        res.status(404);
+        next(error);
+    }
 });
 
 module.exports = router;
