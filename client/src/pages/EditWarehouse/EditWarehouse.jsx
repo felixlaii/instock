@@ -134,7 +134,7 @@ class EditWarehouse extends Component {
                                 <input className="warehouse-edit__save" type="submit" value="Save"></input>
                             </div>
 
-                            <div className="warehouse-edit__cancel">
+                            <div className="warehouse-edit__cancelbutton">
                                 <input className="warehouse-edit__cancel" type="submit" value="Cancel"></input>
                             </div>
                         </div>
