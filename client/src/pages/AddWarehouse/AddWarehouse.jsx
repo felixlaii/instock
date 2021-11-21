@@ -7,38 +7,34 @@ class AddWarehouse extends Component {
 
     addSuccess = (e) => {
         e.preventDefault();
-        console.log('edited')
         const formData = e.target;
         const name = formData.name.value
         const address = formData.address.value
         const city = formData.city.value
         const country = formData.country.value
         const contactName = formData.contactName.value
-        console.log(contactName)
         const position = formData.position.value
         const phone = formData.phone.value
         const email = formData.email.value
         if( !name || !address || !city || !country || !contactName || !position || !phone || !email)
         alert("You must fill out all fields!")
-        axios.put(`/Warehouses/${this.state.selectedWarehouse.id}`, {
-                name: formData.name.value,
-                address: formData.address.value,
-                city: formData.city.value,
-                country: formData.country.value,
-                contactName: formData.contactName.value,
-                position: formData.position.value,
-                phone: formData.phone.value,
-                email: formData.email.value
-            })
+        // axios.put(`/Warehouses/${this.state.selectedWarehouse.id}`, {
+        //         name: formData.name.value,
+        //         address: formData.address.value,
+        //         city: formData.city.value,
+        //         country: formData.country.value,
+        //         contactName: formData.contactName.value,
+        //         position: formData.position.value,
+        //         phone: formData.phone.value,
+        //         email: formData.email.value
+        //     })
             .then(response => {
                 console.log(response.data)
             })
             .catch((error) => (error))
             }
 
-    render() {
-        if (!this.state.selectedWarehouse.id) return <div><p className="loading">Loading...</p></div>
-        
+    render() {        
         return (
             <div className="warehouse-add">
                 <h1 className="warehouse-add__header">Add New Warehouse</h1>
