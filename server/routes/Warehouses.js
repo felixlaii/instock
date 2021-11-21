@@ -23,8 +23,10 @@ router.delete("/delete-warehouse/:warehouseId", (req, res, next) => {
         if (warehouses.length === newWarehouses.length || inventory.length === newIventories.length) {
             throw new Error(`Warehouse with id=${req.params.warehouseId} not found`);
         }
-        fs.writeFile(path.resolve(__dirname, "../data/warehouses.json"), JSON.stringify(newWarehouses));
-        fs.writeFile(path.resolve(__dirname, "../data/inventories.json"), JSON.stringify(newIventories));
+        console.log(path.resolve(__dirname, "../data/warehouses.json"));
+        fs.writeFile(path.resolve(__dirname, "../data/warehouses.json"), JSON.stringify(newWarehouses), (error) => {if(error){throw error}});
+        fs.writeFile(path.resolve(__dirname, "../data/inventories.json"), JSON.stringify(newIventories), (error) => {if(error){throw error}});
+        res.status(200).send("Successfully deleted warehouse");
         
     } catch (error) {
         res.status(404);
