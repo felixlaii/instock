@@ -84,6 +84,9 @@
     line-height: 1.125rem;
 }
 
+@mixin formpadding {
+    padding-left: 1rem;
+    padding-right: 1rem;
 @mixin header {
     font-size: 1.75rem;
     line-height: 2.25rem;
@@ -120,4 +123,5 @@
         font-size: 0.75rem;
         line-height: 1.125rem;
     }
+}
 }

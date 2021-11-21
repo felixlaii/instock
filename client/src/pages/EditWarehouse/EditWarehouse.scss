@@ -1,0 +1,114 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+
+.warehouse-edit {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid $secondarylight; 
+    margin-top: -4rem;
+    background-color: $primarylight;
+    border-radius: 4px;
+
+    &__header {
+        width: 100%;
+        margin-bottom: 0;
+        padding-left: 2rem;
+        font-size: 1.5rem;
+        background-image: url(../../assets/icons//arrow_back-24px.svg);
+        background-repeat: no-repeat;
+        // background-position: 50%;
+        background-position: left;
+        font-family: 'trillium regular';
+    }
+
+    &__subheader {
+        padding-left: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid $secondarylight;
+        @include mobilesub;
+    }
+
+    &__container {
+        @include tablet {
+            @include flexrow;
+        }
+    }
+
+    &__card {
+        @include flexcolumn;
+    }
+
+    &__contactdetails {
+        @include flexcolumn;
+    }
+
+    &__label,
+    &__input {
+        border-radius: 1.25rem;
+        box-shadow: none;
+        @include mobilesmallbody;
+        border-color: $secondarylight;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__label {
+        margin-left: 1rem;
+    }
+
+    &__input {
+        @include formpadding;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        @include tablet {
+            // padding-left: 6.5rem;
+            // padding-right: 6.5rem;
+            width: 20.9rem;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 2rem;
+        background-color: $bkgdlight;
+        height: 4rem;   
+        
+        @include tablet {
+           margin-left: 0rem;
+        }
+    }    
+
+    &__save {
+        border: 1px solid $primarymed; 
+        background-color: $primarymed;
+        color: $primarylight;
+        border-radius: 1.25rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        font-size: 0.8rem;
+
+    }
+
+    &__cancel {
+        border: 1px solid $secondarylight; 
+        background-color: $primarylight;
+        border-radius: 1.25rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 0.2rem;
+        padding-top: 0.2rem;
+        font-size: 0.8rem;
+
+
+    }
+}
