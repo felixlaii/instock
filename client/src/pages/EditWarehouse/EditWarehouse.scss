@@ -5,11 +5,21 @@
 .warehouse-edit {
     margin-left: 1rem;
     margin-right: 1rem;
-    border: 1px solid $bkgddark; padding: 0.5rem 3rem 0.5rem 3rem;
+    border: 1px solid $secondarylight; 
     margin-top: -4rem;
     background-color: $primarylight;
     border-radius: 4px;
-   
+
+    &__header {
+        width: 100%;
+    }
+
+    &__subheader {
+        padding-left: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid $secondarylight;
+        @include mobilesub;
+    }
 
     &__card {
         @include flexcolumn;
@@ -22,7 +32,20 @@
     &__label,
     &__input {
         border-radius: 1.25rem;
-        @include formpadding;
         box-shadow: none;
+        @include mobilesmallbody;
+        border-color: $secondarylight;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__label {
+        margin-left: 1rem;
+    }
+
+    &__input {
+        @include formpadding;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
