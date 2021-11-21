@@ -11,7 +11,8 @@ export default class DeleteWarehouse extends Component {
         this.setState({display: "none"});
     };
     onConfirmHandler = () => {
-        axios.put().then(this.setState({display: "none"}))
+        axios.delete("http://localhost:8080/"+this.props.id)
+        .then(this.setState({display: "none"}))
     }
 
     render() {
