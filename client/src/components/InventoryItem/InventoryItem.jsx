@@ -11,7 +11,7 @@ function InventoryItem({ category, id, itemName, quantity, status }) {
                     <div className="inventory__item-cat-wrapper">
                         <div className="inventory__item-wrapper">
                             <p className="inventory__sub">Inventory Item</p>
-                            <Link to={"/inventory/" + id}>
+                            <Link to={"/inventory-item-details/" + id}>
                                 <p className="inventory__item-name">{itemName}
                                     <img className="inventory__chevron" src={chevron} alt="chevron"/>
                                 </p>
@@ -34,12 +34,16 @@ function InventoryItem({ category, id, itemName, quantity, status }) {
                     </div>
                     <div className="inventory__icons-wrapper-a">
                         <img className="inventory__icon" src={deleteIcon} alt="delete icon" />
-                        <img className="inventory__icon-edit" src={edit} alt="edit icon" />
+                        <Link to={"/edit-inventory-item/:id"}>
+                            <img className="inventory__icon-edit" src={edit} alt="edit icon" />
+                        </Link>
                     </div>
                 </div>
                 <div className="inventory__icons-wrapper-b">
                     <img className="inventory__icon" src={deleteIcon} alt="delete icon" />
-                    <img className="inventory__icon" src={edit} alt="edit icon" />
+                    <Link to={"/edit-inventory-item/:id"}>
+                        <img className="inventory__icon-edit" src={edit} alt="edit icon" />
+                    </Link>
                 </div>
             </div>
     )
