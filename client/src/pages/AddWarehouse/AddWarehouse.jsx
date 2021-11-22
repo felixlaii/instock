@@ -5,6 +5,45 @@ import './AddWarehouse.scss'
 
 class AddWarehouse extends Component {
 
+    state = {
+        warehouseList: [],
+        validationError: {
+            name: false,
+            address: false,
+            city: false,
+            country: false
+        }
+    }
+
+    // submitHandler = (e) => {
+    //     const isFormValid = (form) => {
+    //         let isValid = true;
+
+    //         if (form.name.value.length < 3) {
+    //             form.name.classList.add()
+    //             previousState.validationError.name = true
+
+    //             isValid = false
+    //         } else {
+    //             form.name.classList.remove()
+    //             previousState.validationError.name = false
+    //         }
+
+    //         console.log(this.state.validationError)
+
+    //         if (form.address.value.length < 3) {
+    //             form.address.classList.add()
+    //             previousState.validationError.address = true
+    //             isValid = false
+    //         } else {
+    //             previousState.validationError.address = false
+    //             form.address.classList.remove()
+    //         }
+
+    //         console.log(this.state.validationError)
+    //     }
+    // }
+
     addSuccess = (e) => {
         e.preventDefault();
         const formData = e.target;
@@ -18,16 +57,16 @@ class AddWarehouse extends Component {
         const email = formData.email.value
         if( !name || !address || !city || !country || !contactName || !position || !phone || !email)
         alert("You must fill out all fields!")
-        // axios.put(`/Warehouses/${this.state.selectedWarehouse.id}`, {
-        //         name: formData.name.value,
-        //         address: formData.address.value,
-        //         city: formData.city.value,
-        //         country: formData.country.value,
-        //         contactName: formData.contactName.value,
-        //         position: formData.position.value,
-        //         phone: formData.phone.value,
-        //         email: formData.email.value
-        //     })
+        axios.post(`/Warehouses`, {
+                name: formData.name.value,
+                address: formData.address.value,
+                city: formData.city.value,
+                country: formData.country.value,
+                contactName: formData.contactName.value,
+                position: formData.position.value,
+                phone: formData.phone.value,
+                email: formData.email.value
+            })
             .then(response => {
                 console.log(response.data)
             })
