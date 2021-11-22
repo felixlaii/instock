@@ -18,7 +18,7 @@
         @include tablet {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            // justify-content: space-between;
             padding-top: 26px;
         }
 
@@ -41,8 +41,8 @@
 
         @include tablet {
             height: auto;
-            width: 100%;
-            justify-content: space-between;
+            width: 70%;
+            // justify-content: space-between;
         }
     }
 
@@ -55,15 +55,19 @@
 
         @include tablet {
             @include flexrow;
-            width: 40%;
+            width: calc(100/70 * 40%);
             justify-content: unset;
         }
     }
 
     &__item-wrapper {
         @include tablet {
-            width: 50%;
+            width: 60%;
         }
+    }
+
+    &__category-wrapper {
+        // @extend .full-inventory__item-wrapper;
     }
 
     &__sub {
@@ -108,17 +112,14 @@
 
     &__status-qty-wrapper {
         @extend .full-inventory__item-cat-wrapper;
+        
         @include tablet {
-            width: 50%;
+            width: calc(100/70 * 30%);
         }
-    }
-    
-    &__category-wrapper {
-        @extend .full-inventory__item-wrapper;
     }
 
     &__status-wrapper {
-        width: 60%;
+        width: 70%;
     }
 
     &__qty-wrapper {
@@ -129,6 +130,10 @@
     }
 
     &__qty {
+        @extend .full-inventory__category;
+    }
+    
+    &__warehouse {
         @extend .full-inventory__category;
     }
 
@@ -165,10 +170,20 @@
         @include flexrow;
         flex-direction: row-reverse;
         padding-top: 1rem;
+
+        @include tablet {
+            padding: 0;
+            flex-direction: row;
+            width: 20%;
+        }
     }
 
     &__warehouse-wrapper {
         width: 50%;
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
 }

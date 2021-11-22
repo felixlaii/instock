@@ -34,7 +34,7 @@ function FullInventoryItem({ category, id, itemName, quantity, status, warehouse
                 <div className="full-inventory__warehouse-row-wrapper">
                     <div className="full-inventory__warehouse-wrapper">
                         <p className="full-inventory__sub">Warehouse</p>
-                        <p className="full-inventory__qty">{warehouseName}</p>
+                        <p className="full-inventory__warehouse">{warehouseName}</p>
                     </div>
                 </div>
                 <div className="full-inventory__icons-wrapper-a">

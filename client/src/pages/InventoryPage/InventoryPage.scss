@@ -58,7 +58,6 @@ body {
         @include tablet {
             padding: 0;
         }
-        
     }
 
     &__input {
@@ -92,7 +91,7 @@ body {
     &__table-row {
         align-items: center;
         background-color: rgba(247, 248, 249, 0.7);
-        justify-content: space-between;
+        // justify-content: space-between;
         padding: 0 24px;
         display: none;
 
@@ -113,7 +112,7 @@ body {
 
     &__stat-qty-subs {
         @include flexrow;
-        width: 50%;
+        width: 30%;
     }
 
     &__table-sub {
@@ -127,16 +126,21 @@ body {
 
     &__table-inv-sub {
         @extend .all-inventory__table-sub;
-        width: 50%;
+        width: 60%;
     }
 
     &__table-cat-sub{
-        @extend .all-inventory__table-inv-sub;
+        @extend .all-inventory__table-sub;
     }
 
     &__table-stat-sub{
         @extend .all-inventory__table-sub;
-        width: 60%;
+        width: 70%;
+    }
+
+    &__table-warehouse-sub {
+        @extend .all-inventory__table-sub;
+        width: 20%;
     }
 
     &__table-action-sub{

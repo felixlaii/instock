@@ -41,13 +41,13 @@ class InventoryPage extends Component {
             return (
                 <div className="all-inventory__card">
 
-                        <div className="all-inventory__header">
-                            <div className="all-inventory__title">Inventory</div>
-                            <div className="all-inventory__wrapper">
-                                <input className="all-inventory__input" type="text" placeholder="Search..."/>
-                                <button className="all-inventory__button" type="button">+ Add New Item</button>
-                            </div>
+                    <div className="all-inventory__header">
+                        <div className="all-inventory__title">Inventory</div>
+                        <div className="all-inventory__wrapper">
+                            <input className="all-inventory__input" type="text" placeholder="Search..."/>
+                            <button className="all-inventory__button" type="button">+ Add New Item</button>
                         </div>
+                    </div>
 
                     <div className="all-inventory__table-row">
                         <div className="all-inventory__inv-cat-subs">
@@ -62,10 +62,13 @@ class InventoryPage extends Component {
                             <p className="all-inventory__table-stat-sub">Status
                                 <img className="all-inventory__sort-icon" src={sortIcon} alt="sort icon" />
                             </p>
-                            <p className="all-inventory__table-sub">Quantity
+                            <p className="all-inventory__table-sub">Qty
                                 <img className="all-inventory__sort-icon" src={sortIcon} alt="sort icon" />
                             </p>
                         </div>
+                        <p className="all-inventory__table-warehouse-sub">Warehouse
+                            <img className="all-inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                        </p>
                         <p className="all-inventory__table-action-sub">Actions</p>
                     </div>
 
