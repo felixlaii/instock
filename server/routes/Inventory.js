@@ -3,6 +3,15 @@ const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 
+router.route('/all')
+    .get((req, res) => {
+        let itemsList = fs.readFileSync('./data/inventories.json');
+        itemsList = JSON.parse(itemsList)
+
+        res.status(200)
+            .send(itemsList)
+    })
+
 router.route('/item/:id')
     .get((req, res) => {
         let itemsList = fs.readFileSync('./data/inventories.json');
