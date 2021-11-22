@@ -5,8 +5,8 @@ import PageHeader from '../src/components/PageHeader/PageHeader';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
 import WarehouseList from './pages/WarehouseList/WarehouseList';
 import InventoryPage from './pages/InventoryPage/InventoryPage';
-import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
+import AddInventoryItem from './pages/AddInventoryItem/AddInventoryItem';
 
 
 class App extends Component {
@@ -21,13 +21,14 @@ class App extends Component {
               <Route path="/" exact component={WarehouseList} />
               <Route path="/warehouse-details/:id"
                 render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }} />
-              <Route path="/edit-warehouse" component={EditWarehouse} />
-              render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }}
+              <Route path="/edit-warehouse/:id"
+                render={(routerProps) => { return <EditWarehouse {...routerProps} /> }} />
               <Route path="/add-new-warehouse" />
               <Route path="/inventory" exact component={InventoryPage} />
-              <Route path="/inventory-item-details" />
-              <Route path="/edit-inventory-item-" />
-              <Route path="/add-new-inventory-item-" />
+              <Route path="/inventory-item-details/:id" 
+                render={(routerProps) => { return <InventoryItemDetails {...routerProps} /> }} />
+              <Route path="/edit-inventory-item/:id" />
+              <Route path="/add-new-inventory-item" component={AddInventoryItem} />
             </Switch>
 
           </div>
