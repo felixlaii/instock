@@ -6,6 +6,9 @@ import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
 import WarehouseList from './pages/WarehouseList/WarehouseList';
 import WarehouseDetails from '../src/components/WarehouseDetails/WarehouseDetails'
 import AddWarehouse from '../src/pages/AddWarehouse/AddWarehouse'
+import InventoryPage from './pages/InventoryPage/InventoryPage';
+import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
+
 
 class App extends Component {
 
@@ -24,6 +27,8 @@ class App extends Component {
             <Route path="/edit-warehouse"/>
             <Route path="/add-new-warehouse" component={AddWarehouse} />
             <Route path="/inventory"/>
+            <Route path="/add-new-warehouse"/>
+            <Route path="/inventory" exact component={InventoryPage}/>
             <Route path="/inventory-item-details"/>
             <Route path="/edit-inventory-item-"/>
             <Route path="/add-new-inventory-item-"/> 

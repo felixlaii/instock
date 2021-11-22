@@ -5,6 +5,12 @@ import axios from "axios"
 
 export default class WarehouseList extends Component {
     state = {warehouses:null};
+    onConfirmHandler = (id) => {
+        axios.delete("http://localhost:8080/delete-warehouse/"+id)
+        .then(response => {
+            this.setState({warehouses:response.data});
+        });
+    }
 
     componentDidMount() {
         const newState = { warehouses: []};
@@ -39,7 +45,7 @@ export default class WarehouseList extends Component {
                             <div className="warehouses-card__hearder-item warehouses-card__hearder-item--float">ACTIONS</div>
                         </div>
                     </div>
-                    {this.state.warehouses.map(warehouse => <WarehouseListItem key={warehouse.id} warehouse={warehouse}/>)}
+                    {this.state.warehouses.map(warehouse => <WarehouseListItem key={warehouse.id} warehouse={warehouse} handler={this.onConfirmHandler}/>)}
                 </div>
             </section>
         )

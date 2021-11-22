@@ -7,7 +7,7 @@
     border-bottom: 1px solid $secondarylight;
 }
 
-.inventory {
+.full-inventory {
 
     &__item {
         @include bottomborder;
@@ -18,7 +18,7 @@
         @include tablet {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            // justify-content: space-between;
             padding-top: 26px;
         }
 
@@ -29,13 +29,20 @@
     }
 
     &__item-details-wrapper {
+        @include tablet {
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    &__columns-wrapper {
         display: flex;
         height: 7rem;
 
         @include tablet {
             height: auto;
-            width: 100%;
-            justify-content: space-between;
+            width: 70%;
+            // justify-content: space-between;
         }
     }
 
@@ -48,15 +55,19 @@
 
         @include tablet {
             @include flexrow;
-            width: 40%;
+            width: calc(100/70 * 40%);
             justify-content: unset;
         }
     }
 
     &__item-wrapper {
         @include tablet {
-            width: 50%;
+            width: 60%;
         }
+    }
+
+    &__category-wrapper {
+        // @extend .full-inventory__item-wrapper;
     }
 
     &__sub {
@@ -94,24 +105,21 @@
     }
 
     &__status-out {
-        @extend .inventory__status-in;
+        @extend .full-inventory__status-in;
         background: rgba(201, 69, 21, 0.07);
         color: $supportlight;
     }
 
     &__status-qty-wrapper {
-        @extend .inventory__item-cat-wrapper;
+        @extend .full-inventory__item-cat-wrapper;
+        
         @include tablet {
-            width: 50%;
+            width: calc(100/70 * 30%);
         }
-    }
-    
-    &__category-wrapper {
-        @extend .inventory__item-wrapper;
     }
 
     &__status-wrapper {
-        width: 60%;
+        width: 70%;
     }
 
     &__qty-wrapper {
@@ -122,7 +130,11 @@
     }
 
     &__qty {
-        @extend .inventory__category;
+        @extend .full-inventory__category;
+    }
+    
+    &__warehouse {
+        @extend .full-inventory__category;
     }
 
     &__icons-wrapper-a {
@@ -150,8 +162,28 @@
     }
 
     &__icon-edit {
-        @extend .inventory__icon;
+        @extend .full-inventory__icon;
         margin-left: 0.5rem;
+    }
+
+    &__warehouse-row-wrapper {
+        @include flexrow;
+        flex-direction: row-reverse;
+        padding-top: 1rem;
+
+        @include tablet {
+            padding: 0;
+            flex-direction: row;
+            width: 20%;
+        }
+    }
+
+    &__warehouse-wrapper {
+        width: 50%;
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
 }
