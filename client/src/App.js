@@ -15,8 +15,6 @@ class App extends Component {
     return (
       <>
         <PageHeader />
-        <InventoryItemDetails />
-
         <BrowserRouter>
           <div className="App">
             <Switch>
