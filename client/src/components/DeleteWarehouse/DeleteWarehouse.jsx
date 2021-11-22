@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { Component } from 'react'
 import "./DeleteWarehouse.scss"
 
@@ -11,8 +10,8 @@ export default class DeleteWarehouse extends Component {
         this.setState({display: "none"});
     };
     onConfirmHandler = () => {
-        axios.delete("http://localhost:8080/"+this.props.id)
-        .then(this.setState({display: "none"}))
+        this.props.handler(this.props.id);
+        this.setState({display: "none"});
     }
 
     render() {
