@@ -15,34 +15,116 @@ class AddWarehouse extends Component {
         }
     }
 
-    // submitHandler = (e) => {
-    //     const isFormValid = (form) => {
-    //         let isValid = true;
+    submitHandler = (e) => {
+        const isFormValid = (form) => {
+            let isValid = true;
 
-    //         if (form.name.value.length < 3) {
-    //             form.name.classList.add()
-    //             previousState.validationError.name = true
+            const previousState = { ...this.state }
 
-    //             isValid = false
-    //         } else {
-    //             form.name.classList.remove()
-    //             previousState.validationError.name = false
-    //         }
+            if (form.name.value.length < 3) {
+                form.name.classList.add()
+                previousState.validationError.name = true
 
-    //         console.log(this.state.validationError)
+                isValid = false
+            } else {
+                form.name.classList.remove()
+                previousState.validationError.name = false
+            }
 
-    //         if (form.address.value.length < 3) {
-    //             form.address.classList.add()
-    //             previousState.validationError.address = true
-    //             isValid = false
-    //         } else {
-    //             previousState.validationError.address = false
-    //             form.address.classList.remove()
-    //         }
+            console.log(this.state.validationError)
 
-    //         console.log(this.state.validationError)
-    //     }
-    // }
+            if (form.address.value.length < 3) {
+                form.address.classList.add()
+                previousState.validationError.address = true
+                isValid = false
+            } else {
+                previousState.validationError.address = false
+                form.address.classList.remove()
+            }
+
+            console.log(this.state.validationError)
+
+            if (form.city.value.length < 3) {
+                form.city.classList.add()
+                previousState.validationError.city = true
+                isValid = false
+            } else {
+                previousState.validationError.city = false
+                form.city.classList.remove()
+            }
+
+            if (form.country.value.length < 3) {
+                form.country.classList.add()
+                previousState.validationError.country = true
+                isValid = false
+            } else {
+                previousState.validationError.country = false
+                form.country.classList.remove()
+            }
+
+            if (isNaN(parseInt(form.quantity.value)) || parseInt(form.quantity.value) <= 0) {
+                form.quantity.classList.add("inventory__border-error")
+                previousState.validationError.quantity = true
+                isValid = false
+            } else {
+                previousState.validationError.quantity = false
+                form.quantity.classList.remove("inventory__border-error")
+        }
+
+        this.setState(previousState)
+        console.log(this.state.validationError)
+
+
+        if (isValid) {
+            return true;
+        } else {
+            return false
+        }
+
+    }
+
+    e.preventDefault()
+    const form = e.target.elements
+
+    if (isFormValid(form)) {
+
+        const postUrl = "http://localhost:8080/warehouses/post";
+        const warehouse = this.state.warehouseList.find(warehouse => warehouse.id === form.warehouse.value)
+        const newWarehouse = {
+            warehouseID: form.warehouse.value,
+            name: warehouse.name,
+            address: form.address.value,
+            city: form.city.value,
+            country: form.country.value,
+        }
+        axios
+        .post(postUrl, newWarehouse)
+        .then(response => {
+            console.log(response.data)
+        })
+    }
+}
+    onChangeHandler = (event) => {
+        const element = event.target
+        const value = element.value
+
+        if (isNaN(parseInt(value)) || parseInt(value) <= 0) {
+            element.classList.add()
+            this.setState({
+                inStock: false
+            })
+
+        } else {
+            element.classList.add("inventory__border-error")
+            this.setState({
+                inStock: true
+            })
+        }
+    }
+
+    componentDidMount() {
+        axios.get
+    }
 
     addSuccess = (e) => {
         e.preventDefault();

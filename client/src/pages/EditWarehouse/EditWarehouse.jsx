@@ -8,12 +8,12 @@ class EditWarehouse extends Component {
     state = {
         selectedWarehouse: {},
         warehouseList: [],
-        // formData: {
-        //     name: '',
-        //     address: '',
-        //     city: '',
-        //     country: ''
-        // }
+        formValidation: {
+            name: false,
+            address: false,
+            city: false,
+            country: false
+        }
 
     }
 
