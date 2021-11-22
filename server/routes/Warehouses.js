@@ -4,6 +4,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 const path = require("path");
 
+
 let warehouses = fs.readFileSync('./data/Warehouses.json')
 warehouses = JSON.parse(warehouses);
 
@@ -13,14 +14,37 @@ let warehouseArray = warehouses.map((warehouse) => {
         name: warehouse.name,
         address: warehouse.address,
         city: warehouse.city,
-        country: warehouse.country
+        country: warehouse.country,
+        contact: warehouse.contact,
+        contactName: warehouse.contact.name,
+        position: warehouse.contact.position,
+        phone: warehouse.contact.phone,
+        email: warehouse.contact.email
     }
     return warehouseList
 })
 
-router.route('/')
-    .get ((req, res) => {
-    (res.json(warehouses)) 
+router.post('/', (req, res) => {
+    (res.json(warehouses))
+    const { name, address, city, country, contact } = req.body
+    
+    warehouses.push({
+        id: uuidv4(),
+        name,
+        address,
+        city,
+        country,
+        contact: {
+           "name": contact.name,
+            "position": contact.position,
+            "phone": contact.phone, 
+            "email": contact.email
+        }
+    })
+        fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses))
+        res.status(201).json(warehouses)
+
+        res.json(warehouses)
 })
 
 router.route('/:warehouseId') 
@@ -57,14 +81,36 @@ router.route('/:warehouseId')
     return res.send(warehouses).status(200)
 })
 
-router.get("/", (req, res) => {
-    const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
-    if (warehouses){
-        res.status(200);
-        res.json(warehouses);
-    } else {
-        res.status(404).send("warehouses not found");
-    }   
+router.get("/", (req, res, next) => {
+    try {
+        const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
+        if (warehouses){
+            res.status(200);
+            res.json(warehouses);
+        }
+    } catch (error) {
+        res.status(404);
+        next(error);
+    }  
+});
+
+router.delete("/delete-warehouse/:warehouseId", (req, res, next) => {
+    try {
+        const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
+        const inventory = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/inventories.json")));
+        const newWarehouses = warehouses.filter(item=>item.id!==req.params.warehouseId);
+        const newIventories = inventory.filter(item=>item.warehouseID!==req.params.warehouseId);
+        if (warehouses.length === newWarehouses.length) {
+            throw new Error(`Warehouse with id=${req.params.warehouseId} not found`);
+        }
+        fs.writeFile(path.resolve(__dirname, "../data/warehouses.json"), JSON.stringify(newWarehouses), (error) => {if(error){throw error}});
+        fs.writeFile(path.resolve(__dirname, "../data/inventories.json"), JSON.stringify(newIventories), (error) => {if(error){throw error}});
+        res.status(200).json(newWarehouses);
+        
+    } catch (error) {
+        res.status(404);
+        next(error);
+    }
 });
 
 module.exports = router;

@@ -17,7 +17,7 @@ class WarehouseDetailsPage extends Component {
 
     state = {
         warehouse: [],
-        showWarehouseColumn: false
+        showWarehouse: false
     }
 
     componentDidMount() {
@@ -76,7 +76,9 @@ class WarehouseDetailsPage extends Component {
                             id={inventory.id} 
                             itemName={inventory.itemName} 
                             quantity={inventory.quantity} 
-                            status={inventory.status} />)}
+                            status={inventory.status}
+                            warehouseName={inventory.warehouseName}
+                            showWarehouse={this.state.showWarehouse} />)}
 
                 </div>
             </>
