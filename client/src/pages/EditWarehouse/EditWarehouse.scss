@@ -37,8 +37,15 @@
         }
     }
 
-    &__card {
+    &__warehouse,
+    &__contact {
         @include flexcolumn;
+    }
+    
+    &__card {
+        @include tablet {
+            @include flexrow;
+        }
     }
 
     &__contactdetails {

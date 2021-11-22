@@ -101,14 +101,7 @@ class EditWarehouse extends Component {
                 this.setState({errorEmail: "warehouse-edit__border-error"})
                 return;
             }
-console.log({                name: formData.name.value,
-    address: formData.address.value,
-    city: formData.city.value,
-    country: formData.country.value,
-    contactName: formData.contactName.value,
-    position: formData.position.value,
-    phone: formData.phone.value,
-    email: formData.email.value})
+
             axios.put(`/warehouses/${this.state.selectedWarehouse.id}`, {
 
                 name: formData.name.value,
@@ -119,14 +112,6 @@ console.log({                name: formData.name.value,
                 position: formData.position.value,
                 phone: formData.phone.value,
                 email: formData.email.value
-                // name: name,
-                // address: address,
-                // city: city,
-                // country: country,
-                // contactName: contactName,
-                // position: position,
-                // phone: phone,
-                // email: email
             })
             .then((response) => {
                 alert("Warehouse Updated Successfully!")
@@ -147,72 +132,73 @@ console.log({                name: formData.name.value,
                 <div className="warehouse-edit__container">
                     <form onSubmit={this.onSubmit} className="warehouse-edit__housedetails">
                         <div className="warehouse-edit__card">
-                            <h2 className="warehouse-edit__subheader">Warehouse Details</h2>
+                            <div className="warehouse-edit__warehouse">
+                                <h2 className="warehouse-edit__subheader">Warehouse Details</h2>
 
-                            <label className="warehouse-edit__label">Warehouse Name</label>
-                            <input className="warehouse-edit__input" type="name" name="name" id="name" placeholder={this.state.selectedWarehouse.name}></input>
-                           {this.state.errorName && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
+                                <label className="warehouse-edit__label">Warehouse Name</label>
+                                <input className="warehouse-edit__input" type="name" name="name" id="name" placeholder={this.state.selectedWarehouse.name}></input>
+                                    {this.state.errorName && 
+                                    <p className="warehouse-edit__validation-error">
+                                        <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
                             
-                            <label className="warehouse-edit__label">Street Address</label>
-                            <input className="warehouse-edit__input"type="text" name="address" placeholder={this.state.selectedWarehouse.address}></input>
-                            {this.state.errorAddress && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
+                                <label className="warehouse-edit__label">Street Address</label>
+                                <input className="warehouse-edit__input"type="text" name="address" placeholder={this.state.selectedWarehouse.address}></input>
+                                    {this.state.errorAddress && 
+                                    <p className="warehouse-edit__validation-error">
+                                    <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                    this field is required!</p>}
 
-                            <label className="warehouse-edit__label">City</label>
-                            <input className="warehouse-edit__input" type="text" name="city" placeholder={this.state.selectedWarehouse.city}></input>
-                            {this.state.errorCity && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
+                                <label className="warehouse-edit__label">City</label>
+                                <input className="warehouse-edit__input" type="text" name="city" placeholder={this.state.selectedWarehouse.city}></input>
+                                    {this.state.errorCity && 
+                                    <p className="warehouse-edit__validation-error">
+                                    <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                    this field is required!</p>}
 
-                            <label className="warehouse-edit__label">Country</label>
-                            <input className="warehouse-edit__input" type="text" name="country" placeholder={this.state.selectedWarehouse.country}></input>
-                            {this.state.errorCountry && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
-                        
+                                <label className="warehouse-edit__label">Country</label>
+                                <input className="warehouse-edit__input" type="text" name="country" placeholder={this.state.selectedWarehouse.country}></input>
+                                    {this.state.errorCountry && 
+                                    <p className="warehouse-edit__validation-error">
+                                    <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                    this field is required!</p>}
+                            </div>        
                         </div>
-                        {/* </form>
-                        <form onSubmit={this.editSuccess} className="warehouse-edit__housedetails"> */}
 
                         <div className="warehouse-edit__card">
-                            <h2 className="warehouse-edit__subheader">Contact Details</h2>
+                            <div className="warehouse-edit__contact">
 
-                            <label className="warehouse-edit__label">Contact Name</label>
-                            <input className="warehouse-edit__input" type="text" name="contactName" placeholder={this.state.selectedWarehouse.contact.name}></input>
-                            {this.state.errorContactName && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
+                                <h2 className="warehouse-edit__subheader">Contact Details</h2>
 
-                            <label className="warehouse-edit__label">Position</label>
-                            <input className="warehouse-edit__input" type="text" name="position" placeholder={this.state.selectedWarehouse.contact.position}></input>
-                            {this.state.errorPosition && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
+                                <label className="warehouse-edit__label">Contact Name</label>
+                                <input className="warehouse-edit__input" type="text" name="contactName" placeholder={this.state.selectedWarehouse.contact.name}></input>
+                                    {this.state.errorContactName && 
+                                    <p className="warehouse-edit__validation-error">
+                                    <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                    this field is required!</p>}
+
+                                <label className="warehouse-edit__label">Position</label>
+                                <input className="warehouse-edit__input" type="text" name="position" placeholder={this.state.selectedWarehouse.contact.position}></input>
+                                    {this.state.errorPosition && 
+                                    <p className="warehouse-edit__validation-error">
+                                    <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                    this field is required!</p>}
                                
-                            <label className="warehouse-edit__label">Phone Number</label>
-                            <input className="warehouse-edit__input" type="text" name="phone" placeholder={this.state.selectedWarehouse.contact.phone}></input>
-                            {this.state.errorPhone && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
+                                <label className="warehouse-edit__label">Phone Number</label>
+                                <input className="warehouse-edit__input" type="text" name="phone" placeholder={this.state.selectedWarehouse.contact.phone}></input>
+                                    {this.state.errorPhone && 
+                                    <p className="warehouse-edit__validation-error">
+                                    <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                    this field is required!</p>}
 
 
-                            <label className="warehouse-edit__label">Email</label>
-                            <input className="warehouse-edit__input" type="text" name="email" placeholder={this.state.selectedWarehouse.contact.email}></input>
-                            {this.state.errorEmail && 
-                           <p className="warehouse-edit__validation-error">
-                               <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
-                               this field is required!</p>}
-                      
+                                <label className="warehouse-edit__label">Email</label>
+                                <input className="warehouse-edit__input" type="text" name="email" placeholder={this.state.selectedWarehouse.contact.email}></input>
+                                    {this.state.errorEmail && 
+                                    <p className="warehouse-edit__validation-error">
+                                    <img className="warehouse-edit__error-image" src={errorImage} alt="error" />
+                                    this field is required!</p>}
+                            </div>
                         </div>
 
                         <div className="warehouse-edit__buttons">
