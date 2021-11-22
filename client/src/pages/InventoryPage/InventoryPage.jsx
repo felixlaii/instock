@@ -4,7 +4,7 @@ import axios from "axios";
 import sortIcon from '../../assets/icons/sort-24px.svg'
 
 import './InventoryPage.scss';
-import InventoryItem from '../../components/InventoryItem/InventoryItem';
+import FullInventoryItem from '../../components/FullInventoryItem/FullInventoryItem';
 
 const warehouseEndpoint = "http://localhost:8080/warehouse-details/"
 
@@ -12,7 +12,6 @@ class InventoryPage extends Component {
 
     state = {
         inventoryArray: [],
-        showWarehouse: true
     }
 
     componentDidMount() {
@@ -71,13 +70,12 @@ class InventoryPage extends Component {
                     </div>
 
                     {inventoryArray.map(inventory => 
-                        <InventoryItem key={inventory.id} category={inventory.category} 
+                        <FullInventoryItem key={inventory.id} category={inventory.category} 
                             id={inventory.id} 
                             itemName={inventory.itemName} 
                             quantity={inventory.quantity} 
                             status={inventory.status}
-                            warehouseName={inventory.warehouseName}
-                            showWarehouse={this.state.showWarehouse} />)}
+                            warehouseName={inventory.warehouseName}/>)}
 
                 </div>
             )
