@@ -25,7 +25,7 @@ export default function WarehouseListItem(props) {
             </div>
             <div className="warehouses-card__buttons">
                 {/* <button className="warehouses-card__delete" type="button"></button> */}
-                <DeleteWarehouse name={props.warehouse.name} id={props.warehouse.id}/>
+                <DeleteWarehouse name={props.warehouse.name} id={props.warehouse.id} handler={props.handler}/>
                 <button className="warehouses-card__edit" type="button"></button>
             </div>
         </div>
@@ -39,7 +39,7 @@ export default function WarehouseListItem(props) {
             <div className="warehouses-card__detail">{props.warehouse.contact.phone}<div>{props.warehouse.contact.email}</div></div>
             <div className="warehouses-card__buttons">
                 {/* <button className="warehouses-card__delete" type="button"></button> */}
-                <DeleteWarehouse name={props.warehouse.name} id={props.warehouse.id}/>
+                <DeleteWarehouse name={props.warehouse.name} id={props.warehouse.id} handler={props.handler}/>
                 <button className="warehouses-card__edit" type="button"></button>
             </div>
         </div>
