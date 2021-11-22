@@ -16,7 +16,7 @@ body {
     box-sizing: border-box;
 }
 
-.details {
+.all-inventory {
     &__card {
         display: flex;
         flex-direction: column;
@@ -39,11 +39,57 @@ body {
             left: 10%;
         }
     }
-}
 
-.inventory {
+    &__header {
+        position: relative;
+        border-bottom: 1px solid $secondarylight;
+        padding: 2rem 5vw;
+        padding-bottom: 1rem;
+        @include tablet {
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__title {
+        @include header;
+        padding-bottom: 1rem;
+        @include tablet {
+            padding: 0;
+        }
+        
+    }
+
+    &__input {
+        box-sizing: border-box;
+        border: 1px solid $secondarylight;
+        background: url(../../assets/icons/search-24px.svg) no-repeat scroll calc(100% - 7px) 7px, $primarylight;
+        border-radius: 20px;
+        padding: 0 8px;
+        height: 36px;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        @include medbody;
+        color: $secondarydark;
+
+        @include tablet {
+            height: 38px;
+            width: 185px;
+            margin: 0;
+            margin-left: 1rem;
+        }
+    }
+
+    &__button {
+        @extend .all-inventory__input;
+        border-color: transparent;
+        background: none;
+        background-color: $primarymed;
+        color: $primarylight;
+    }
+
     &__table-row {
-        // @include flexrow;
         align-items: center;
         background-color: rgba(247, 248, 249, 0.7);
         justify-content: space-between;
@@ -80,20 +126,20 @@ body {
     }
 
     &__table-inv-sub {
-        @extend .inventory__table-sub;
+        @extend .all-inventory__table-sub;
         width: 50%;
     }
 
     &__table-cat-sub{
-        @extend .inventory__table-inv-sub;
+        @extend .all-inventory__table-inv-sub;
     }
 
     &__table-stat-sub{
-        @extend .inventory__table-sub;
+        @extend .all-inventory__table-sub;
         width: 60%;
     }
 
     &__table-action-sub{
-        @extend .inventory__table-sub;
+        @extend .all-inventory__table-sub;
     }
 }

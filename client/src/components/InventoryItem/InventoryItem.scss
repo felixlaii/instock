@@ -8,13 +8,6 @@
 }
 
 .inventory {
-    &__table-row {
-        display: none;
-
-        @include tablet {
-            display: flex;
-        }
-    }
 
     &__item {
         @include bottomborder;
@@ -159,6 +152,16 @@
     &__icon-edit {
         @extend .inventory__icon;
         margin-left: 0.5rem;
+    }
+
+    &__warehouse-row-wrapper {
+        @include flexrow;
+        flex-direction: row-reverse;
+        padding-top: 1rem;
+    }
+
+    &__warehouse-wrapper {
+        width: 50%;
     }
 
 }
