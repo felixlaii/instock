@@ -19,10 +19,10 @@ let warehouseArray = warehouses.map((warehouse) => {
     return warehouseList
 })
 
-router.route('/')
-    .get ((req, res) => {
-    (res.json(warehouses)) 
-})
+// router.route('/')
+//     .get ((req, res) => {
+//     (res.json(warehouses)) 
+// })
 
 router.route('/:warehouseId') 
     .get ((req, res) => {
@@ -57,18 +57,16 @@ router.route('/:warehouseId')
     fs.writeFileSync('data/warehouses.json', JSON.stringify(warehouses))
     return res.send(warehouses).status(200)
 })
-      
-router.get("/", (req, res, next) => {
-    const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
-})
 
-router.get("/", (req, res) => {
+router.get("/", (req, res, next) => {
     try {
-    const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
-    if (warehouses){
-        res.status(200);
-        res.json(warehouses);
-    }} catch (error) {
+        const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
+        console.log("here");
+        if (warehouses){
+            res.status(200);
+            res.json(warehouses);
+        }
+    } catch (error) {
         res.status(404);
         next(error);
     }  
@@ -83,10 +81,9 @@ router.delete("/delete-warehouse/:warehouseId", (req, res, next) => {
         if (warehouses.length === newWarehouses.length || inventory.length === newIventories.length) {
             throw new Error(`Warehouse with id=${req.params.warehouseId} not found`);
         }
-        console.log(path.resolve(__dirname, "../data/warehouses.json"));
         fs.writeFile(path.resolve(__dirname, "../data/warehouses.json"), JSON.stringify(newWarehouses), (error) => {if(error){throw error}});
         fs.writeFile(path.resolve(__dirname, "../data/inventories.json"), JSON.stringify(newIventories), (error) => {if(error){throw error}});
-        res.status(200).send("Successfully deleted warehouse");
+        res.status(200).json(newWarehouses);
         
     } catch (error) {
         res.status(404);
