@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
 import PageHeader from '../src/components/PageHeader/PageHeader';
 import WarehouseList from './pages/WarehouseList/WarehouseList';
+import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
+
 
 class App extends Component {
 
@@ -13,7 +15,8 @@ class App extends Component {
         <BrowserRouter>
           <div className="App">
             <Switch>
-              <Route path="/" exact component={WarehouseList} />
+              <Route path="/" exact component={AddInventory} />
+              {/* <Route path="/" exact component={WarehouseList} /> */}
               <Route path="/warehouse-details/:id"
                 render={(routerProps) => { return <WarehouseDetails {...routerProps} /> }} />
               <Route path="/edit-warehouse" />
