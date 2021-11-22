@@ -122,9 +122,15 @@ class AddWarehouse extends Component {
         }
     }
 
+<<<<<<< HEAD
     componentDidMount() {
         axios.get
     }
+=======
+    // componentDidMount() {
+    //     axios.get
+    // }
+>>>>>>> develop
 
     addSuccess = (e) => {
         e.preventDefault();
