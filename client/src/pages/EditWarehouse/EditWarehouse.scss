@@ -108,7 +108,17 @@
         padding-bottom: 0.2rem;
         padding-top: 0.2rem;
         font-size: 0.8rem;
+    }
 
+    &__valid-error {
+        color: $errorColor;
+    }
 
+    &__error-image {
+        padding-right: 0.5rem;
+    }
+
+    &__border-error {
+        border: $errorColor solid 1.45px;
     }
 }
