@@ -6,7 +6,7 @@ import sortIcon from '../../assets/icons/sort-24px.svg'
 import './InventoryPage.scss';
 import FullInventoryItem from '../../components/FullInventoryItem/FullInventoryItem';
 
-const warehouseEndpoint = "http://localhost:8080/warehouse-details/"
+const inventoryEndpoint = "http://localhost:8080/inventory/all"
 
 class InventoryPage extends Component {
 
@@ -15,13 +15,13 @@ class InventoryPage extends Component {
     }
 
     componentDidMount() {
-        let warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9"
+        // let warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9"
 
         axios
-          .get(warehouseEndpoint + warehouseId)
+          .get(inventoryEndpoint)
           .then(response => {
             this.setState({
-              inventoryArray: response.data[1]
+              inventoryArray: response.data
             })
             console.log(this.state.inventoryArray)
           })
