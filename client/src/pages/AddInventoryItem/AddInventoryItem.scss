@@ -1,0 +1,132 @@
+@import '../../styles/partials/mixins';
+
+.inventory {
+    width: 93%;
+    margin: auto;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.164);
+    margin-top: -14%;
+    margin-bottom: 150px;
+
+    &__header {
+        display: flex;
+        padding-top: 5%;
+        font-size: 1.2rem;
+        letter-spacing: 0.04rem;
+        width: 80%;
+        padding-left: 8%;
+    }
+
+    &__arrow {
+        padding-right: 2%;
+        padding-bottom: 14%;
+    }
+
+    &__item-details {
+        border-top: 1px solid #BDC5D5;
+        padding-left: 8%;
+    }
+
+    &__details {
+        font-size: 1.2rem;
+    }
+
+    &__item-name {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+        padding-bottom: 0.2rem;
+    }
+
+    &__input-item {
+        width: 90%;
+        height: 2.5em;
+        @include inputstyle;
+        @include inputsmallheight;
+    }
+
+    &__input-description {
+        width: 90%;
+        height: 9em;
+        @include inputstyle;
+        border-radius: 20px;
+        padding-bottom: 22%;
+    }
+
+    &__input-category {
+        width: 90%;
+        @include inputsmallheight;
+        @include inputstyle;
+        @include smallinputdropdown
+    }
+
+    &__item-availability {
+        padding-left: 8%;
+        border-top: 1px solid #BDC5D5;
+    }
+
+    &__availability {
+        font-size: 1.2rem;
+    }
+
+    &__status-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__input-quantity {
+        @include inputstyle;
+        @include inputsmallheight;
+    }
+
+    &__input-warehouses {
+        @include inputstyle;
+        @include inputsmallheight;
+        @include smallinputdropdown
+    }
+
+    &__instock {
+        margin-right: auto;
+    }
+
+    &__instock-label {
+        padding-left: 8px;
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #F9FAFB;
+        padding: 30px 0;
+    }
+
+    &__cancel-button {
+        background-color: white;
+        @include button (#fff, #BDC5D5);
+    }
+
+    &__add-button {
+        @include button(#2E66E5, #2E66E5);
+        color: white;
+    }
+
+    &__input-warehouses {
+        @include inputstyle;
+        @include inputsmallheight;
+        appearance: none;
+    }
+
+
+    &__validation-error {
+        color: red;
+        display: flex;
+    }
+
+    &__error-image {
+        padding-right: 8px;
+    }
+
+    &__border-error {
+        border: red solid 1.45px;
+    }
+}
