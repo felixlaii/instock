@@ -9,7 +9,6 @@ let warehouses = fs.readFileSync('./data/Warehouses.json')
 warehouses = JSON.parse(warehouses);
 
 let warehouseArray = warehouses.map((warehouse) => {
-    console.log(warehouse.contact.email)
     let warehouseList = {
         id: warehouse.id,
         name: warehouse.name,
@@ -35,6 +34,12 @@ router.post('/', (req, res) => {
         address,
         city,
         country,
+        contact: {
+           "name": contact.name,
+            "position": contact.position,
+            "phone": contact.phone, 
+            "email": contact.email
+        }
     })
         fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses))
         res.status(201).json(warehouses)
