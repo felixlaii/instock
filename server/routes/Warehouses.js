@@ -61,7 +61,6 @@ router.route('/:warehouseId')
 router.get("/", (req, res, next) => {
     try {
         const warehouses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/warehouses.json")));
-        console.log("here");
         if (warehouses){
             res.status(200);
             res.json(warehouses);
