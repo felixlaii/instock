@@ -25,22 +25,17 @@ let warehouseArray = warehouses.map((warehouse) => {
     return warehouseList
 })
 
-router.route('/')
-    .get ((req, res) => {
-    (res.json(warehouses)) 
-})
-
-    .post ((req, res) => {
-        const { name, address, city, country, contact } = req.body
-        const { name, position, phone, email } = req.body.contact
-        warehouses.push({
-            id: uuidv4(),
-            name,
-            address,
-            city,
-            country,
-            contact: name, position, phone, email,
-        })
+router.post('/', (req, res) => {
+    (res.json(warehouses))
+    const { name, address, city, country, contact } = req.body
+        // const { name, position, phone, email } = req.body.contact
+    warehouses.push({
+        id: uuidv4(),
+        name,
+        address,
+        city,
+        country,
+    })
         fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses))
         res.status(201).json(warehouses)
 
