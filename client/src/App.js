@@ -5,6 +5,7 @@ import PageHeader from '../src/components/PageHeader/PageHeader';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
 import WarehouseList from './pages/WarehouseList/WarehouseList';
 import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
+import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem.jsx'
 
 
 class App extends Component {
@@ -13,6 +14,8 @@ class App extends Component {
     return (
       <>
         <PageHeader />
+        <EditInventoryItem />
+        {/* <AddInventory /> */}
         <BrowserRouter>
           <div className="App">
             <Switch>
