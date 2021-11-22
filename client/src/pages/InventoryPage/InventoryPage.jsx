@@ -5,6 +5,7 @@ import sortIcon from '../../assets/icons/sort-24px.svg'
 
 import './InventoryPage.scss';
 import FullInventoryItem from '../../components/FullInventoryItem/FullInventoryItem';
+import { Link } from 'react-router-dom';
 
 const inventoryEndpoint = "http://localhost:8080/inventory/all"
 
@@ -45,7 +46,9 @@ class InventoryPage extends Component {
                         <div className="all-inventory__title">Inventory</div>
                         <div className="all-inventory__wrapper">
                             <input className="all-inventory__input" type="text" placeholder="Search..."/>
-                            <button className="all-inventory__button" type="button">+ Add New Item</button>
+                            <Link to="/add-new-inventory-item-">
+                                <button className="all-inventory__button" type="button">+ Add New Item</button>
+                            </Link>
                         </div>
                     </div>
 

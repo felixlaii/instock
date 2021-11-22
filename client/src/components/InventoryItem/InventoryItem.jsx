@@ -2,6 +2,7 @@ import './InventoryItem.scss';
 import edit from '../../assets/icons/edit-24px.svg'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevron from '../../assets/icons/chevron_right-24px.svg'
+import { Link } from 'react-router-dom';
 
 function InventoryItem({ category, id, itemName, quantity, status }) {
     return (
@@ -10,9 +11,11 @@ function InventoryItem({ category, id, itemName, quantity, status }) {
                     <div className="inventory__item-cat-wrapper">
                         <div className="inventory__item-wrapper">
                             <p className="inventory__sub">Inventory Item</p>
-                            <p className="inventory__item-name">{itemName}
-                                <img className="inventory__chevron" src={chevron} alt="chevron"/>
-                            </p>
+                            <Link to={"/inventory/" + id}>
+                                <p className="inventory__item-name">{itemName}
+                                    <img className="inventory__chevron" src={chevron} alt="chevron"/>
+                                </p>
+                            </Link>
                         </div>
                         <div className="inventory__category-wrapper">
                             <p className="inventory__sub">Category</p>
