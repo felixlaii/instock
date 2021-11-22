@@ -6,7 +6,7 @@ import axios from "axios"
 export default class WarehouseList extends Component {
     state = {warehouses:null};
 
-    componentDidMount(){
+    componentDidMount() {
         const newState = { warehouses: []};
         axios
         .get("http://localhost:8080/")
