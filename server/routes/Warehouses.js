@@ -27,7 +27,7 @@ let warehouseArray = warehouses.map((warehouse) => {
 router.post('/', (req, res) => {
     (res.json(warehouses))
     const { name, address, city, country, contact } = req.body
-        // const { name, position, phone, email } = req.body.contact
+    
     warehouses.push({
         id: uuidv4(),
         name,
@@ -45,7 +45,6 @@ router.post('/', (req, res) => {
         res.status(201).json(warehouses)
 
         res.json(warehouses)
-
 })
 
 router.route('/:warehouseId') 
