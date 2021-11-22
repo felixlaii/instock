@@ -1,0 +1,90 @@
+@import '../../styles/partials/_mixins.scss';
+
+.inventory-item {
+    margin-top: -2%;
+    width: 90%;
+    margin: auto;
+
+    &__header {
+        display: flex;
+        margin-left: 8%
+    }
+
+    &__title {
+        padding-right: 40%;
+        padding-left: 4%;
+    }
+
+    &__description {
+        padding-left: 8%;
+        border-top: 1px solid #BDC5D5;
+    }
+
+    &__para-description {
+        margin-bottom: 0;
+    }
+
+    &__para {
+        margin-top: 0.5rem;
+    }
+
+    &__category {
+        padding-left: 8%;
+    }
+
+    &__category-container {
+        padding-left: 8%;
+        display: flex;
+    }
+
+    &__category-header {
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    &__electronics {
+        margin-top: 0.5rem;
+    }
+
+    &__status {
+        margin-bottom: 0;
+        margin-right: 25%
+    }
+
+    &__in-stock {
+        margin-top: 0.5rem;
+        background-color: rgba(21, 132, 99, 0.09);
+        color: rgb(21, 132, 99, );
+        @include instockbutton;
+        border-radius: 50px;
+        width: max-content;
+    }
+
+    &__out-of-stock {
+        margin-top: 0.5rem;
+        background-color: rgba(201, 69, 21, 0.09);
+        color: rgb(201, 69, 21);
+        padding-left: 18%;
+        @include instockbutton;
+        border-radius: 50px;
+        display: none;
+    }
+
+    &__number {
+        margin-top: 0.5rem;
+    }
+
+    &__quantity {
+        margin-bottom: 0;
+    }
+
+    &__warehouse {
+        margin-bottom: 0;
+    }
+
+    &__warehouse-location {
+        margin-top: 0.5rem;
+    }
+
+
+}
