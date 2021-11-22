@@ -95,12 +95,6 @@
     line-height: 2.25rem;
     font-weight: 600;
 
-<<<<<<< HEAD
-    @include tablet {
-        font-size: 2rem;
-        line-height: 2.5rem;
-    }
-=======
     // @include tablet {
     //     font-size: 2rem;
     //     line-height: 2.5rem;
@@ -114,42 +108,25 @@
     //     font-size: 1rem;
     //     line-height: 1.75rem;
     // }
->>>>>>> develop
 }
 
 @mixin medbody {
     font-size: 0.813rem;
     line-height: 1.25rem;
     font-weight: 400;
-<<<<<<< HEAD
-
-    @include tablet {
-        font-size: 0.875rem;
-        line-height: 1.375rem;
-    }
-=======
     // @include tablet {
     //     font-size: 0.875rem;
     //     line-height: 1.375rem;
     // }
->>>>>>> develop
 }
 
 @mixin smallbody {
     font-size: 0.688rem;
     line-height: 1rem;
-<<<<<<< HEAD
-
-    @include tablet {
-        font-size: 0.75rem;
-        line-height: 1.125rem;
-    }
-=======
     // @include tablet {
     //     font-size: 0.75rem;
     //     line-height: 1.125rem;
     // }
->>>>>>> develop
 }
 
 // mixin for input style

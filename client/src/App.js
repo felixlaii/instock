@@ -12,15 +12,15 @@ class App extends Component {
   render() {
     return (
       <>
-<<<<<<< HEAD
         <PageHeader />
         <BrowserRouter>
           <div className="App">
             <Switch>
-              <Route path="/" exact component={AddInventory} />
-              {/* <Route path="/" exact component={WarehouseList} /> */}
+              <Route path="/" exact component={WarehouseList} />
               <Route path="/warehouse-details/:id"
-                render={(routerProps) => { return <WarehouseDetails {...routerProps} /> }} />
+                render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }} />
+              <Route path="/edit-warehouse" component={EditWarehouse} />
+              render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }}
               <Route path="/edit-warehouse" />
               <Route path="/add-new-warehouse" />
               <Route path="/inventory" />
@@ -28,25 +28,7 @@ class App extends Component {
               <Route path="/edit-inventory-item-" />
               <Route path="/add-new-inventory-item-" />
             </Switch>
-=======
-      <PageHeader />
-      <BrowserRouter>
-        <div className="App">
-          <Switch>
-            <Route path="/" exact component={WarehouseList}/>
-            <Route path="/warehouse-details/:id"
-              render={(routerProps) => {return <WarehouseDetailsPage {...routerProps}/>}}/>
-            <Route path="/edit-warehouse" component={EditWarehouse}/>
-              render={(routerProps) => {return <WarehouseDetailsPage {...routerProps}/>}}
-            <Route path="/edit-warehouse"/>
-            <Route path="/add-new-warehouse"/>
-            <Route path="/inventory"/>
-            <Route path="/inventory-item-details"/>
-            <Route path="/edit-inventory-item-"/>
-            <Route path="/add-new-inventory-item-"/> 
-          </Switch>
 
->>>>>>> develop
           </div>
         </BrowserRouter>
       </>
