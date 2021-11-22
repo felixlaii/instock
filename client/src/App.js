@@ -6,7 +6,7 @@ import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
 import WarehouseList from './pages/WarehouseList/WarehouseList';
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
-import InventoryItemDetails from './components/InventoryItemDetails/InventoryItemDetails';
+import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 
 
 class App extends Component {
