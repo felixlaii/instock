@@ -13,8 +13,12 @@ function PageHeader() {
             </div>
             <div className="primary-nav__nav">
                 <ul className="primary-nav__list">
-                    <li className="primary-nav__items">Warehouses</li>
-                    <li className="primary-nav__items">Inventory</li>
+                    <Link to="/">
+                        <li className="primary-nav__items">Warehouses</li>
+                    </Link>
+                    <Link to="/inventory">
+                        <li className="primary-nav__items">Inventory</li>
+                    </Link>
                 </ul>
             </div>
             

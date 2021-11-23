@@ -33,11 +33,12 @@
         @include flexrow;
         justify-content: space-around;
         list-style: none;
-        color: $secondarylight;
-
+        padding: 0;
+        
     }
-
+    
     &__items {
+        color: $secondarylight;
         border: 1px solid $bkgddark; padding: 0.5rem 3rem 0.5rem 3rem;
         border-radius: 1.25rem;
         font-size: 0.813rem;
