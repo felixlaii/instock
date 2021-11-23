@@ -1,6 +1,5 @@
 import ArrowBack from '../../assets/icons/arrow_back-24px.svg'
 import Edit from '../../assets/icons/edit-24px.svg'
-import InStock from '../../assets/logo/InStock-Logo_2x.png'
 import { Component } from 'react'
 import './InventoryItemDetails.scss'
 import axios from 'axios'
@@ -33,10 +32,10 @@ class InventoryItemDetails extends Component {
 
             <div className='inventory-item'>
                 <div className='inventory-item__header'>
-                    <img className='inventory-item__arrow' src={ArrowBack} />
+                    <img className='inventory-item__arrow' src={ArrowBack} alt="arrowback icon" />
                     <h1 className='inventory-item__title'>{item.itemName}</h1>
                     <Link to={"/edit-inventory-item/" + item.id} className='inventory-item__edit-link' >
-                        <img className='inventory-item__Edit' src={Edit} />
+                        <img className='inventory-item__Edit' src={Edit} alt="edit icon"/>
                     </Link>
                 </div>
                 <div className='inventory-item__row'>
