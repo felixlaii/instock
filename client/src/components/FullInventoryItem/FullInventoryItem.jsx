@@ -12,7 +12,7 @@ function FullInventoryItem({ category, id, itemName, quantity, status, warehouse
                     <div className="full-inventory__item-cat-wrapper">
                         <div className="full-inventory__item-wrapper">
                             <p className="full-inventory__sub">Inventory Item</p>
-                            <Link to={"/inventory/" + id}>
+                            <Link to={"/inventory-item-details/" + id}>
                                 <p className="full-inventory__item-name">{itemName}
                                     <img className="full-inventory__chevron" src={chevron} alt="chevron"/>
                                 </p>

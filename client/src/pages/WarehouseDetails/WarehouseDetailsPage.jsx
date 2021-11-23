@@ -1,12 +1,13 @@
 import { Component } from 'react';
 import axios from "axios";
-import sortIcon from '../../assets/icons/sort-24px.svg'
 
 import './WarehouseDetailsPage.scss';
 import InventoryItem from '../../components/InventoryItem/InventoryItem';
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
+import BackButton from '../../components/BackButton/BackButton';
+import sortIcon from '../../assets/icons/sort-24px.svg'
 
-const warehouseEndpoint = "http://localhost:8080/warehouse-details/"
+const warehouseEndpoint = "http://localhost:8080/warehouse-details/";
 
 class WarehouseDetailsPage extends Component {
 
@@ -40,7 +41,6 @@ class WarehouseDetailsPage extends Component {
             return (
                 <>
                     <div className="details__card">
-
                         <WarehouseDetails warehouse={warehouse}/>
 
                         <div className="inventory__table-row">

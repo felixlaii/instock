@@ -1,14 +1,16 @@
 import './WarehouseDetails.scss';
 import back from '../../assets/icons/arrow_back-24px.svg'
 import editWhite from '../../assets/icons/edit-24px-white.svg'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 function WarehouseDetails({ warehouse }) {
+    const history = useHistory();
     return (
         <div className="details__wrapper">
             <div className="details__title-wrapper">
                 <div className="details__title-back">
-                    <img src={back} className="details__back-icon" alt="back icon" />
+                    <img onClick={history.goBack} src={back} className="details__back-icon" alt="back icon" />
                     <h2 className="details__title">{warehouse[0].name}</h2>
                 </div>
                 <Link to={"/edit-warehouse/" + warehouse[0].id}>

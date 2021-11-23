@@ -14,9 +14,9 @@ class App extends Component {
   render() {
     return (
       <>
-        <PageHeader />
         <BrowserRouter>
           <div className="App">
+          <PageHeader />
             <Switch>
               <Route path="/" exact component={WarehouseList} />
               <Route path="/warehouse-details/:id"
