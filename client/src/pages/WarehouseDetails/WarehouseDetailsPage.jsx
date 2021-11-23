@@ -1,17 +1,12 @@
 import { Component } from 'react';
 import axios from "axios";
-import sortIcon from '../../assets/icons/sort-24px.svg'
-// import back from '../../assets/icons/arrow_back-24px.svg'
-// import editWhite from '../../assets/icons/edit-24px-white.svg'
-// import edit from '../../assets/icons/edit-24px.svg'
-// import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
-// import chevron from '../../assets/icons/chevron_right-24px.svg'
 
 import './WarehouseDetailsPage.scss';
 import InventoryItem from '../../components/InventoryItem/InventoryItem';
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
+import sortIcon from '../../assets/icons/sort-24px.svg'
 
-const warehouseEndpoint = "http://localhost:8080/warehouse-details/"
+const warehouseEndpoint = "http://localhost:8080/warehouse-details/";
 
 class WarehouseDetailsPage extends Component {
 
@@ -20,8 +15,8 @@ class WarehouseDetailsPage extends Component {
         showWarehouse: false
     }
 
-    componentDidMount() {
-        let warehouseId = this.props.match.params.id || "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9"
+    resetState= () => {
+        let warehouseId = this.props.match.params.id
 
         axios
           .get(warehouseEndpoint + warehouseId)
@@ -31,11 +26,29 @@ class WarehouseDetailsPage extends Component {
             })
             console.log(this.state.warehouse)
           })
-      }
+    };
+
+    onConfirmHandler = (id) => {
+        axios.delete("http://localhost:8080/inventory/delete-inventory/"+id)
+        .then(response => {
+            this.resetState();
+        });
+    }
+
+    componentDidMount() {
+        let warehouseId = this.props.match.params.id 
+
+        axios
+            .get(warehouseEndpoint + warehouseId)
+            .then(response => {
+                this.setState({
+                warehouse: response.data
+                })
+            })
+    }
 
     render() {
         const { warehouse } = this.state
-        console.log(warehouse)
         
         if (!warehouse.length) {
             return (
@@ -44,32 +57,30 @@ class WarehouseDetailsPage extends Component {
             }
             
         if (warehouse.length) {
-        // const { category, id, itemName, quantity, status } = warehouse[1][2];
-        return (
-            <>
-                <div className="details__card">
+            return (
+                <>
+                    <div className="details__card">
+                        <WarehouseDetails warehouse={warehouse}/>
 
-                    <WarehouseDetails warehouse={warehouse}/>
-                    
-                    <div className="inventory__table-row">
-                        <div className="inventory__inv-cat-subs">
-                            <p className="inventory__table-inv-sub">Inventory Item
-                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                            </p>
-                            <p className="inventory__table-cat-sub">Category
-                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                            </p>
+                        <div className="inventory__table-row">
+                            <div className="inventory__inv-cat-subs">
+                                <p className="inventory__table-inv-sub">Inventory Item
+                                    <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                                </p>
+                                <p className="inventory__table-cat-sub">Category
+                                    <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                                </p>
+                            </div>
+                            <div className="inventory__stat-qty-subs">
+                                <p className="inventory__table-stat-sub">Status
+                                    <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                                </p>
+                                <p className="inventory__table-sub">Quantity
+                                    <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
+                                </p>
+                            </div>
+                            <p className="inventory__table-action-sub">Actions</p>
                         </div>
-                        <div className="inventory__stat-qty-subs">
-                            <p className="inventory__table-stat-sub">Status
-                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                            </p>
-                            <p className="inventory__table-sub">Quantity
-                                <img className="inventory__sort-icon" src={sortIcon} alt="sort icon" />
-                            </p>
-                        </div>
-                        <p className="inventory__table-action-sub">Actions</p>
-                    </div>
 
                     {warehouse[1].map(inventory => 
                         <InventoryItem key={inventory.id} category={inventory.category} 
@@ -78,12 +89,13 @@ class WarehouseDetailsPage extends Component {
                             quantity={inventory.quantity} 
                             status={inventory.status}
                             warehouseName={inventory.warehouseName}
-                            showWarehouse={this.state.showWarehouse} />)}
+                            showWarehouse={this.state.showWarehouse}
+                            handler={this.onConfirmHandler} />)}
 
-                </div>
-            </>
-        )
-        }
+                    </div>
+                </>
+            )
+            }
     }
 }
 
