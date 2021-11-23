@@ -54,8 +54,7 @@ a {
             padding-left: 1rem;
         }
         @include desktop {
-            width: 230px;
-            padding-left: 5vw;
+            width: 200px;
         }
         &--clickable {
             display: flex;
