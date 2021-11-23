@@ -10,20 +10,20 @@
     background-color: $primarylight;
     border-radius: 4px;
 
+    &__nav {
+        display: flex;
+        align-items: baseline;
+    }
+
     &__header {
         width: 100%;
         margin-bottom: 0;
-        padding-left: 2rem;
+        padding-left: 0.5rem;
         font-size: 1.5rem;
-        background-image: url(../../assets/icons//arrow_back-24px.svg);
-        background-repeat: no-repeat;
-        background-position: left;
-        font-family: 'trillium regular';
+    }
 
-        @include tablet {
-            display: flex;
-            justify-content: center;
-        }
+    &__arrow {
+        padding-left: 1rem;
     }
 
     &__subheader {

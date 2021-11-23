@@ -3,6 +3,7 @@ import { Component } from 'react'
 import axios from 'axios'
 import './AddWarehouse.scss'
 import errorImage from '../../assets/icons/error-24px.svg'
+import backArrow from '../../assets/icons//arrow_back-24px.svg'
 
 
 class AddWarehouse extends Component {
@@ -114,8 +115,10 @@ class AddWarehouse extends Component {
     render() {        
         return (
             <div className="warehouse-add">
-                <h1 className="warehouse-add__header">Add New Warehouse</h1>
-
+                <div className="warehouse-add__nav">
+                    <img className="warehouse-add__arrow" src={backArrow} alt="back arrow" />
+                    <h1 className="warehouse-add__header">Add New Warehouse</h1>
+                </div>
                 <div className="warehouse-add__container">
                     <form onSubmit={this.addSuccess} className="warehouse-add__housedetails">
                         
