@@ -39,7 +39,7 @@ export default function WarehouseListItem(props) {
             <div className="warehouses-card__detail">{props.warehouse.contact.phone}<div>{props.warehouse.contact.email}</div></div>
             <div className="warehouses-card__buttons">
                 <DeleteWarehouse name={props.warehouse.name} id={props.warehouse.id} handler={props.handler}/>
-                <button className="warehouses-card__edit" type="button"></button>
+                <Link to={"edit-warehouse/"+props.warehouse.id} ><button className="warehouses-card__edit" type="button"></button></Link>
             </div>
         </div>
     </div>

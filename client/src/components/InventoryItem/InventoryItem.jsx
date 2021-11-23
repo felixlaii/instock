@@ -1,6 +1,5 @@
 import './InventoryItem.scss';
 import edit from '../../assets/icons/edit-24px.svg'
-import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevron from '../../assets/icons/chevron_right-24px.svg'
 import { Link } from 'react-router-dom';
 import DeleteInventoryItem from '../DeleteInventoryItem/DeleteInventoryItem';
@@ -35,7 +34,7 @@ function InventoryItem({ category, id, itemName, quantity, status, handler }) {
                     </div>
                     <div className="inventory__icons-wrapper-a">
                         <DeleteInventoryItem name={itemName} id={id} handler={handler}/>
-                        <Link to={"/edit-inventory-item/:id"}>
+                        <Link to={"/edit-inventory-item/" + id}>
                             <img className="inventory__icon-edit" src={edit} alt="edit icon" />
                         </Link>
                     </div>

@@ -9,6 +9,7 @@
         background-color: $primarylight;
         margin: 0 5vw;
         box-shadow: 0 0 1px $secondarylight;
+        border-radius: 3px;
         @include tablet {
             top: -88px;
         }
@@ -57,6 +58,7 @@
         background: none;
         background-color: $primarymed;
         color: $primarylight;
+        cursor: pointer;
     }
     &-card__hearder{
         display: none;
