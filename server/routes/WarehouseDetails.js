@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-let warehouses = require('../data/warehouses.json');
-let inventories = require('../data/inventories.json');
 
 router.route('/:id')
     .get((req, res) => {
+
+        let inventories = fs.readFileSync('./data/inventories.json');
+        let warehouses = fs.readFileSync('./data/warehouses.json');
 
         const id = req.params.id;
 
