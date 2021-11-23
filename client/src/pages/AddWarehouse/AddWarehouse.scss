@@ -2,7 +2,7 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-.warehouse-edit {
+.warehouse-add {
     margin-left: 1rem;
     margin-right: 1rem;
     border: 1px solid $secondarylight; 
@@ -20,8 +20,11 @@
         border-bottom: 1px solid $secondarylight;
     }
 
-    &__arrow {
-        padding-left: 1rem;
+    &__header {
+        width: 100%;
+        margin-bottom: 0;
+        padding-left: 0.5rem;
+        font-size: 1.5rem;
     }
 
     &__wrapper {
@@ -31,11 +34,8 @@
         }
     }
 
-    &__header {
-        width: 100%;
-        margin-bottom: 0;
-        padding-left: 0.5rem;
-        font-size: 1.5rem;
+    &__arrow {
+        padding-left: 1rem;
     }
 
     &__subheader {
@@ -60,6 +60,7 @@
         padding-left: 3rem;
         }
     }
+
 
     &__label,
     &__input {
@@ -86,7 +87,11 @@
     }
 
     &__buttons {
-        @include buttonstyle;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        justify-content: space-evenly;
+        align-items: center;
         margin-top: 2rem;
         background-color: $bkgdlight;
         height: 4rem;   
@@ -114,19 +119,23 @@
         border: 1px solid $secondarylight; 
         background-color: $primarylight;
         border-radius: 1.25rem;
-        padding: 0.2rem 2rem 0.2rem 2rem;
+        padding: 0.2rem 4rem 0.2rem 4rem;
         font-size: 0.8rem;
     }
 
     &__valid-error {
+        display: flex;
+        align-items: baseline;
         color: $errorColor;
     }
 
-    &__error-image {
+    &__error-image {     
         padding-right: 0.5rem;
+        margin-left: 1rem;
     }
 
     &__border-error {
         border: $errorColor solid 1.45px;
+    
     }
 }
