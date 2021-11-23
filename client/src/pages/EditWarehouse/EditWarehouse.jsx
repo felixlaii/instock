@@ -3,6 +3,7 @@ import { Component } from 'react'
 import axios from 'axios'
 import './EditWarehouse.scss'
 import errorImage from '../../assets/icons/error-24px.svg'
+import backArrow from '../../assets/icons//arrow_back-24px.svg'
 
 class EditWarehouse extends Component {
 
@@ -127,8 +128,10 @@ class EditWarehouse extends Component {
         
         return (
             <div className="warehouse-edit">
-                <h1 className="warehouse-edit__header">Edit Warehouse</h1>
-
+                <div className="warehouse-edit__back">
+                    <img className="warehouse-edit__arrow" src={backArrow} alt="back arrow" />
+                    <h1 className="warehouse-edit__header">Edit Warehouse</h1>
+                </div>
                 <div className="warehouse-edit__container">
                     <form onSubmit={this.onSubmit} className="warehouse-edit__housedetails">
                         <div className="warehouse-edit__card">
@@ -212,7 +215,6 @@ class EditWarehouse extends Component {
                         </div>
                     </form>
                 </div>
-            
             </div>
         )
     }
