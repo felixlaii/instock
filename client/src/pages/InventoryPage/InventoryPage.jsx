@@ -5,6 +5,7 @@ import sortIcon from '../../assets/icons/sort-24px.svg'
 
 import './InventoryPage.scss';
 import FullInventoryItem from '../../components/FullInventoryItem/FullInventoryItem';
+import { Link } from 'react-router-dom';
 
 const inventoryEndpoint = "http://localhost:8080/inventory/all"
 
@@ -14,8 +15,16 @@ class InventoryPage extends Component {
         inventoryArray: [],
     }
 
+    onConfirmHandler = (id) => {
+        axios.delete("http://localhost:8080/inventory/delete-inventory/"+id)
+        .then(response => {
+            this.setState({
+                inventoryArray: response.data
+              });
+        });
+    }
+
     componentDidMount() {
-        // let warehouseId = "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9"
 
         axios
           .get(inventoryEndpoint)
@@ -45,7 +54,9 @@ class InventoryPage extends Component {
                         <div className="all-inventory__title">Inventory</div>
                         <div className="all-inventory__wrapper">
                             <input className="all-inventory__input" type="text" placeholder="Search..."/>
-                            <button className="all-inventory__button" type="button">+ Add New Item</button>
+                            <Link to="/add-new-inventory-item-">
+                                <button className="all-inventory__button" type="button">+ Add New Item</button>
+                            </Link>
                         </div>
                     </div>
 
@@ -78,7 +89,8 @@ class InventoryPage extends Component {
                             itemName={inventory.itemName} 
                             quantity={inventory.quantity} 
                             status={inventory.status}
-                            warehouseName={inventory.warehouseName}/>)}
+                            warehouseName={inventory.warehouseName}
+                            handler={this.onConfirmHandler}/>)}
 
                 </div>
             )
