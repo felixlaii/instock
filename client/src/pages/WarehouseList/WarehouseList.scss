@@ -70,9 +70,6 @@
             justify-content: space-between;
             align-items: center;
             width: 80%;
-            @include desktop {
-                width: 76%;
-            }
         }  
         &-item {
             display: flex;
@@ -80,6 +77,14 @@
             @include smallbody;
             color: $secondarydark;
             padding: 0.5rem 0;
+            width: 130px;
+            padding-left: 1rem;
+            @include desktop {
+                width: 200px;
+            }
+            &:first-of-type {
+                padding-left: 0;
+            }
             &--float {
                 padding-right: 1rem;
                 width: fit-content;
