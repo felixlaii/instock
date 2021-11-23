@@ -1,0 +1,55 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.primary-nav {
+    background-color: $bkgddark;
+    @include flexcolumn;
+    min-height: 12rem;
+    font-family: 'trillium regular';
+
+    @include desktop {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    @include tablet {
+        @include flexrow;
+        justify-content: space-between;
+    }
+
+    &__instock {
+        padding-top: 1.5rem;
+        @include flexrow;
+        justify-content: center;
+
+        @include tablet {
+            margin-left: 2rem;
+            justify-content: flex-start;
+        }
+    }
+
+    &__list {
+        @include flexrow;
+        justify-content: space-around;
+        list-style: none;
+        padding: 0;
+        
+    }
+    
+    &__items {
+        color: $secondarylight;
+        border: 1px solid $bkgddark; padding: 0.5rem 3rem 0.5rem 3rem;
+        border-radius: 1.25rem;
+        font-size: 0.813rem;
+
+        @include tablet {
+            border: 1px solid $bkgddark; padding: 0.5rem 1rem 0.5rem 1rem;
+        }
+        
+        &:active {
+            background-color: $primarydark;
+            color: $primarylight;
+        }
+    }
+}

@@ -1,0 +1,149 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+@mixin bottomborder {
+    border-bottom: 1px solid $secondarylight;
+}
+
+body {
+    background-color: $bkgdlight;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.details {
+
+    &__title-wrapper {
+        @include flexrow;
+        align-items: center;
+        padding: 0 24px;
+        width: 100%;
+        justify-content: space-between;
+        @include bottomborder;
+
+        @include tablet {
+            height: 94px;
+        }
+
+        @include desktop {
+            padding: 0 40px;
+        }
+    }
+
+    &__title-back {
+        @include flexrow;
+    }
+
+    &__title {
+        margin-left: 1rem;
+        @include mobileheader;
+        @include tablet {
+            @include pageheader;
+        }
+    }
+
+    &__back-icon {
+        cursor: pointer;
+    }
+    
+    &__edit-icon-bg {
+        background-color: $primarymed;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        @include flexrow;
+        justify-content: center;
+        justify-self: flex-end;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 8px 16px;
+            width: 81px;
+            height: 38px;
+            border-radius: 20px;
+            justify-content: center;
+        }
+    }
+
+    &__edit-icon {
+        width: 18px;
+    }
+
+    &__edit-text {
+        display: none;
+        color: $primarylight;
+        font-weight: 600;
+        @include medbodystyles;
+        margin-left: 10px;
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__container {
+        @include bottomborder;
+        padding: 1rem 24px;
+        width: 100%;
+
+        @include tablet {
+            display: flex;
+            border-bottom: none;
+            padding-top: 26px;
+        }
+
+        @include desktop {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    &__address-wrapper {
+        @include mobilemedbody;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            width: 40%;
+            border-right: 1px solid $secondarylight;
+        }
+    }
+
+    &__address-sub {
+        color: $secondarydark;
+        font-weight: 700;
+        margin: 0 0 4px;
+        text-transform: uppercase;
+    }
+
+    &__address {
+        margin: 0;
+    }
+
+    &__contact-container {
+        @include flexrow;
+        @include mobilemedbody;
+        width: 100%;
+
+        @include tablet {
+            width: 60%;
+            padding-left: 40px;
+        }
+    }
+
+    &__contact-name-wrapper {
+        width: 50%;
+    }
+
+    &__contact-sub {
+        @extend .details__address-sub;
+    }
+
+    &__contact-body {
+        @extend .details__address;
+    }
+}

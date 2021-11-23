@@ -1,0 +1,145 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+@mixin bottomborder {
+    border-bottom: 1px solid $secondarylight;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.all-inventory {
+    background-color: $bkgdlight;
+    @include flexcolumn;
+    align-items: center;
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        background-color: $primarylight;
+        width: 91.5%;
+        position: relative;
+        top: -4rem;
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+        border-radius: 3px;
+        margin-bottom: 1rem;
+
+        @include tablet {
+            top: -5.5rem;
+        }
+
+        @include desktop {
+            width: 80%;
+        }
+    }
+
+    &__header {
+        position: relative;
+        border-bottom: 1px solid $secondarylight;
+        padding: 2rem 5vw;
+        padding-bottom: 1rem;
+        @include tablet {
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__title {
+        @include header;
+        padding-bottom: 1rem;
+        @include tablet {
+            padding: 0;
+        }
+    }
+
+    &__input {
+        box-sizing: border-box;
+        border: 1px solid $secondarylight;
+        background: url(../../assets/icons/search-24px.svg) no-repeat scroll calc(100% - 7px) 7px, $primarylight;
+        border-radius: 20px;
+        padding: 0 8px;
+        height: 36px;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        @include medbody;
+        color: $secondarydark;
+
+        @include tablet {
+            height: 38px;
+            width: 185px;
+            margin: 0;
+            margin-left: 1rem;
+        }
+    }
+
+    &__button {
+        @extend .all-inventory__input;
+        border-color: transparent;
+        background: none;
+        background-color: $primarymed;
+        color: $primarylight;
+        cursor: pointer;
+    }
+
+    &__table-row {
+        align-items: center;
+        background-color: rgba(247, 248, 249, 0.7);
+        padding: 0 24px;
+        display: none;
+
+        @include tablet {
+            @include flexrow;
+        }
+
+        @include desktop {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+
+    &__inv-cat-subs {
+        @include flexrow;
+        width: 40%;
+    }
+
+    &__stat-qty-subs {
+        @include flexrow;
+        width: 30%;
+    }
+
+    &__table-sub {
+        @include flexrow;
+        @include mobilemedbody;
+        align-items: center;
+        color: $secondarydark;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    &__table-inv-sub {
+        @extend .all-inventory__table-sub;
+        width: 60%;
+    }
+
+    &__table-cat-sub{
+        @extend .all-inventory__table-sub;
+    }
+
+    &__table-stat-sub{
+        @extend .all-inventory__table-sub;
+        width: 70%;
+    }
+
+    &__table-warehouse-sub {
+        @extend .all-inventory__table-sub;
+        width: 20%;
+    }
+
+    &__table-action-sub{
+        @extend .all-inventory__table-sub;
+    }
+}

@@ -1,0 +1,159 @@
+@import '../../styles/partials/_mixins.scss';
+
+.inventory-item {
+    width: 93%;
+    margin: auto;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.164);
+    margin-top: -10%;
+    margin-bottom: 150px;
+
+    @include desktop {
+        margin-top: -5%;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-left: 8%;
+
+        @include desktop {
+            margin-left: 4%;
+        }
+    }
+
+    &__title {
+        padding-right: 40%;
+        padding-left: 4%;
+
+        @include tablet {
+            padding-right: 60%;
+        }
+
+        @include desktop {
+            padding-right: 80%;
+        }
+
+    }
+
+    &__description {
+        padding-left: 8%;
+        border-top: 1px solid #BDC5D5;
+
+        @include tablet {
+            border-top: none;
+            margin-right: 0.01rem;
+            width: 80%;
+        }
+    }
+
+    &__para-description {
+        margin-bottom: 0;
+    }
+
+    &__para {
+        margin-top: 0.5rem;
+    }
+
+    &__category {
+        padding-left: 8%;
+
+        @include tablet {
+            width: max-content
+        }
+    }
+
+    &__category-container {
+        padding-left: 8%;
+        display: flex;
+    }
+
+    &__category-header {
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    &__electronics {
+        margin-top: 0.5rem;
+    }
+
+    &__status {
+        margin-bottom: 0;
+        margin-right: 25%
+    }
+
+    &__in-stock {
+        margin-top: 0.5rem;
+        background-color: rgba(21, 132, 99, 0.09);
+        color: rgb(27, 165, 124);
+        @include instockbutton;
+        border-radius: 50px;
+        width: max-content;
+    }
+
+    &__out-of-stock {
+        margin-top: 0.5rem;
+        background-color: rgba(201, 69, 21, 0.09);
+        color: rgb(197, 72, 26);
+        padding-left: 18%;
+        @include instockbutton;
+        border-radius: 50px;
+        width: max-content;
+    }
+
+    &__number {
+        margin-top: 0.5rem;
+    }
+
+    &__quantity {
+        margin-bottom: 0;
+    }
+
+    &__quantity-container {
+        @include tablet {
+            margin-left: 40%;
+        }
+    }
+
+    &__warehouse {
+        margin-bottom: 0;
+    }
+
+    &__warehouse-location {
+        margin-top: 0.5rem;
+        padding-bottom: 5%;
+    }
+
+    &__row {
+        @include tablet {
+            display: flex;
+            border-top: 1px solid #BDC5D5;
+            height: 80%;
+        }
+    }
+
+    &__left {
+        @include tablet {
+            width: 50%;
+            border-right: 1px solid #BDC5D5;
+            height: 11rem;
+            margin-top: 1%;
+        }
+    }
+
+    &__right {
+        @include tablet {
+            height: 10rem;
+            margin-top: 1%;
+            margin-bottom: 4%;
+            padding-left: 4%;
+        }
+
+        @include desktop {
+            margin-bottom: 2%;
+        }
+
+        ;
+    }
+}

@@ -1,0 +1,144 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-add {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 1px solid $secondarylight; 
+    margin-top: -4rem;
+    background-color: $primarylight;
+    border-radius: 4px;
+
+    @include desktop {
+        margin-left: 8rem;
+        margin-right: 8rem;
+    }
+
+    &__nav {
+        @include flexbaseline;
+        border-bottom: 1px solid $secondarylight;
+    }
+
+    &__header {
+        width: 100%;
+        margin-bottom: 0;
+        padding-left: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    &__wrapper {
+        @include tablet {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+
+    &__arrow {
+        padding-left: 1rem;
+        cursor: pointer;
+    }
+
+    &__subheader {
+        padding-left: 1rem;
+        padding-top: 1rem;
+        @include mobilesub;
+    }
+
+    &__warehouse,
+    &__contact {
+        @include flexcolumn;
+    }
+
+    &__contact {
+
+        @include tablet {
+            border-left: 1px solid $secondarylight;
+        }
+        
+        @include desktop {
+        border-left: 1px solid $secondarylight;
+        padding-left: 3rem;
+        }
+    }
+
+
+    &__label,
+    &__input {
+        border-radius: 1.25rem;
+        box-shadow: none;
+        @include mobilesmallbody;
+        border-color: $secondarylight;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &__label {
+        margin-left: 1rem;
+    }
+
+    &__input {
+        @include formpadding;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        @include tablet {
+            width: 20.9rem;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 2rem;
+        background-color: $bkgdlight;
+        height: 4rem;   
+        
+        @include tablet {
+            @include flexstart;
+        }
+    }    
+
+    &__save {
+        border: 1px solid $primarymed; 
+        background-color: $primarymed;
+        color: $primarylight;
+        border-radius: 1.25rem;
+        padding: 0.2rem 2rem 0.2rem 2rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+
+        @include tablet {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__cancel {
+        border: 1px solid $secondarylight; 
+        background-color: $primarylight;
+        border-radius: 1.25rem;
+        padding: 0.2rem 4rem 0.2rem 4rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+    }
+
+    &__valid-error {
+        display: flex;
+        align-items: baseline;
+        color: $errorColor;
+    }
+
+    &__error-image {     
+        padding-right: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    &__border-error {
+        border: $errorColor solid 1.45px;
+    
+    }
+}
