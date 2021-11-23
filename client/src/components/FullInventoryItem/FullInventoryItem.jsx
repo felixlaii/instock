@@ -2,6 +2,7 @@ import './FullInventoryItem.scss';
 import edit from '../../assets/icons/edit-24px.svg'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevron from '../../assets/icons/chevron_right-24px.svg'
+import { Link } from 'react-router-dom';
 import DeleteInventoryItem from '../DeleteInventoryItem/DeleteInventoryItem';
 
 function FullInventoryItem({ category, id, itemName, quantity, status, warehouseName, handler }) {
@@ -12,9 +13,11 @@ function FullInventoryItem({ category, id, itemName, quantity, status, warehouse
                     <div className="full-inventory__item-cat-wrapper">
                         <div className="full-inventory__item-wrapper">
                             <p className="full-inventory__sub">Inventory Item</p>
-                            <p className="full-inventory__item-name">{itemName}
-                                <img className="full-inventory__chevron" src={chevron} alt="chevron"/>
-                            </p>
+                            <Link to={"/inventory-item-details/" + id}>
+                                <p className="full-inventory__item-name">{itemName}
+                                    <img className="full-inventory__chevron" src={chevron} alt="chevron"/>
+                                </p>
+                            </Link>
                         </div>
                         <div className="full-inventory__category-wrapper">
                             <p className="full-inventory__sub">Category</p>
