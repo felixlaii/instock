@@ -3,6 +3,7 @@ import './EditInventoryItem.scss'
 import ArrowBack from '../../assets/icons/arrow_back-24px.svg'
 import axios from 'axios'
 import error from '../../assets/icons/error-24px.svg'
+import { Link } from "react-router-dom";
 
 
 class EditInventoryItem extends Component {
@@ -174,7 +175,7 @@ class EditInventoryItem extends Component {
             <section className='inventory-edit' >
                 <form className='inventory-edit__container' method="post" onSubmit={this.submitHandler}>
                     <div className='inventory-edit__header'>
-                        <img className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack} />
+                        <Link to="/"><img onclick="javascript:window.history.back();" className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack}  /></Link>
                         <h1 className='inventory-edit__new'>Edit Inventory Item</h1>
                     </div>
                     <div className='inventory-edit__breakpoint'>
@@ -186,7 +187,7 @@ class EditInventoryItem extends Component {
                                     <input name="itemName" className='inventory-edit__input-item' type='text' placeholder='Item Name' defaultValue={this.state.itemDetails.itemName}></input>
                                     {this.state.validationError.itemName &&
                                         <p className="inventory-edit__validation-error">
-                                            <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error}  />
                                             This field is required!</p>}
                                 </div>
                                 <div className='inventory-edit__input-column'>
@@ -194,7 +195,7 @@ class EditInventoryItem extends Component {
                                     <input name="description" className='inventory-edit__input-description' type='text' placeholder='Please enter a brief item description...' defaultValue={this.state.itemDetails.description}></input>
                                     {this.state.validationError.itemName &&
                                         <p className="inventory-edit__validation-error">
-                                            <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error}  />
                                             This field is required!</p>}
                                 </div>
                                 <div className='inventory-edit__input-column'>
@@ -202,7 +203,7 @@ class EditInventoryItem extends Component {
                                     <input name="category" className='inventory-edit__input-category' type='text' placeholder='Please select' defaultValue={this.state.itemDetails.category}></input>
                                     {this.state.validationError.category &&
                                         <p className="inventory-edit__validation-error">
-                                            <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error}  />
                                             This field is required!</p>}
                                 </div>
                             </div>
@@ -249,7 +250,7 @@ class EditInventoryItem extends Component {
                         </div>
                     </div>
                     <div className='inventory-edit__button-container'>
-                        <button className='inventory-edit__cancel-button'>Cancel</button>
+                        <button className='inventory-edit__cancel-button' onclick="history.back()">Cancel</button>
                         <button type='submit' className='inventory-edit__add-button'>Save</button>
                     </div>
                 </form>
