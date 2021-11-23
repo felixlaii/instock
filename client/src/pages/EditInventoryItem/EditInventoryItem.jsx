@@ -250,7 +250,7 @@ class EditInventoryItem extends Component {
                         </div>
                     </div>
                     <div className='inventory-edit__button-container'>
-                        <Link to="/"><button className='inventory-edit__cancel-button' onclick="history.back()">Cancel</button></Link>
+                        <button className='inventory-edit__cancel-button' onclick="history.back()">Cancel</button>
                         <button type='submit' className='inventory-edit__add-button'>Save</button>
                     </div>
                 </form>
