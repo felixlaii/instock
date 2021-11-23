@@ -13,7 +13,7 @@ function InventoryItem({ category, id, itemName, quantity, status, handler }) {
                         <div className="inventory__item-wrapper">
                             <p className="inventory__sub">Inventory Item</p>
                             <Link to={"/inventory-item-details/" + id}>
-                                <p className="inventory__item-name">{itemName}
+                                <p className="inventory__item-name-text">{itemName}
                                     <img className="inventory__chevron" src={chevron} alt="chevron"/>
                                 </p>
                             </Link>

@@ -11,6 +11,8 @@ import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
 import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem.jsx'
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 import AddInventoryItem from './pages/AddInventoryItem/AddInventoryItem';
+import Footer from './components/Footer/Footer';
+import './styles/partials/_global.scss'
 
 
 class App extends Component {
@@ -34,8 +36,9 @@ class App extends Component {
               <Route path="/edit-inventory-item/:id" />
               <Route path="/add-new-inventory-item" component={AddInventory} />
             </Switch>
-
           </div>
+          <Footer />
+
         </BrowserRouter >
       </>
     );

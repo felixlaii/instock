@@ -1,0 +1,20 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+
+.footer {
+    @include flexrow;
+    width: 100%;
+    justify-content: center;
+
+    &__copyright {
+        color: $secondarydark;
+
+        @include tablet {
+            margin-bottom: 2.5rem;
+        }
+
+        @include desktop {
+            margin-bottom: 3rem;
+        }
+    }
+}
