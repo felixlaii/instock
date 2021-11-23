@@ -2,135 +2,22 @@ import React from 'react'
 import { Component } from 'react'
 import axios from 'axios'
 import './AddWarehouse.scss'
+import errorImage from '../../assets/icons/error-24px.svg'
+
 
 class AddWarehouse extends Component {
 
     state = {
-        warehouseList: [],
-        validationError: {
-            name: false,
-            address: false,
-            city: false,
-            country: false
-        }
+        warehouseList: null,
+        errorName: "",
+        errorAddress: "",
+        errorCity: "",
+        errorCountry: "",
+        errorContactName: "",
+        errorPosition: "",
+        errorPhone: "",
+        errorEmail: "",
     }
-
-    submitHandler = (e) => {
-        const isFormValid = (form) => {
-            let isValid = true;
-
-            const previousState = { ...this.state }
-
-            if (form.name.value.length < 3) {
-                form.name.classList.add()
-                previousState.validationError.name = true
-
-                isValid = false
-            } else {
-                form.name.classList.remove()
-                previousState.validationError.name = false
-            }
-
-            console.log(this.state.validationError)
-
-            if (form.address.value.length < 3) {
-                form.address.classList.add()
-                previousState.validationError.address = true
-                isValid = false
-            } else {
-                previousState.validationError.address = false
-                form.address.classList.remove()
-            }
-
-            console.log(this.state.validationError)
-
-            if (form.city.value.length < 3) {
-                form.city.classList.add()
-                previousState.validationError.city = true
-                isValid = false
-            } else {
-                previousState.validationError.city = false
-                form.city.classList.remove()
-            }
-
-            if (form.country.value.length < 3) {
-                form.country.classList.add()
-                previousState.validationError.country = true
-                isValid = false
-            } else {
-                previousState.validationError.country = false
-                form.country.classList.remove()
-            }
-
-            if (isNaN(parseInt(form.quantity.value)) || parseInt(form.quantity.value) <= 0) {
-                form.quantity.classList.add("inventory__border-error")
-                previousState.validationError.quantity = true
-                isValid = false
-            } else {
-                previousState.validationError.quantity = false
-                form.quantity.classList.remove("inventory__border-error")
-        }
-
-        this.setState(previousState)
-        console.log(this.state.validationError)
-
-
-        if (isValid) {
-            return true;
-        } else {
-            return false
-        }
-
-    }
-
-    e.preventDefault()
-    const form = e.target.elements
-
-    if (isFormValid(form)) {
-
-        const postUrl = "http://localhost:8080/warehouses/post";
-        const warehouse = this.state.warehouseList.find(warehouse => warehouse.id === form.warehouse.value)
-        const newWarehouse = {
-            warehouseID: form.warehouse.value,
-            name: warehouse.name,
-            address: form.address.value,
-            city: form.city.value,
-            country: form.country.value,
-        }
-        axios
-        .post(postUrl, newWarehouse)
-        .then(response => {
-            console.log(response.data)
-        })
-    }
-}
-    onChangeHandler = (event) => {
-        const element = event.target
-        const value = element.value
-
-        if (isNaN(parseInt(value)) || parseInt(value) <= 0) {
-            element.classList.add()
-            this.setState({
-                inStock: false
-            })
-
-        } else {
-            element.classList.add("inventory__border-error")
-            this.setState({
-                inStock: true
-            })
-        }
-    }
-
-<<<<<<< HEAD
-    componentDidMount() {
-        axios.get
-    }
-=======
-    // componentDidMount() {
-    //     axios.get
-    // }
->>>>>>> develop
 
     addSuccess = (e) => {
         e.preventDefault();
@@ -143,23 +30,86 @@ class AddWarehouse extends Component {
         const position = formData.position.value
         const phone = formData.phone.value
         const email = formData.email.value
-        if( !name || !address || !city || !country || !contactName || !position || !phone || !email)
-        alert("You must fill out all fields!")
-        axios.post(`/Warehouses`, {
-                name: formData.name.value,
-                address: formData.address.value,
-                city: formData.city.value,
-                country: formData.country.value,
-                contactName: formData.contactName.value,
-                position: formData.position.value,
-                phone: formData.phone.value,
-                email: formData.email.value
-            })
-            .then(response => {
-                console.log(response.data)
-            })
-            .catch((error) => (error))
+
+        if(!name.trim()) {
+            this.setState({errorName: "warehouse-add__border-error"})
+            return;
+         }
+
+         if(!address.trim()) {
+             this.setState({errorAddress: "warehouse-add__border-error"})
+             return;
+         }
+
+          if(!city.trim()) {
+             this.setState({errorCity: "warehouse-add__border-error"})
+             return;
+         }
+
+          if(!country.trim()) {
+             this.setState({errorCountry: "warehouse-add__border-error"})
+             return;
+         }
+
+          if(!contactName.trim()) {
+             this.setState({errorContactName: "warehouse-add__border-error"})
+             return;
+         }
+
+          if(!position.trim()) {
+             this.setState({errorPosition: "warehouse-add__border-error"})
+             return;
+         }
+
+          if(!phone.trim()) {
+             this.setState({errorPhone: "warehouse-add__border-error"})
+             return;
+         }
+
+          if(!email.trim()) {
+             this.setState({errorEmail: "warehouse-add__border-error"})
+             return;
+         }
+
+         let emailValid = (email) => {
+             const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+             return re.test(String(email).toLowerCase());
+         }
+
+         if(!emailValid(email)) {
+             this.setState({errorEmail: "warehouse-add__border-error"})
+             return;
+         }
+         const newWarehouse = {
+            name: formData.name.value,
+            address: formData.address.value,
+            city: formData.city.value,
+            country: formData.country.value,
+            contact: {
+                "name": formData.contactName.value,
+                "position": formData.position.value,
+                "phone": formData.phone.value,
+                "email": formData.email.value
             }
+         }
+
+         axios.post(`http://localhost:8080/warehouses`, newWarehouse)
+        .then((response) =>{
+            alert("Warehouse Added!")
+        })
+        .catch((response) => {
+            alert("Request cannot be processed. Try again!")
+        })
+    }
+
+    componentDidMount() {
+        axios.get(`/warehouses`)
+        .then(response => {
+            this.setState({
+                warehouseList: response.data
+            })
+        })
+    }
 
     render() {        
         return (
@@ -168,36 +118,76 @@ class AddWarehouse extends Component {
 
                 <div className="warehouse-add__container">
                     <form onSubmit={this.addSuccess} className="warehouse-add__housedetails">
+                        
                         <div className="warehouse-add__card">
-                            <h2 className="warehouse-add__subheader">Warehouse Details</h2>
+                            <div className="warehouse-add__warehouse">
+                                <h2 className="warehouse-add__subheader">Warehouse Details</h2>
 
-                            <label className="warehouse-add__label">Warehouse Name</label>
-                            <input className="warehouse-add__input" type="name" name="name" id="name" placeholder="Warehouse Name"></input>
+                                    <input className="warehouse-add__input" type="name" name="name" id="name" placeholder="Warehouse Name"></input>
+                                        {this.state.errorName && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
 
-                            <label className="warehouse-add__label">Street Address</label>
-                            <input className="warehouse-add__input" type="text" name="address" placeholder="Street Address"></input>
 
-                            <label className="warehouse-add__label">City</label>
-                            <input className="warehouse-add__input" type="text" name="city" placeholder="City"></input>
+                                    <label className="warehouse-add__label">Street Address</label>
+                                    <input className="warehouse-add__input" type="text" name="address" placeholder="Street Address"></input>
+                                        {this.state.errorAddress && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
 
-                            <label className="warehouse-add__label">Country</label>
-                            <input className="warehouse-add__input" type="text" name="country" placeholder="Country"></input>
+
+                                    <label className="warehouse-add__label">City</label>
+                                    <input className="warehouse-add__input" type="text" name="city" placeholder="City"></input>
+                                        {this.state.errorCity && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
+
+
+
+                                    <label className="warehouse-add__label">Country</label>
+                                    <input className="warehouse-add__input" type="text" name="country" placeholder="Country"></input>
+                                        {this.state.errorCountry && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
+                            </div>
                         </div>
 
                         <div className="warehouse-add__card">
-                            <h2 className="warehouse-add__subheader">Contact Details</h2>
+                            <div className="warehouse-add__contact">
+                                <h2 className="warehouse-add__subheader">Contact Details</h2>
 
-                            <label className="warehouse-add__label">Contact Name</label>
-                            <input className="warehouse-add__input" type="text" name="contactName" placeholder="Contact Name"></input>
+                                    <label className="warehouse-add__label">Contact Name</label>
+                                    <input className="warehouse-add__input" type="text" name="contactName" placeholder="Contact Name"></input>
+                                        {this.state.errorContactName && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
 
-                            <label className="warehouse-add__label">Position</label>
-                            <input className="warehouse-add__input" type="text" name="position" placeholder="Position"></input>
+                                    <label className="warehouse-add__label">Position</label>
+                                    <input className="warehouse-add__input" type="text" name="position" placeholder="Position"></input>
+                                        {this.state.errorPosition && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
 
-                            <label className="warehouse-add__label">Phone Number</label>
-                            <input className="warehouse-add__input" type="text" name="phone" placeholder="Phone Number"></input>
+                                    <label className="warehouse-add__label">Phone Number</label>
+                                    <input className="warehouse-add__input" type="text" name="phone" placeholder="Phone Number"></input>
+                                        {this.state.errorPhone && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
 
-                            <label className="warehouse-add__label">Email</label>
-                            <input className="warehouse-add__input" type="text" name="email" placeholder="Email"></input>
+                                    <label className="warehouse-add__label">Email</label>
+                                    <input className="warehouse-add__input" type="text" name="email" placeholder="Email"></input>
+                                        {this.state.errorEmail && 
+                                        <p className="warehouse-add__validation-error">
+                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                        this field is required!</p>}
+                            </div>
                         </div>
 
                         <div className="warehouse-add__buttons">
@@ -211,7 +201,6 @@ class AddWarehouse extends Component {
                         </div>
                     </form>
                 </div>
-            
             </div>
         )
     }
