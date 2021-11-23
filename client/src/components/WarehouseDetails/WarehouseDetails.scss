@@ -9,7 +9,6 @@
 
 body {
     background-color: $bkgdlight;
-    font-family: 'trillium regular';
 }
 
 * {
@@ -26,7 +25,6 @@ body {
         left: 4.27%;
         right: 4.27%;
         top: 136px;
-        // bottom: 4.95%;
         box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
         border-radius: 3px;
 
@@ -69,6 +67,10 @@ body {
         }
     }
 
+    &__back-icon {
+        cursor: pointer;
+    }
+    
     &__edit-icon-bg {
         background-color: $primarymed;
         border-radius: 50%;

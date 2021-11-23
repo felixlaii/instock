@@ -15,6 +15,7 @@
 
     &__header {
         display: flex;
+        align-items: center;
         margin-left: 8%;
 
         @include desktop {
@@ -98,7 +99,7 @@
         padding-left: 18%;
         @include instockbutton;
         border-radius: 50px;
-        display: none;
+        width: max-content;
     }
 
     &__number {
