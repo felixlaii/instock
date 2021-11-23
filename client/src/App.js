@@ -8,6 +8,7 @@ import WarehouseDetails from '../src/components/WarehouseDetails/WarehouseDetail
 import AddWarehouse from '../src/pages/AddWarehouse/AddWarehouse'
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
+import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem.jsx'
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 
 
@@ -23,9 +24,10 @@ class App extends Component {
               <Route path="/" exact component={WarehouseList} />
               <Route path="/warehouse-details/:id"
                 render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }} />
-              <Route path="/edit-warehouse" component={EditWarehouse} />
-              render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }}
-              <Route path="/add-new-warehouse" component={AddWarehouse}/>
+              <Route path="/edit-warehouse" component={EditWarehouse}
+                render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }} />
+              <Route path="/edit-warehouse" />
+              <Route path="/add-new-warehouse" component={AddWarehouse} />
               <Route path="/inventory" exact component={InventoryPage} />
               <Route path="/inventory-item-details" />
               <Route path="/edit-inventory-item-" />
@@ -33,7 +35,7 @@ class App extends Component {
             </Switch>
 
           </div>
-        </BrowserRouter>
+        </BrowserRouter >
       </>
     );
   }

@@ -145,72 +145,78 @@ class AddInventoryItem extends Component {
             <section className='inventory' >
                 <form className='inventory__container' method="post" onSubmit={this.submitHandler}>
                     <div className='inventory__header'>
-                        <img className='inventory__arrow' src={ArrowBack} />
-                        <h1>Add New Inventory Item</h1>
+                        <img className='inventory__arrow' alt='icon of arrow facing left' src={ArrowBack} />
+                        <h1 className='inventory__new'>Add New Inventory Item</h1>
                     </div>
-                    <div className='inventory__item-details'>
-                        <h4 className='inventory__details'>Item Details</h4>
-                        <div className='inventory__input-column'>
-                            <h6 className='inventory__item-name'>Item Name</h6>
-                            <input name="itemName" className='inventory__input-item' type='text' placeholder='Item Name'></input>
-                            {this.state.validationError.itemName &&
-                                <p className="inventory__validation-error">
-                                    <img className="inventory__error-image" src={error} alt="error" />
-                                    This field is required!</p>}
+                    <div className='inventory__breakpoint'>
+                        <div className='inventory__details-breakpoint'>
+                            <div className='inventory__item-details'>
+                                <h4 className='inventory__details'>Item Details</h4>
+                                <div className='inventory__input-column'>
+                                    <h6 className='inventory__item-name'>Item Name</h6>
+                                    <input name="itemName" className='inventory__input-item' type='text' placeholder='Item Name'></input>
+                                    {this.state.validationError.itemName &&
+                                        <p className="inventory__validation-error">
+                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            This field is required!</p>}
+                                </div>
+                                <div className='inventory__input-column'>
+                                    <h6 className='inventory__item-name'>Description</h6>
+                                    <input name="description" className='inventory__input-description' type='text' placeholder='Please enter a brief item description...'></input>
+                                    {this.state.validationError.itemName &&
+                                        <p className="inventory__validation-error">
+                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            This field is required!</p>}
+                                </div>
+                                <div className='inventory__input-column'>
+                                    <h6 className='inventory__item-name'>Category</h6>
+                                    <input name="category" className='inventory__input-category' type='text' placeholder='Please select'></input>
+                                    {this.state.validationError.category &&
+                                        <p className="inventory__validation-error">
+                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            This field is required!</p>}
+                                </div>
+                            </div>
                         </div>
-                        <div className='inventory__input-column'>
-                            <h6 className='inventory__item-name'>Description</h6>
-                            <input name="description" className='inventory__input-description' type='text' placeholder='Please enter a brief item description...'></input>
-                            {this.state.validationError.itemName &&
-                                <p className="inventory__validation-error">
-                                    <img className="inventory__error-image" src={error} alt="error" />
-                                    This field is required!</p>}
-                        </div>
-                        <div className='inventory__input-column'>
-                            <h6 className='inventory__item-name'>Category</h6>
-                            <input name="category" className='inventory__input-category' type='text' placeholder='Please select'></input>
-                            {this.state.validationError.category &&
-                                <p className="inventory__validation-error">
-                                    <img className="inventory__error-image" src={error} alt="error" />
-                                    This field is required!</p>}
-                        </div>
-                    </div>
-                    <div className='inventory__item-availability'>
-                        <h4 className='inventory__availability'>Item Availability</h4>
-                        <h6 className='inventory__item-name'>Status</h6>
-                        <div className='inventory__status-container'>
-                            <div className='inventory__instock'>
-                                {this.state.inStock ? <input type='radio' id="inStock" name='in_stock' value="In Stock" defaultChecked /> : <input type='radio' id="inStock" name='in_stock' value="In Stock" disabled />}
+                        <div className='inventory__availability-breakpoint'>
+                            <div className='inventory__item-availability'>
+                                <h4 className='inventory__availability'>Item Availability</h4>
+                                <h6 className='inventory__item-name'>Status</h6>
+                                <div className='inventory__status-container'>
+                                    <div className='inventory__instock'>
+                                        {this.state.inStock ? <input type='radio' id="inStock" name='in_stock' value="In Stock" defaultChecked /> : <input type='radio' id="inStock" name='in_stock' value="In Stock" disabled />}
 
-                                <label className='inventory__instock-label' htmlFor="inStock">In stock</label>
+                                        <label className='inventory__instock-label' htmlFor="inStock">In stock</label>
+                                    </div>
+                                    <div className='inventory__instock'>
+                                        {this.state.inStock ? <input type='radio' id="outOfStock" name='in_stock' value="Out of Stock" disabled /> : <input type='radio' id="outOfStock" name='in_stock' value="Out of Stock" defaultChecked />}
+                                        <label className="inventory__instock-label" htmlFor='outOfStock'>Out of stock</label>
+                                    </div>
+                                </div>
+                                <div className='inventory__input-column'>
+                                    <h6 className='inventory__item-name'>Quantity</h6>
+                                    <input onChange={this.onChangeHandler} name='quantity' className='inventory__input-quantity ' type='text' placeholder='0'></input>
+                                    {this.state.validationError.quantity &&
+                                        <p className="inventory__validation-error">
+                                            <img className="inventory__error-image" src={error} alt="error" />
+                                            This field is required!
+                                        </p>}
+                                </div>
+                                <div className='inventory__input-column'>
+                                    <h6 className='inventory__item-name'>Warehouses</h6>
+                                    <select name="warehouse" className='inventory__input-warehouses' type='select' placeholder='Please select'>
+                                        {this.state.warehousesSet.length > 0 &&
+                                            this.state.warehousesSet.map(warehouse => (
+                                                <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
                             </div>
-                            <div className='inventory__instock'>
-                                {this.state.inStock ? <input type='radio' id="outOfStock" name='in_stock' value="Out of Stock" disabled /> : <input type='radio' id="outOfStock" name='in_stock' value="Out of Stock" defaultChecked />}
-                                <label className="inventory__instock-label" htmlFor='outOfStock'>Out of stock</label>
-                            </div>
-                        </div>
-                        <div className='inventory__input-column'>
-                            <h6 className='inventory__item-name'>Quantity</h6>
-                            <input onChange={this.onChangeHandler} name='quantity' className='inventory__input-quantity ' type='text' placeholder='0'></input>
-                            {this.state.validationError.quantity &&
-                                <p className="inventory__validation-error">
-                                    <img className="inventory__error-image" src={error} alt="error" />
-                                    This field is required!
-                                </p>}
-                        </div>
-                        <div className='inventory__input-column'>
-                            <h6 className='inventory__item-name'>Warehouses</h6>
-                            <select name="warehouse" className='inventory__input-warehouses' type='select' placeholder='Please select'>
-                                {this.state.warehousesSet.length > 0 &&
-                                    this.state.warehousesSet.map(warehouse => (
-                                        <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
-                                    ))
-                                }
-                            </select>
                         </div>
                     </div>
                     <div className='inventory__button-container'>
-                        <button className='inventory__cancel-button'>Cancel</button>
+                        <button className='inventory__cancel-button'><strong>Cancel</strong></button>
                         <button type='submit' className='inventory__add-button'>+ Add Item</button>
                     </div>
                 </form>

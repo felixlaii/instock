@@ -86,7 +86,7 @@ router.route('/edit')
 
 
         let foundItem = itemsList.find(item => item.id === data.id)
-
+        console.log(foundItem)
 
         if (!foundItem) {
             console.log(`Item wasn't found, check database!`)
