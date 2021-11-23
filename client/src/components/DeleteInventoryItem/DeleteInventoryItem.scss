@@ -1,6 +1,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colors" as *;
 .inventory-card__delete {
+    height: 22px;
     padding: 12px;
     border: none;
     background-color: transparent;
