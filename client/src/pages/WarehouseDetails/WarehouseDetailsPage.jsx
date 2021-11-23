@@ -15,6 +15,26 @@ class WarehouseDetailsPage extends Component {
         showWarehouse: false
     }
 
+    resetState= () => {
+        let warehouseId = this.props.match.params.id || "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9"
+
+        axios
+          .get(warehouseEndpoint + warehouseId)
+          .then(response => {
+            this.setState({
+              warehouse: response.data
+            })
+            console.log(this.state.warehouse)
+          })
+    };
+
+    onConfirmHandler = (id) => {
+        axios.delete("http://localhost:8080/inventory/delete-inventory/"+id)
+        .then(response => {
+            this.resetState();
+        });
+    }
+
     componentDidMount() {
         let warehouseId = this.props.match.params.id 
 
@@ -62,14 +82,15 @@ class WarehouseDetailsPage extends Component {
                             <p className="inventory__table-action-sub">Actions</p>
                         </div>
 
-                        {warehouse[1].map(inventory => 
-                            <InventoryItem key={inventory.id} category={inventory.category} 
-                                id={inventory.id} 
-                                itemName={inventory.itemName} 
-                                quantity={inventory.quantity} 
-                                status={inventory.status}
-                                warehouseName={inventory.warehouseName}
-                                showWarehouse={this.state.showWarehouse} />)}
+                    {warehouse[1].map(inventory => 
+                        <InventoryItem key={inventory.id} category={inventory.category} 
+                            id={inventory.id} 
+                            itemName={inventory.itemName} 
+                            quantity={inventory.quantity} 
+                            status={inventory.status}
+                            warehouseName={inventory.warehouseName}
+                            showWarehouse={this.state.showWarehouse}
+                            handler={this.onConfirmHandler} />)}
 
                     </div>
                 </>

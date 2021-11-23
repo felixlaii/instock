@@ -3,8 +3,9 @@ import edit from '../../assets/icons/edit-24px.svg'
 import deleteIcon from '../../assets/icons/delete_outline-24px.svg'
 import chevron from '../../assets/icons/chevron_right-24px.svg'
 import { Link } from 'react-router-dom';
+import DeleteInventoryItem from '../DeleteInventoryItem/DeleteInventoryItem';
 
-function FullInventoryItem({ category, id, itemName, quantity, status, warehouseName }) {
+function FullInventoryItem({ category, id, itemName, quantity, status, warehouseName, handler }) {
     return (
         <div className="full-inventory__item">
             <div className="full-inventory__item-details-wrapper">
@@ -41,12 +42,12 @@ function FullInventoryItem({ category, id, itemName, quantity, status, warehouse
                     </div>
                 </div>
                 <div className="full-inventory__icons-wrapper-a">
-                    <img className="full-inventory__icon" src={deleteIcon} alt="delete icon" />
+                    <DeleteInventoryItem name={itemName} id={id} handler={handler}/>
                     <img className="full-inventory__icon-edit" src={edit} alt="edit icon" />
                 </div>
             </div>
             <div className="full-inventory__icons-wrapper-b">
-                <img className="full-inventory__icon" src={deleteIcon} alt="delete icon" />
+                <DeleteInventoryItem name={itemName} id={id} handler={handler}/>
                 <img className="full-inventory__icon" src={edit} alt="edit icon" />
             </div>
         </div>

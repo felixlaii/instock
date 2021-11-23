@@ -15,6 +15,15 @@ class InventoryPage extends Component {
         inventoryArray: [],
     }
 
+    onConfirmHandler = (id) => {
+        axios.delete("http://localhost:8080/inventory/delete-inventory/"+id)
+        .then(response => {
+            this.setState({
+                inventoryArray: response.data
+              });
+        });
+    }
+
     componentDidMount() {
 
         axios
@@ -80,7 +89,8 @@ class InventoryPage extends Component {
                             itemName={inventory.itemName} 
                             quantity={inventory.quantity} 
                             status={inventory.status}
-                            warehouseName={inventory.warehouseName}/>)}
+                            warehouseName={inventory.warehouseName}
+                            handler={this.onConfirmHandler}/>)}
 
                 </div>
             )
