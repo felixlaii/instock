@@ -174,7 +174,7 @@ class EditInventoryItem extends Component {
             <section className='inventory-edit' >
                 <form className='inventory-edit__container' method="post" onSubmit={this.submitHandler}>
                     <div className='inventory-edit__header'>
-                        <img className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack} />
+                        <img onclick="javascript:window.history.back();" className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack}  />
                         <h1 className='inventory-edit__new'>Edit Inventory Item</h1>
                     </div>
                     <div className='inventory-edit__breakpoint'>
@@ -249,7 +249,7 @@ class EditInventoryItem extends Component {
                         </div>
                     </div>
                     <div className='inventory-edit__button-container'>
-                        <button className='inventory-edit__cancel-button'>Cancel</button>
+                        <button className='inventory-edit__cancel-button' onclick="history.back()">Cancel</button>
                         <button type='submit' className='inventory-edit__add-button'>Save</button>
                     </div>
                 </form>
