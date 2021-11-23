@@ -22,7 +22,6 @@ class InventoryItemDetails extends Component {
                 this.setState({
                 item: response.data
                 })
-                console.log(this.state.item)
             })
     }
 

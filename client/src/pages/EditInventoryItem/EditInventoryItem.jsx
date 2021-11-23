@@ -3,6 +3,7 @@ import './EditInventoryItem.scss'
 import ArrowBack from '../../assets/icons/arrow_back-24px.svg'
 import axios from 'axios'
 import error from '../../assets/icons/error-24px.svg'
+import { Link } from "react-router-dom";
 
 
 class EditInventoryItem extends Component {
@@ -174,7 +175,7 @@ class EditInventoryItem extends Component {
             <section className='inventory-edit' >
                 <form className='inventory-edit__container' method="post" onSubmit={this.submitHandler}>
                     <div className='inventory-edit__header'>
-                        <img className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack} />
+                        <Link to="/"><img className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack} /></Link> 
                         <h1 className='inventory-edit__new'>Edit Inventory Item</h1>
                     </div>
                     <div className='inventory-edit__breakpoint'>

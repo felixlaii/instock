@@ -24,7 +24,6 @@ class WarehouseDetailsPage extends Component {
             this.setState({
               warehouse: response.data
             })
-            console.log(this.state.warehouse)
           })
     };
 
@@ -49,7 +48,6 @@ class WarehouseDetailsPage extends Component {
 
     render() {
         const { warehouse } = this.state
-        console.log(warehouse)
         
         if (!warehouse.length) {
             return (
