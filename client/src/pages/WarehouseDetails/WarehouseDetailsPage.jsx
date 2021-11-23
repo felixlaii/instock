@@ -49,6 +49,7 @@ class WarehouseDetailsPage extends Component {
 
     render() {
         const { warehouse } = this.state
+        console.log(warehouse)
         
         if (!warehouse.length) {
             return (
@@ -58,7 +59,7 @@ class WarehouseDetailsPage extends Component {
             
         if (warehouse.length) {
             return (
-                <>
+                <section className="details">
                     <div className="details__card">
                         <WarehouseDetails warehouse={warehouse}/>
 
@@ -82,7 +83,7 @@ class WarehouseDetailsPage extends Component {
                             <p className="inventory__table-action-sub">Actions</p>
                         </div>
 
-                    {warehouse[1].map(inventory => 
+                        {warehouse[1].map(inventory => 
                         <InventoryItem key={inventory.id} category={inventory.category} 
                             id={inventory.id} 
                             itemName={inventory.itemName} 
@@ -93,7 +94,7 @@ class WarehouseDetailsPage extends Component {
                             handler={this.onConfirmHandler} />)}
 
                     </div>
-                </>
+                </section>
             )
             }
     }

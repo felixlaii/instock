@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const fs = require("fs");
 
 router.route('/:id')
     .get((req, res) => {
 
-        let inventories = fs.readFileSync('./data/inventories.json');
-        let warehouses = fs.readFileSync('./data/warehouses.json');
+        let inventories = JSON.parse(fs.readFileSync('./data/inventories.json'));
+        let warehouses = JSON.parse(fs.readFileSync('./data/warehouses.json'));
 
         const id = req.params.id;
 
@@ -14,7 +15,7 @@ router.route('/:id')
 
         res
             .status(200)
-            .send([warehouse, inventory]);
+            .json([warehouse, inventory]);
     })
 
 module.exports = router;

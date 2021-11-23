@@ -7,37 +7,32 @@
     border-bottom: 1px solid $secondarylight;
 }
 
-body {
-    background-color: $bkgdlight;
-    font-family: 'trillium regular';
-}
-
 * {
     box-sizing: border-box;
 }
 
 .all-inventory {
+    background-color: $bkgdlight;
+    @include flexcolumn;
+    align-items: center;
+
     &__card {
         display: flex;
         flex-direction: column;
         background-color: $primarylight;
         width: 91.5%;
-        position: absolute;
-        left: 4.27%;
-        right: 4.27%;
-        top: 136px;
-        // bottom: 4.95%;
+        position: relative;
+        top: -4rem;
         box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
         border-radius: 3px;
         margin-bottom: 1rem;
 
         @include tablet {
-            top: 92px;
+            top: -5.5rem;
         }
 
         @include desktop {
             width: 80%;
-            left: 10%;
         }
     }
 
