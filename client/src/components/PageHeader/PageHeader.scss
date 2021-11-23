@@ -20,9 +20,12 @@
 
     &__instock {
         padding-top: 1.5rem;
+        @include flexrow;
+        justify-content: center;
 
         @include tablet {
             margin-left: 2rem;
+            justify-content: flex-start;
         }
     }
 
