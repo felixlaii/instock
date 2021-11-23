@@ -1,5 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './EditWarehouse.scss'
 import errorImage from '../../assets/icons/error-24px.svg'
@@ -116,6 +117,7 @@ class EditWarehouse extends Component {
             })
             .then((response) => {
                 alert("Warehouse Updated Successfully!")
+                this.props.history.goBack()
             })
             .catch((response) => {
                 alert("Request cannot be processed. Try again!")
@@ -129,8 +131,10 @@ class EditWarehouse extends Component {
         return (
             <div className="warehouse-edit">
                 <div className="warehouse-edit__nav">
-                    <img className="warehouse-edit__arrow" src={backArrow} alt="back arrow" />
-                    <h1 className="warehouse-edit__header">Edit Warehouse</h1>
+                    <Link to="/">
+                        <img className="warehouse-edit__arrow" src={backArrow} alt="back arrow" />
+                    </Link>
+                        <h1 className="warehouse-edit__header">Edit Warehouse</h1>
                 </div>
                 <div className="warehouse-edit__container">
                     <form onSubmit={this.onSubmit} className="warehouse-edit__housedetails">
@@ -209,10 +213,11 @@ class EditWarehouse extends Component {
                             <div className="warehouse-edit__submit">
                                 <input className="warehouse-edit__save" type="submit" value="Save"></input>
                             </div>
-
-                            <div className="warehouse-edit__cancelbutton">
-                                <input className="warehouse-edit__cancel" type="submit" value="Cancel"></input>
-                            </div>
+                            <Link to="/">                    
+                                <div className="warehouse-edit__cancelbutton">
+                                    <input className="warehouse-edit__cancel" type="submit" value="Cancel"></input>
+                                </div>
+                            </Link>
                         </div>
                     </form>
                 </div>

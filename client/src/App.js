@@ -7,7 +7,6 @@ import WarehouseList from './pages/WarehouseList/WarehouseList';
 import AddWarehouse from '../src/pages/AddWarehouse/AddWarehouse'
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
-import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem.jsx'
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 import Footer from './components/Footer/Footer';
 import './styles/partials/_global.scss'
