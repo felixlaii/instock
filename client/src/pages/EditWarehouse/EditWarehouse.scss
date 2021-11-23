@@ -2,8 +2,6 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/mixins" as *;
 
-
-
 .warehouse-edit {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -12,37 +10,55 @@
     background-color: $primarylight;
     border-radius: 4px;
 
+    @include desktop {
+        margin-left: 8rem;
+        margin-right: 8rem;
+    }
+
+    &__nav {
+        @include flexbaseline;
+        border-bottom: 1px solid $secondarylight;
+    }
+
+    &__arrow {
+        padding-left: 1rem;
+    }
+
+    &__wrapper {
+        @include tablet {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+
     &__header {
         width: 100%;
         margin-bottom: 0;
-        padding-left: 2rem;
+        padding-left: 0.5rem;
         font-size: 1.5rem;
-        background-image: url(../../assets/icons//arrow_back-24px.svg);
-        background-repeat: no-repeat;
-        // background-position: 50%;
-        background-position: left;
-        font-family: 'trillium regular';
     }
 
     &__subheader {
         padding-left: 1rem;
         padding-top: 1rem;
-        border-top: 1px solid $secondarylight;
         @include mobilesub;
     }
 
-    &__container {
+    &__warehouse,
+    &__contact {
+        @include flexcolumn;
+    }
+
+    &__contact {
+
         @include tablet {
-            @include flexrow;
+            border-left: 1px solid $secondarylight;
         }
-    }
-
-    &__card {
-        @include flexcolumn;
-    }
-
-    &__contactdetails {
-        @include flexcolumn;
+        
+        @include desktop {
+        border-left: 1px solid $secondarylight;
+        padding-left: 3rem;
+        }
     }
 
     &__label,
@@ -65,24 +81,18 @@
         margin-right: 1rem;
 
         @include tablet {
-            // padding-left: 6.5rem;
-            // padding-right: 6.5rem;
             width: 20.9rem;
         }
     }
 
     &__buttons {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: center;
-        justify-content: space-evenly;
-        align-items: center;
+        @include buttonstyle;
         margin-top: 2rem;
         background-color: $bkgdlight;
         height: 4rem;   
         
         @include tablet {
-           margin-left: 0rem;
+            @include flexstart;
         }
     }    
 
@@ -91,22 +101,20 @@
         background-color: $primarymed;
         color: $primarylight;
         border-radius: 1.25rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 0.2rem;
-        padding-bottom: 0.2rem;
+        padding: 0.2rem 2rem 0.2rem 2rem;
         font-size: 0.8rem;
 
+        @include tablet {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
     }
 
     &__cancel {
         border: 1px solid $secondarylight; 
         background-color: $primarylight;
         border-radius: 1.25rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-bottom: 0.2rem;
-        padding-top: 0.2rem;
+        padding: 0.2rem 2rem 0.2rem 2rem;
         font-size: 0.8rem;
     }
 
