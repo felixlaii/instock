@@ -14,16 +14,14 @@ class App extends Component {
     return (
       <>
         <PageHeader />
-        <EditInventoryItem />
-        {/* <AddInventory /> */}
         <BrowserRouter>
           <div className="App">
             <Switch>
               <Route path="/" exact component={WarehouseList} />
               <Route path="/warehouse-details/:id"
                 render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }} />
-              <Route path="/edit-warehouse" component={EditWarehouse} />
-              render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }}
+              <Route path="/edit-warehouse" component={EditWarehouse}
+                render={(routerProps) => { return <WarehouseDetailsPage {...routerProps} /> }} />
               <Route path="/edit-warehouse" />
               <Route path="/add-new-warehouse" />
               <Route path="/inventory" />
@@ -33,7 +31,7 @@ class App extends Component {
             </Switch>
 
           </div>
-        </BrowserRouter>
+        </BrowserRouter >
       </>
     );
   }

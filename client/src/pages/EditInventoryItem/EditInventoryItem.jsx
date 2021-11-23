@@ -9,6 +9,16 @@ class EditInventoryItem extends Component {
     state = {
         warehousesSet: [],
         inStock: false,
+        itemDetails: {
+            id: "",
+            warehouseID: "",
+            warehouseName: "",
+            itemName: "",
+            description: "",
+            category: "",
+            status: "",
+            quantity: ""
+        },
         validationError: {
             itemName: false,
             description: false,
@@ -53,7 +63,7 @@ class EditInventoryItem extends Component {
                 form.category.classList.remove("inventory-edit__border-error")
             }
 
-            if (isNaN(parseInt(form.quantity.value)) || parseInt(form.quantity.value) <= 0) {
+            if (isNaN(parseInt(form.quantity.value)) || parseInt(form.quantity.value) < 0) {
                 form.quantity.classList.add("inventory-edit__border-error")
                 previousState.validationError.quantity = true
                 isValid = false
@@ -65,25 +75,26 @@ class EditInventoryItem extends Component {
             this.setState(previousState)
             console.log(this.state.validationError)
 
-
             if (isValid) {
                 return true;
             } else {
                 return false
             }
-
         }
 
         event.preventDefault();
         const form = event.target.elements
 
+
+
         if (isFormValid(form)) {
 
-            const postUrl = "http://localhost:8080/inventory/post";
+            const postUrl = "http://localhost:8080/inventory/edit";
 
             const warehouse = this.state.warehousesSet.find(warehouse => warehouse.id === form.warehouse.value)
 
             const newItem = {
+                id: this.state.itemDetails.id,
                 warehouseID: form.warehouse.value,
                 warehouseName: warehouse.name,
                 itemName: form.itemName.value,
@@ -93,10 +104,13 @@ class EditInventoryItem extends Component {
                 quantity: form.quantity.value
             }
 
+
+            console.log("Saved Object: ", newItem)
+
             axios
-                .post(postUrl, newItem)
+                .put(postUrl, newItem)
                 .then(response => {
-                    console.log(response.data)
+                    console.log("Response on PUT: ", response.data)
                 })
         }
     }
@@ -117,8 +131,6 @@ class EditInventoryItem extends Component {
                 inStock: true
             })
         }
-
-
     }
 
     componentDidMount() {
@@ -130,11 +142,34 @@ class EditInventoryItem extends Component {
             console.log(err)
         })
 
+        const item_id = this.props.match.params.id
+        axios.get(`http://localhost:8080/inventory/item/${item_id}`).then(response => {
+            const itemDetails = response.data
+            let value = itemDetails.quantity
+            if (isNaN(parseInt(value)) || parseInt(value) <= 0) {
+                this.setState({
+                    inStock: false
+                })
+            } else {
+                this.setState({
+                    inStock: true
+                })
+            }
+
+            this.setState({
+                itemDetails: response.data
+            })
+
+            console.log(response.data)
+        }).catch(err => {
+            console.log(err)
+        })
+
         console.log(this.state.warehousesSet)
     }
 
     render() {
-
+        console.log("Item details: ", this.state.itemDetails)
         return (
             <section className='inventory-edit' >
                 <form className='inventory-edit__container' method="post" onSubmit={this.submitHandler}>
@@ -148,7 +183,7 @@ class EditInventoryItem extends Component {
                                 <h4 className='inventory-edit__details'>Item Details</h4>
                                 <div className='inventory-edit__input-column'>
                                     <h6 className='inventory-edit__item-name'>Item Name</h6>
-                                    <input name="itemName" className='inventory-edit__input-item' type='text' placeholder='Item Name'></input>
+                                    <input name="itemName" className='inventory-edit__input-item' type='text' placeholder='Item Name' defaultValue={this.state.itemDetails.itemName}></input>
                                     {this.state.validationError.itemName &&
                                         <p className="inventory-edit__validation-error">
                                             <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
@@ -156,7 +191,7 @@ class EditInventoryItem extends Component {
                                 </div>
                                 <div className='inventory-edit__input-column'>
                                     <h6 className='inventory-edit__item-name'>Description</h6>
-                                    <input name="description" className='inventory-edit__input-description' type='text' placeholder='Please enter a brief item description...'></input>
+                                    <input name="description" className='inventory-edit__input-description' type='text' placeholder='Please enter a brief item description...' defaultValue={this.state.itemDetails.description}></input>
                                     {this.state.validationError.itemName &&
                                         <p className="inventory-edit__validation-error">
                                             <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
@@ -164,7 +199,7 @@ class EditInventoryItem extends Component {
                                 </div>
                                 <div className='inventory-edit__input-column'>
                                     <h6 className='inventory-edit__item-name'>Category</h6>
-                                    <input name="category" className='inventory-edit__input-category' type='text' placeholder='Please select'></input>
+                                    <input name="category" className='inventory-edit__input-category' type='text' placeholder='Please select' defaultValue={this.state.itemDetails.category}></input>
                                     {this.state.validationError.category &&
                                         <p className="inventory-edit__validation-error">
                                             <img className="inventory-edit__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
@@ -187,13 +222,26 @@ class EditInventoryItem extends Component {
                                         <label className="inventory-edit__instock-label" htmlFor='outOfStock'>Out of stock</label>
                                     </div>
                                 </div>
+                                <div className='inventory__input-column' hidden>
+                                    <h6 className='inventory__item-name'>Quantity</h6>
+                                    <input onChange={this.onChangeHandler} name='quantity' className='inventory__input-quantity ' type='text' placeholder='0' defaultValue={this.state.itemDetails.quantity}></input>
+                                    {this.state.validationError.quantity &&
+                                        <p className="inventory__validation-error">
+                                            <img className="inventory__error-image" src={error} alt="error" />
+                                            This field is required!
+                                        </p>}
+                                </div>
                                 <div className='inventory-edit__input-column'>
                                     <h6 className='inventory-edit__item-name'>Warehouses</h6>
                                     <select name="warehouse" className='inventory-edit__input-warehouses' type='select' placeholder='Please select'>
                                         {this.state.warehousesSet.length > 0 &&
-                                            this.state.warehousesSet.map(warehouse => (
-                                                <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
-                                            ))
+                                            this.state.warehousesSet.map(warehouse => {
+                                                if (warehouse.id === this.state.itemDetails.warehouseID) {
+                                                    return <option key={warehouse.id} value={warehouse.id} selected >{warehouse.name}</option>
+                                                } else {
+                                                    return <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
+                                                }
+                                            })
                                         }
                                     </select>
                                 </div>
@@ -205,7 +253,7 @@ class EditInventoryItem extends Component {
                         <button type='submit' className='inventory-edit__add-button'>Save</button>
                     </div>
                 </form>
-            </section>
+            </section >
         )
     }
 }
