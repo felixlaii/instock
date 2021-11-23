@@ -10,13 +10,26 @@
     background-color: $primarylight;
     border-radius: 4px;
 
-    &__back {
+    @include desktop {
+        margin-left: 8rem;
+        margin-right: 8rem;
+    }
+
+    &__nav {
         display: flex;
-        align-content: flex-end;
+        align-items: baseline;
+        border-bottom: 1px solid $secondarylight;
     }
 
     &__arrow {
         padding-left: 1rem;
+    }
+
+    &__wrapper {
+        @include tablet {
+            display: flex;
+            justify-content: space-evenly;
+        }
     }
 
     &__header {
@@ -29,29 +42,25 @@
     &__subheader {
         padding-left: 1rem;
         padding-top: 1rem;
-        border-top: 1px solid $secondarylight;
+        // border-top: 1px solid $secondarylight;
         @include mobilesub;
-    }
-
-    &__container {
-        @include tablet {
-            @include flexrow;
-        }
     }
 
     &__warehouse,
     &__contact {
         @include flexcolumn;
     }
-    
-    &__card {
-        @include tablet {
-            @include flexrow;
-        }
-    }
 
-    &__contactdetails {
-        @include flexcolumn;
+    &__contact {
+
+        @include tablet {
+            border-left: 1px solid $secondarylight;
+        }
+        
+        @include desktop {
+        border-left: 1px solid $secondarylight;
+        padding-left: 3rem;
+        }
     }
 
     &__label,
@@ -89,7 +98,8 @@
         height: 4rem;   
         
         @include tablet {
-           margin-left: 0rem;
+            display: flex;
+            justify-content: flex-start;
         }
     }    
 
@@ -104,6 +114,10 @@
         padding-bottom: 0.2rem;
         font-size: 0.8rem;
 
+        @include tablet {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
     }
 
     &__cancel {
