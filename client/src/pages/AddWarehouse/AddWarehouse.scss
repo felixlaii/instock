@@ -16,8 +16,8 @@
     }
 
     &__nav {
-        display: flex;
-        align-items: baseline;
+        @include flexbaseline;
+        border-bottom: 1px solid $secondarylight;
     }
 
     &__header {
@@ -30,6 +30,7 @@
     &__wrapper {
         @include tablet {
             display: flex;
+            justify-content: space-evenly;
         }
     }
 
@@ -40,7 +41,6 @@
     &__subheader {
         padding-left: 1rem;
         padding-top: 1rem;
-        border-top: 1px solid $secondarylight;
         @include mobilesub;
     }
 
@@ -49,7 +49,18 @@
         @include flexcolumn;
     }
 
-    
+    &__contact {
+
+        @include tablet {
+            border-left: 1px solid $secondarylight;
+        }
+        
+        @include desktop {
+        border-left: 1px solid $secondarylight;
+        padding-left: 3rem;
+        }
+    }
+
 
     &__label,
     &__input {
@@ -86,8 +97,7 @@
         height: 4rem;   
         
         @include tablet {
-           display: flex;
-           justify-content: flex-start;
+            @include flexstart;
         }
     }    
 
@@ -96,10 +106,7 @@
         background-color: $primarymed;
         color: $primarylight;
         border-radius: 1.25rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 0.2rem;
-        padding-bottom: 0.2rem;
+        padding: 0.2rem 2rem 0.2rem 2rem;
         font-size: 0.8rem;
 
         @include tablet {
@@ -112,10 +119,7 @@
         border: 1px solid $secondarylight; 
         background-color: $primarylight;
         border-radius: 1.25rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-bottom: 0.2rem;
-        padding-top: 0.2rem;
+        padding: 0.2rem 4rem 0.2rem 4rem;
         font-size: 0.8rem;
     }
 
