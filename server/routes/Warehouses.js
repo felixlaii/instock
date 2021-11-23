@@ -25,7 +25,6 @@ let warehouseArray = warehouses.map((warehouse) => {
 })
 
 router.post('/', (req, res) => {
-    (res.json(warehouses))
     const { name, address, city, country, contact } = req.body
     
     warehouses.push({
@@ -43,8 +42,6 @@ router.post('/', (req, res) => {
     })
         fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses))
         res.status(201).json(warehouses)
-
-        res.json(warehouses)
 })
 
 router.route('/:warehouseId') 
