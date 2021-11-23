@@ -4,6 +4,8 @@ import WarehouseDetailsPage from './pages/WarehouseDetails/WarehouseDetailsPage'
 import PageHeader from '../src/components/PageHeader/PageHeader';
 import EditWarehouse from '../src/pages/EditWarehouse/EditWarehouse'
 import WarehouseList from './pages/WarehouseList/WarehouseList';
+import WarehouseDetails from '../src/components/WarehouseDetails/WarehouseDetails'
+import AddWarehouse from '../src/pages/AddWarehouse/AddWarehouse'
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 import AddInventory from './pages/AddInventoryItem/AddInventoryItem';
 import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem.jsx'
