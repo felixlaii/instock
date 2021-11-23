@@ -121,75 +121,77 @@ class AddWarehouse extends Component {
                 </div>
                 <div className="warehouse-add__container">
                     <form onSubmit={this.addSuccess} className="warehouse-add__housedetails">
-                        
-                        <div className="warehouse-add__card">
-                            <div className="warehouse-add__warehouse">
-                                <h2 className="warehouse-add__subheader">Warehouse Details</h2>
-
-                                    <input className="warehouse-add__input" type="name" name="name" id="name" placeholder="Warehouse Name"></input>
-                                        {this.state.errorName && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
-
-
-                                    <label className="warehouse-add__label">Street Address</label>
-                                    <input className="warehouse-add__input" type="text" name="address" placeholder="Street Address"></input>
-                                        {this.state.errorAddress && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
+                        <div className="warehouse-add__wrapper">
+                            <div className="warehouse-add__card">
+                                <div className="warehouse-add__warehouse">
+                                    <h2 className="warehouse-add__subheader">Warehouse Details</h2>
+                                        
+                                        <label className="warehouse-add__label">Warehouse Name</label>
+                                        <input className="warehouse-add__input" type="name" name="name" id="name" placeholder="Warehouse Name"></input>
+                                            {this.state.errorName && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
 
 
-                                    <label className="warehouse-add__label">City</label>
-                                    <input className="warehouse-add__input" type="text" name="city" placeholder="City"></input>
-                                        {this.state.errorCity && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
+                                        <label className="warehouse-add__label">Street Address</label>
+                                        <input className="warehouse-add__input" type="text" name="address" placeholder="Street Address"></input>
+                                            {this.state.errorAddress && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
+
+
+                                        <label className="warehouse-add__label">City</label>
+                                        <input className="warehouse-add__input" type="text" name="city" placeholder="City"></input>
+                                            {this.state.errorCity && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
 
 
 
-                                    <label className="warehouse-add__label">Country</label>
-                                    <input className="warehouse-add__input" type="text" name="country" placeholder="Country"></input>
-                                        {this.state.errorCountry && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
+                                        <label className="warehouse-add__label">Country</label>
+                                        <input className="warehouse-add__input" type="text" name="country" placeholder="Country"></input>
+                                            {this.state.errorCountry && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="warehouse-add__card">
-                            <div className="warehouse-add__contact">
-                                <h2 className="warehouse-add__subheader">Contact Details</h2>
+                            <div className="warehouse-add__card">
+                                <div className="warehouse-add__contact">
+                                    <h2 className="warehouse-add__subheader">Contact Details</h2>
 
-                                    <label className="warehouse-add__label">Contact Name</label>
-                                    <input className="warehouse-add__input" type="text" name="contactName" placeholder="Contact Name"></input>
-                                        {this.state.errorContactName && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
+                                        <label className="warehouse-add__label">Contact Name</label>
+                                        <input className="warehouse-add__input" type="text" name="contactName" placeholder="Contact Name"></input>
+                                            {this.state.errorContactName && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
 
-                                    <label className="warehouse-add__label">Position</label>
-                                    <input className="warehouse-add__input" type="text" name="position" placeholder="Position"></input>
-                                        {this.state.errorPosition && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
+                                        <label className="warehouse-add__label">Position</label>
+                                        <input className="warehouse-add__input" type="text" name="position" placeholder="Position"></input>
+                                            {this.state.errorPosition && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
 
-                                    <label className="warehouse-add__label">Phone Number</label>
-                                    <input className="warehouse-add__input" type="text" name="phone" placeholder="Phone Number"></input>
-                                        {this.state.errorPhone && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
+                                        <label className="warehouse-add__label">Phone Number</label>
+                                        <input className="warehouse-add__input" type="text" name="phone" placeholder="Phone Number"></input>
+                                            {this.state.errorPhone && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
 
-                                    <label className="warehouse-add__label">Email</label>
-                                    <input className="warehouse-add__input" type="text" name="email" placeholder="Email"></input>
-                                        {this.state.errorEmail && 
-                                        <p className="warehouse-add__validation-error">
-                                        <img className="warehouse-add__error-image" src={errorImage} alt="error" />
-                                        this field is required!</p>}
+                                        <label className="warehouse-add__label">Email</label>
+                                        <input className="warehouse-add__input" type="text" name="email" placeholder="Email"></input>
+                                            {this.state.errorEmail && 
+                                            <p className="warehouse-add__validation-error">
+                                            <img className="warehouse-add__error-image" src={errorImage} alt="error" />
+                                            this field is required!</p>}
+                                </div>
                             </div>
                         </div>
 
@@ -203,6 +205,7 @@ class AddWarehouse extends Component {
                             </div>
                         </div>
                     </form>
+                   
                 </div>
             </div>
         )
