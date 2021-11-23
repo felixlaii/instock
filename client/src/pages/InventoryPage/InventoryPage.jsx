@@ -54,7 +54,7 @@ class InventoryPage extends Component {
                             <div className="all-inventory__title">Inventory</div>
                             <div className="all-inventory__wrapper">
                                 <input className="all-inventory__input" type="text" placeholder="Search..."/>
-                                <Link to="/add-new-inventory-item-">
+                                <Link to="/add-new-inventory-item">
                                     <button className="all-inventory__button" type="button">+ Add New Item</button>
                                 </Link>
                             </div>

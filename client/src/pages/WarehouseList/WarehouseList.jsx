@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import WarehouseListItem from '../../components/WarehouseListItem/WarehouseListItem'
 import "./WarehouseList.scss"
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 export default class WarehouseList extends Component {
     state = {warehouses:null};
@@ -33,7 +34,9 @@ export default class WarehouseList extends Component {
                         <div className="warehouses__title">Warehouses</div>
                         <div className="warehouses__wrapper">
                             <input className="warehouses__input" type="text" placeholder="Search..."/>
-                            <button className="warehouses__button" type="button">+ Add New Warehouse</button>
+                            <Link to="/add-new-warehouse">
+                                <button className="warehouses__button" type="button">+ Add New Warehouse</button>
+                            </Link>
                         </div>
                     </div>
                     <div className="warehouses-card__hearder">

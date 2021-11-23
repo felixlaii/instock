@@ -52,6 +52,7 @@
         border-radius: 20px;
         color: $secondarydark;
         margin: 1rem;
+        cursor: pointer;
         @include tablet {
             padding: 8px 16px;
         }
@@ -63,6 +64,7 @@
         padding: 0.5rem 3rem;
         background: $supportlight;
         border-radius: 20px;
+        cursor: pointer;
         @include tablet {
             padding: 8px 16px;
             margin-right: 4rem;
@@ -76,5 +78,6 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
+        cursor: pointer;
     }
 }

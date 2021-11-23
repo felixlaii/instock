@@ -190,16 +190,6 @@
     "quantity": 0
   },
   {
-    "id": "56c8e94c-777d-4176-b7fd-02f0806f614a",
-    "warehouseID": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
-    "warehouseName": "King West",
-    "itemName": "Protein Powder",
-    "description": "100% natural plant-based protein powder from organic ingredients.",
-    "category": "Health",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
     "id": "2c0185c7-89ef-48ad-a22f-9fc022a5c90c",
     "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
     "warehouseName": "Granville",
@@ -490,16 +480,6 @@
     "quantity": 2997
   },
   {
-    "id": "cb460eb8-861a-45e6-8ce8-8ee9b8efabcf",
-    "warehouseID": "89898957-04ba-4bd0-9f5c-a7aea7447963",
-    "warehouseName": "Santa Monica",
-    "itemName": "Soap",
-    "description": "Organic and hypoallergenic, this soap is safe to use for all skin types.",
-    "category": "Health",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
     "id": "2c66cfb9-0136-4e79-a6cd-c7802fa245f3",
     "warehouseID": "ade0a47b-cee6-4693-b4cd-a7e6cb25f4b7",
     "warehouseName": "Seattle",
@@ -698,5 +678,25 @@
     "category": "Accessories",
     "status": "In Stock",
     "quantity": 298
+  },
+  {
+    "id": "cb460eb8-861a-45e6-8ce8-8ee9b8efabcf",
+    "warehouseID": "89898957-04ba-4bd0-9f5c-a7aea7447963",
+    "warehouseName": "Santa Monica",
+    "itemName": "Soap",
+    "description": "Organic and hypoallergenic, this soap is safe to use for all skin types.",
+    "category": "Health",
+    "status": "Out of Stock",
+    "quantity": 0
+  },
+  {
+    "id": "56c8e94c-777d-4176-b7fd-02f0806f614a",
+    "warehouseID": "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
+    "warehouseName": "King West",
+    "itemName": "Protein Powder",
+    "description": "100% natural plant-based protein powder from organic ingredients.",
+    "category": "Health",
+    "status": "Out of Stock",
+    "quantity": 0
   }
 ]

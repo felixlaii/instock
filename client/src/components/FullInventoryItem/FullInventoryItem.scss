@@ -66,10 +66,6 @@
         }
     }
 
-    &__category-wrapper {
-        // @extend .full-inventory__item-wrapper;
-    }
-
     &__sub {
         color: $secondarydark;
         font-weight: 700;
@@ -122,9 +118,6 @@
         width: 70%;
     }
 
-    &__qty-wrapper {
-    }
-
     &__category {
         margin: 0;
     }
@@ -159,6 +152,7 @@
     &__icon {
         height: 22px;
         box-sizing: content-box;
+        cursor: pointer;
     }
 
     &__icon-edit {

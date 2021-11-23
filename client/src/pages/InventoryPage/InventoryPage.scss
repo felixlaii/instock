@@ -82,12 +82,12 @@
         background: none;
         background-color: $primarymed;
         color: $primarylight;
+        cursor: pointer;
     }
 
     &__table-row {
         align-items: center;
         background-color: rgba(247, 248, 249, 0.7);
-        // justify-content: space-between;
         padding: 0 24px;
         display: none;
 

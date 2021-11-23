@@ -78,6 +78,8 @@ a {
         border: none;
         background-color: transparent;
         background-image: url(../../assets/icons/delete_outline-24px.svg);
+        background-position: center;
+        cursor: pointer;
         @include tablet {
             margin-left: 1rem;
         }
@@ -85,6 +87,7 @@ a {
     &__edit {
         @extend .warehouses-card__delete;
         background-image: url(../../assets/icons/edit-24px.svg);
+        background-position: center;
     }
     &__wrapper {
         display: flex;
