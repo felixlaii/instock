@@ -620,26 +620,6 @@
     "quantity": 0
   },
   {
-    "id": "29749454-055c-4013-8d77-3a77a9cbf752",
-    "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-    "warehouseName": "Montreal",
-    "itemName": "Hoodie",
-    "description": "A simple 100% cotton hoodie, this is an essential piece for any wardrobe.",
-    "category": "Apparel",
-    "status": "Out of Stock",
-    "quantity": 0
-  },
-  {
-    "id": "f6fbc40a-0471-4557-a073-e7e88ede2ebc",
-    "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
-    "warehouseName": "Montreal",
-    "itemName": "Keychain",
-    "description": "Made from 100% genuine leather, this keychain will keep your keys organized while keeping a classic, professional look.",
-    "category": "Accessories",
-    "status": "In Stock",
-    "quantity": 298
-  },
-  {
     "id": "2d373704-0ca6-4d7c-ba90-8be47eb47c7c",
     "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
     "warehouseName": "Montreal",
@@ -698,5 +678,25 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
+  },
+  {
+    "id": "29749454-055c-4013-8d77-3a77a9cbf752",
+    "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+    "warehouseName": "Montreal",
+    "itemName": "Hoodie",
+    "description": "A simple 100% cotton hoodie, this is an essential piece for any wardrobe.",
+    "category": "Apparel",
+    "status": "Out of Stock",
+    "quantity": 0
+  },
+  {
+    "id": "f6fbc40a-0471-4557-a073-e7e88ede2ebc",
+    "warehouseID": "bb1491eb-30e6-4728-a5fa-72f89feaf622",
+    "warehouseName": "Montreal",
+    "itemName": "Keychain",
+    "description": "Made from 100% genuine leather, this keychain will keep your keys organized while keeping a classic, professional look.",
+    "category": "Accessories",
+    "status": "In Stock",
+    "quantity": 298
   }
 ]

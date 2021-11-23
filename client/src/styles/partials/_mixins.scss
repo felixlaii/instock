@@ -157,6 +157,13 @@
     margin-bottom: 8%
 }
 
+@mixin activeinput {
+    background: url(../../assets/icons/) no-repeat;
+    background-position: right;
+    background-position-x: 96.5%;
+    margin-bottom: 8%
+}
+
 @mixin button($backgroundColor, $borderColor) {
     height: 2.2rem;
     border-radius: 50px;
@@ -164,6 +171,15 @@
     width: 30%;
     background-color: $backgroundColor;
 }
+<<<<<<< HEAD
+
+@mixin inputseparation {
+    margin-bottom: 5%;
+}
+
+@mixin inputlargeheight {
+    height: 2.6em;
+=======
 
 @mixin instockbutton {
     padding-right: 18%;
@@ -171,4 +187,5 @@
     padding-top: 10%;
     padding-bottom: 10%;
     font-size: 0.7rem;
+>>>>>>> develop
 }
