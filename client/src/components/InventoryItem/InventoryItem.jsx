@@ -31,13 +31,11 @@ function InventoryItem({ category, id, itemName, quantity, status, handler }) {
                         </div>
                     </div>
                     <div className="inventory__icons-wrapper-a">
-                        {/* <img className="inventory__icon" src={deleteIcon} alt="delete icon" /> */}
                         <DeleteInventoryItem name={itemName} id={id} handler={handler}/>
                         <img className="inventory__icon-edit" src={edit} alt="edit icon" />
                     </div>
                 </div>
                 <div className="inventory__icons-wrapper-b">
-                    {/* <img className="inventory__icon" src={deleteIcon} alt="delete icon" /> */}
                     <DeleteInventoryItem name={itemName} id={id} handler={handler}/>
                     <img className="inventory__icon" src={edit} alt="edit icon" />
                 </div>

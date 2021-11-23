@@ -39,13 +39,11 @@ function FullInventoryItem({ category, id, itemName, quantity, status, warehouse
                     </div>
                 </div>
                 <div className="full-inventory__icons-wrapper-a">
-                    {/* <img className="full-inventory__icon" src={deleteIcon} alt="delete icon" /> */}
                     <DeleteInventoryItem name={itemName} id={id} handler={handler}/>
                     <img className="full-inventory__icon-edit" src={edit} alt="edit icon" />
                 </div>
             </div>
             <div className="full-inventory__icons-wrapper-b">
-                {/* <img className="full-inventory__icon" src={deleteIcon} alt="delete icon" /> */}
                 <DeleteInventoryItem name={itemName} id={id} handler={handler}/>
                 <img className="full-inventory__icon" src={edit} alt="edit icon" />
             </div>

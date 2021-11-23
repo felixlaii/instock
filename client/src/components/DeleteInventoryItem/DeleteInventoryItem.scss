@@ -6,9 +6,6 @@
     border: none;
     background-color: transparent;
     background-image: url(../../assets/icons/delete_outline-24px.svg);
-    @include tablet {
-        margin-left: 1rem;
-    }
 }
 
 .popup {
