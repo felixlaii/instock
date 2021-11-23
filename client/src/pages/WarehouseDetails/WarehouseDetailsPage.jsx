@@ -4,7 +4,6 @@ import axios from "axios";
 import './WarehouseDetailsPage.scss';
 import InventoryItem from '../../components/InventoryItem/InventoryItem';
 import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails';
-import BackButton from '../../components/BackButton/BackButton';
 import sortIcon from '../../assets/icons/sort-24px.svg'
 
 const warehouseEndpoint = "http://localhost:8080/warehouse-details/";
