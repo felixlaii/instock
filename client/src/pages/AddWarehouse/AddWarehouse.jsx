@@ -1,5 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './AddWarehouse.scss'
 import errorImage from '../../assets/icons/error-24px.svg'
@@ -97,6 +98,8 @@ class AddWarehouse extends Component {
          axios.post(`http://localhost:8080/warehouses`, newWarehouse)
         .then((response) =>{
             alert("Warehouse Added!")
+            this.props.history.goBack()
+
         })
         .catch((response) => {
             alert("Request cannot be processed. Try again!")
@@ -116,7 +119,9 @@ class AddWarehouse extends Component {
         return (
             <div className="warehouse-add">
                 <div className="warehouse-add__nav">
-                    <img className="warehouse-add__arrow" src={backArrow} alt="back arrow" />
+                    <Link to="/">
+                        <img className="warehouse-add__arrow" src={backArrow} alt="back arrow" />
+                    </Link>
                     <h1 className="warehouse-add__header">Add New Warehouse</h1>
                 </div>
                 <div className="warehouse-add__container">
@@ -201,7 +206,9 @@ class AddWarehouse extends Component {
                             </div>
 
                             <div className="warehouse-add__cancelbutton">
-                                <input className="warehouse-add__cancel" type="submit" value="Cancel"></input>
+                                <Link to="/">
+                                    <input className="warehouse-add__cancel" type="submit" value="Cancel"></input>
+                                </Link>
                             </div>
                         </div>
                     </form>
