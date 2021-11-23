@@ -3,6 +3,15 @@ const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 
+router.route('/all')
+    .get((req, res) => {
+        let itemsList = fs.readFileSync('./data/inventories.json');
+        itemsList = JSON.parse(itemsList)
+
+        res.status(200)
+            .send(itemsList)
+    })
+
 router.route('/item/:id')
     .get((req, res) => {
         let itemsList = fs.readFileSync('./data/inventories.json');
@@ -104,7 +113,21 @@ router.route('/edit')
         return res.send(orderItem).status(200)
     })
 
-
+router.delete("/delete-inventory/:itemId", (req, res, next) => {
+    try {
+        const inventory = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/inventories.json")));
+        const newIventories = inventory.filter(item=>item.id!==req.params.itemId);
+        if (inventory.length === newIventories.length) {
+            throw new Error(`Item with id=${req.params.itemId} not found`);
+        }
+        fs.writeFile(path.resolve(__dirname, "../data/inventories.json"), JSON.stringify(newIventories), (error) => {if(error){throw error}});
+        res.status(200).json(newIventories);
+        
+    } catch (error) {
+        res.status(404);
+        next(error);
+    }
+});
 
 
 module.exports = router;

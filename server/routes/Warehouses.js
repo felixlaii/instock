@@ -14,15 +14,38 @@ let warehouseArray = warehouses.map((warehouse) => {
         name: warehouse.name,
         address: warehouse.address,
         city: warehouse.city,
-        country: warehouse.country
+        country: warehouse.country,
+        contact: warehouse.contact,
+        contactName: warehouse.contact.name,
+        position: warehouse.contact.position,
+        phone: warehouse.contact.phone,
+        email: warehouse.contact.email
     }
     return warehouseList
 })
 
-// router.route('/')
-//     .get ((req, res) => {
-//     (res.json(warehouses)) 
-// })
+router.post('/', (req, res) => {
+    (res.json(warehouses))
+    const { name, address, city, country, contact } = req.body
+    
+    warehouses.push({
+        id: uuidv4(),
+        name,
+        address,
+        city,
+        country,
+        contact: {
+           "name": contact.name,
+            "position": contact.position,
+            "phone": contact.phone, 
+            "email": contact.email
+        }
+    })
+        fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses))
+        res.status(201).json(warehouses)
+
+        res.json(warehouses)
+})
 
 router.route('/:warehouseId') 
     .get ((req, res) => {
@@ -77,7 +100,7 @@ router.delete("/delete-warehouse/:warehouseId", (req, res, next) => {
         const inventory = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../data/inventories.json")));
         const newWarehouses = warehouses.filter(item=>item.id!==req.params.warehouseId);
         const newIventories = inventory.filter(item=>item.warehouseID!==req.params.warehouseId);
-        if (warehouses.length === newWarehouses.length || inventory.length === newIventories.length) {
+        if (warehouses.length === newWarehouses.length) {
             throw new Error(`Warehouse with id=${req.params.warehouseId} not found`);
         }
         fs.writeFile(path.resolve(__dirname, "../data/warehouses.json"), JSON.stringify(newWarehouses), (error) => {if(error){throw error}});
