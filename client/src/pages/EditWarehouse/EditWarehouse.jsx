@@ -7,10 +7,8 @@ import errorImage from '../../assets/icons/error-24px.svg'
 import backArrow from '../../assets/icons//arrow_back-24px.svg'
 
 class EditWarehouse extends Component {
-
     state = {
         selectedWarehouse: null,
-        warehouseList: [],
         errorName: "",
         errorAddress: "",
         errorCity: "",
@@ -20,7 +18,6 @@ class EditWarehouse extends Component {
         errorPhone: "",
         errorEmail: "",
     }
-
      getSelectedWarehouse = (warehouseId) => {
         axios.get(`/warehouses/${warehouseId}`)
         .then((response) => {
@@ -34,12 +31,11 @@ class EditWarehouse extends Component {
     componentDidMount() {
         let warehouseId = "2922c286-16cd-4d43-ab98-c79f698aeab0"
         axios.get(`http://localhost:8080/warehouses/${warehouseId}`)
-            .then((response) => {
-                this.setState({
-                    selectedWarehouse: response.data
-                })
-                console.log(response)
+        .then((response) => {
+            this.setState({
+                selectedWarehouse: response.data
             })
+        })
     }
 
     onSubmit = (e) => {
@@ -222,6 +218,7 @@ class EditWarehouse extends Component {
                     </form>
                 </div>
             </div>
+        
         )
     }
 }
