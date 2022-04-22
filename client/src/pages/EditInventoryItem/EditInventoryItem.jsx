@@ -175,7 +175,7 @@ class EditInventoryItem extends Component {
             <section className='inventory-edit' >
                 <form className='inventory-edit__container' method="post" onSubmit={this.submitHandler}>
                     <div className='inventory-edit__header'>
-                        <Link to="/"><img onclick="javascript:window.history.back();" className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack}  /></Link>
+                        <Link to="/"><img className='inventory-edit__arrow' alt='icon of arrow facing left' src={ArrowBack}  /></Link>
                         <h1 className='inventory-edit__new'>Edit Inventory Item</h1>
                     </div>
                     <div className='inventory-edit__breakpoint'>

@@ -157,7 +157,7 @@ class AddInventoryItem extends Component {
                                     <input name="itemName" className='inventory__input-item' type='text' placeholder='Item Name'></input>
                                     {this.state.validationError.itemName &&
                                         <p className="inventory__validation-error">
-                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} />
                                             This field is required!</p>}
                                 </div>
                                 <div className='inventory__input-column'>
@@ -165,7 +165,7 @@ class AddInventoryItem extends Component {
                                     <input name="description" className='inventory__input-description' type='text' placeholder='Please enter a brief item description...'></input>
                                     {this.state.validationError.itemName &&
                                         <p className="inventory__validation-error">
-                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} />
                                             This field is required!</p>}
                                 </div>
                                 <div className='inventory__input-column'>
@@ -173,7 +173,7 @@ class AddInventoryItem extends Component {
                                     <input name="category" className='inventory__input-category' type='text' placeholder='Please select'></input>
                                     {this.state.validationError.category &&
                                         <p className="inventory__validation-error">
-                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} alt="error" />
+                                            <img className="inventory__error-image" alt='icon of exlamation symbol' src={error} />
                                             This field is required!</p>}
                                 </div>
                             </div>

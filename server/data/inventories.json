@@ -698,5 +698,25 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
+  },
+  {
+    "id": "45c61263-023f-4845-9716-468436329c17",
+    "warehouseID": "969c975b-43ea-4f00-9ec2-d61afddd2855",
+    "warehouseName": "Vancouver",
+    "itemName": "Cycle",
+    "description": "Slick new bicycle.",
+    "category": "Transport",
+    "status": "In Stock",
+    "quantity": 100
+  },
+  {
+    "id": "e930151a-ddeb-47c4-a8f2-c585e0f3dd29",
+    "warehouseID": "969c975b-43ea-4f00-9ec2-d61afddd2855",
+    "warehouseName": "Vancouver",
+    "itemName": "Trike",
+    "description": "Slick new bicycle.",
+    "category": "Transport",
+    "status": "In Stock",
+    "quantity": 100
   }
 ]
